@@ -1,0 +1,127 @@
+package nicehu.server.authserver.logic.login.handler.socket;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import io.netty.channel.ChannelHandlerContext;
+import nicehu.nhsdk.candy.data.Message;
+import nicehu.nhsdk.candy.object.Empty;
+import nicehu.nhsdk.core.data.SD;
+import nicehu.nhsdk.core.data.ServerInfo;
+import nicehu.nhsdk.core.data.session.AuthSession;
+import nicehu.nhsdk.core.handler.LogicHandler;
+import nicehu.pb.NHDefine;
+import nicehu.pb.NHDefine.EGEC;
+import nicehu.pb.NHDefine.EGMI;
+import nicehu.pb.NHMsgAuth.LoginReq;
+import nicehu.pb.NHMsgAuth.LoginRes;
+import nicehu.pb.NHMsgBase;
+import nicehu.server.authserver.core.data.ASD;
+import nicehu.server.authserver.logic.login.data.AccountData;
+import nicehu.server.authserver.logic.login.data.DeviceInfo;
+import nicehu.server.authserver.logic.login.db.LoginDB;
+import nicehu.server.manageserver.config.areaConfig.AreaInfo;
+import nicehu.server.manageserver.config.areaConfig.AreaInfoMgr;
+
+public class CA_LoginHandler extends LogicHandler
+{
+
+	private static final Logger logger = LoggerFactory.getLogger(CA_LoginHandler.class);
+
+	@Override
+	public void handle(ChannelHandlerContext ctx, Message msg)
+	{
+
+		LoginReq request = (LoginReq)msg.protoBuf;
+		logger.debug("recv CA_LoginHandler, Account = {}", request.getAccount());
+
+		LoginRes.Builder builder = LoginRes.newBuilder();
+		msg.setId(EGMI.EGMI_LOGIN_RES_VALUE);
+		int result = EGEC.EGEC_CORE_SUCCESS_VALUE;
+
+		String clientUuid = request.getRandomSeed();
+		String account = request.getAccount();
+		String pass = request.getPass();
+		DeviceInfo deviceInfo = new DeviceInfo(request.getDeviceInfo());
+		do
+		{
+			if (Empty.is(clientUuid) || clientUuid.length() > 36)
+			{
+				logger.warn("RANDOM_SEED_LENGTH_INVALID :{}", clientUuid);
+				result = EGEC.EGEC_CORE_DATA_CHECK_FAILD_VALUE;
+				break;
+			}
+			if (Empty.is(account))
+			{
+				logger.warn("EMAIL_LENGTH_NOT_VALID :{}", account);
+				result = EGEC.EGEC_CORE_DATA_CHECK_FAILD_VALUE;
+				break;
+			}
+			if (Empty.is(pass))
+			{
+				logger.warn("PASSWORD_IS_NULL");
+				result = EGEC.EGEC_CORE_DATA_CHECK_FAILD_VALUE;
+				break;
+			}
+			if (deviceInfo == null || Empty.is(deviceInfo.getUdid()))
+			{
+				result = EGEC.EGEC_CORE_DATA_CHECK_FAILD_VALUE;
+				break;
+			}
+			AccountData accountData = LoginDB.selectAccount(account, pass);
+			if (accountData == null)
+			{
+				logger.warn("INCORRECT_NAME_OR_PASSWORD");
+				result = EGEC.EGEC_CORE_DATA_CHECK_FAILD_VALUE;
+				break;
+			}
+			// 更新登陆信息
+			LoginDB.updateLoginTime(accountData);
+
+			// 返回区列表信息
+			{
+				List<AreaInfo> areas = AreaInfoMgr.instance.areas;
+				for (int i = 0; i < areas.size(); i++)
+				{
+					AreaInfo area = areas.get(i);
+					if (area.getStatus() == NHDefine.EAreaStatus.EAS_Unknow_VALUE)
+					{
+						continue;
+					}
+					int areaId = area.getAreaId();
+					NHMsgBase.Area.Builder areaBuild = NHMsgBase.Area.newBuilder();
+					areaBuild.setAreaId(areaId);
+					areaBuild.setName(area.getAreaName());
+					areaBuild.setStatus(area.getStatus());
+					// 获取该区的GameServer是否开启
+					ServerInfo serverInfo = SD.getGateServer(areaId);
+					if (serverInfo != null)
+					{
+						areaBuild.setGateIp(serverInfo.getIpForClient());
+						areaBuild.setGatePort(serverInfo.getPortForSocketClient());
+					}
+					builder.addAreas(areaBuild);
+				}
+			}
+			
+			// 生成并返回token
+			String serverUuid = UUID.randomUUID().toString();
+			String token = clientUuid + serverUuid;
+			AuthSession session = new AuthSession(token, deviceInfo, ctx.channel().remoteAddress().toString());
+			ASD.sessions.put(accountData.getAccountId(), session);
+			builder.setToken(serverUuid);
+			
+			//返回其他数据
+			builder.setAccountId(accountData.getAccountId());
+			
+		} while (false);
+
+		builder.setResult(result);
+		msg.setProtoBuf(builder.build());
+		SD.transmitter.sendAndClose(ctx, msg);
+	}
+
+}

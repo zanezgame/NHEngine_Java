@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <!-- 控制台输出日志 -->  
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">  
+        <encoder>
+            <pattern>%d [Thread:%thread] %logger.%M\(%file:%line\) %-5level - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- common debug level log --> 
+	<appender name="ServerFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">  
+            <level>DEBUG</level>
+        </filter>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/logs/%d{yyyy-MM-dd}/${log_name}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [Thread:%thread] %logger.%M\(%file:%line\) %-5level - %m%n</pattern>
+        </encoder>
+    </appender> 	
+	
+	<!-- common warning level log --> 
+	<appender name="ServerWarnningFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">  
+            <level>WARN</level>  
+        </filter>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/logs/%d{yyyy-MM-dd}/${log_name}.warn.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [Thread:%thread] %logger.%M\(%file:%line\) %-5level - %m%n</pattern>
+        </encoder>
+    </appender> 
+
+    <!-- common error level log --> 
+	<appender name="ServerErrorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">  
+            <level>ERROR</level>  
+        </filter> 
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/logs/%d{yyyy-MM-dd}/${log_name}.error.log</fileNamePattern>
+        </rollingPolicy> 
+        <encoder>
+            <pattern>%d [Thread:%thread] %logger.%M\(%file:%line\) %-5level - %m%n</pattern>
+        </encoder>
+    </appender> 
+
+    <!-- sql error log -->
+	<appender name="PlayerSqlLogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/logs/%d{yyyy-MM-dd}/${log_name}PlayerSqlLog.error.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d - %m%n</pattern>
+        </encoder>
+	</appender>
+	
+	<!-- statistics log -->
+	<appender name="StatisticsFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_path}/logs/%d{yyyy-MM-dd}/${log_name}Statistics.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%m%n</pattern>
+        </encoder>
+	</appender>
+	
+	
+	<!-- StopWatch log -->
+    <appender name="perf4jFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <Pattern>%date %m%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log_path}/logs/%d{yyyy-MM-dd}/${log_name}StopWatch.log</FileNamePattern>
+        </rollingPolicy>
+    </appender>
+	<appender name="CoalescingStatistics" class="org.perf4j.logback.AsyncCoalescingStatisticsAppender">
+        <param name="TimeSlice" value="10000"/>
+		 <appender-ref ref="perf4jFileAppender"/>
+    </appender>
+	
+	<logger name="org.perf4j.TimingLogger" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="CoalescingStatistics"/>
+    </logger>
+	
+	<logger name="StatisticsRunnable"  additivity="false">
+	    <level value="all"/>
+		<appender-ref ref="StatisticsFile"/>
+	</logger>
+	
+	<logger name="PlayerSqlLog"  additivity="false"><!-- additivity="false" 表示只生成日志文件,不在控制台显示日志 -->
+	    <level value="all"/>
+		<appender-ref ref="PlayerSqlLogFile"/>
+	</logger>
+
+	<logger name="nicehu">
+		<appender-ref ref="Console"/>
+		<appender-ref ref="ServerFile"/>
+		<appender-ref ref="ServerErrorFile"/>
+		<appender-ref ref="ServerWarnningFile"/>
+	</logger>
+
+    <root level="debug">
+    </root>
+</configuration>

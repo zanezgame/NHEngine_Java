@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageConfig MaxPackageSize="200" ExpandSize="10">
+  <ExpandCostSet>
+    <Cost Id="FF000001" Count="100" />
+    <Cost Id="FF000002" Count="100" />
+  </ExpandCostSet>
+</PackageConfig>

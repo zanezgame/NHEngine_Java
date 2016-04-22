@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Common>
+	<ReleaseModel>false</ReleaseModel>
+	<Develop>
+		<Common>
+			<DBCacheSqlExpiredTime>0</DBCacheSqlExpiredTime>
+			<MemCacheExpiredTime>0</MemCacheExpiredTime>
+		</Common>
+
+		<GameServer>
+			<AlwaysAuthToken>true</AlwaysAuthToken>
+			<PlayerShowIdBase>1324570001</PlayerShowIdBase>
+
+			<OnlineExpiredTime>300000</OnlineExpiredTime>
+			<OfflineExpiredTime>180000</OfflineExpiredTime>
+			<CacheExpiredTime>600000</CacheExpiredTime>
+			<OfflinePlayerNum>10000</OfflinePlayerNum>
+			<RandomNameSize>10</RandomNameSize>
+			<EmailMaxCount>20</EmailMaxCount>
+		</GameServer>
+	</Develop>
+	<Release>
+		<Common>
+			<DBCacheSqlExpiredTime>600000</DBCacheSqlExpiredTime>
+			<MemCacheExpiredTime>0</MemCacheExpiredTime>
+		</Common>
+
+
+		<GameServer>
+			<AlwaysAuthToken>true</AlwaysAuthToken>
+			<PlayerShowIdBase>1324570001</PlayerShowIdBase>
+			<!-- 在线僵尸30分钟清理 -->
+			<OnlineExpiredTime>1800000</OnlineExpiredTime>
+			<!-- 离线5分钟清理 -->
+			<OfflineExpiredTime>300000</OfflineExpiredTime>
+			<!-- cache10分钟清理 -->
+			<CacheExpiredTime>600000</CacheExpiredTime>
+			<OfflinePlayerNum>10000</OfflinePlayerNum>
+			<RandomNameSize>10</RandomNameSize>
+			<EmailMaxCount>20</EmailMaxCount>
+		</GameServer>
+	</Release>
+
+
+</Common>

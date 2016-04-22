@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DungeonConfig CoolTime="30">
+  <DungeonSet>
+    <Dungeon Id="0A000001" Name="城镇野外" RewardPercent="0.5" RewardSetId="0B000001">
+      <CountRange Min="1" Max="3" />
+      <LevelRange Min="1" Max="3" />
+      <NpcExp NpcId="09000001" Exp="50" />
+      <NpcExp NpcId="09000002" Exp="50" />
+      <FixReward Id="FF000001" Count="100" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="50" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000002" Name="猛虎森林" RewardPercent="0.5" RewardSetId="0B000002">
+      <CountRange Min="1" Max="3" />
+      <LevelRange Min="3" Max="5" />
+      <NpcExp NpcId="09000001" Exp="100" />
+      <NpcExp NpcId="09000002" Exp="100" />
+      <FixReward Id="FF000001" Count="150" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="100" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000003" Name="猛虎巢穴" RewardPercent="0.5" RewardSetId="0B000003">
+      <CountRange Min="1" Max="3" />
+      <LevelRange Min="5" Max="7" />
+      <NpcExp NpcId="09000001" Exp="150" />
+      <NpcExp NpcId="09000002" Exp="150" />
+      <FixReward Id="FF000001" Count="200" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="150" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000004" Name="无尽森林" RewardPercent="0.5" RewardSetId="0B000004">
+      <CountRange Min="1" Max="3" />
+      <LevelRange Min="7" Max="9" />
+      <NpcExp NpcId="09000001" Exp="200" />
+      <NpcExp NpcId="09000002" Exp="200" />
+      <FixReward Id="FF000001" Count="250" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="200" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000005" Name="无尽之主" RewardPercent="0.5" RewardSetId="0B000005">
+      <CountRange Min="1" Max="3" />
+      <LevelRange Min="9" Max="11" />
+      <NpcExp NpcId="09000001" Exp="300" />
+      <NpcExp NpcId="09000002" Exp="300" />
+      <FixReward Id="FF000001" Count="300" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="250" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000006" Name="烈焰城域" RewardPercent="0.5" RewardSetId="0B000001">
+      <CountRange Min="1" Max="3" />
+      <LevelRange Min="11" Max="13" />
+      <NpcExp NpcId="09000001" Exp="400" />
+      <NpcExp NpcId="09000002" Exp="400" />
+      <FixReward Id="FF000001" Count="350" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="300" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000007" Name="烈焰城外" RewardPercent="0.5" RewardSetId="0B000002">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="13" Max="15" />
+      <NpcExp NpcId="09000001" Exp="500" />
+      <NpcExp NpcId="09000002" Exp="500" />
+      <FixReward Id="FF000001" Count="400" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="350" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000008" Name="烈焰城" RewardPercent="0.5" RewardSetId="0B000003">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="15" Max="17" />
+      <NpcExp NpcId="09000001" Exp="600" />
+      <NpcExp NpcId="09000002" Exp="600" />
+      <FixReward Id="FF000001" Count="450" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="400" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000009" Name="烈焰城密室" RewardPercent="0.5" RewardSetId="0B000004">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="17" Max="19" />
+      <NpcExp NpcId="09000001" Exp="700" />
+      <NpcExp NpcId="09000002" Exp="700" />
+      <FixReward Id="FF000001" Count="500" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="450" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000010" Name="天华城" RewardPercent="0.5" RewardSetId="0B000005">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="19" Max="21" />
+      <NpcExp NpcId="09000001" Exp="800" />
+      <NpcExp NpcId="09000002" Exp="800" />
+      <FixReward Id="FF000001" Count="550" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="500" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000011" Name="天华竞技场" RewardPercent="0.5" RewardSetId="0B000001">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="21" Max="23" />
+      <NpcExp NpcId="09000001" Exp="900" />
+      <NpcExp NpcId="09000002" Exp="900" />
+      <FixReward Id="FF000001" Count="600" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="550" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000012" Name="试炼之地" RewardPercent="0.5" RewardSetId="0B000002">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="23" Max="25" />
+      <NpcExp NpcId="09000001" Exp="1000" />
+      <NpcExp NpcId="09000002" Exp="1000" />
+      <FixReward Id="FF000001" Count="650" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="600" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000013" Name="地下迷宫" RewardPercent="0.5" RewardSetId="0B000003">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="25" Max="27" />
+      <NpcExp NpcId="09000001" Exp="1100" />
+      <NpcExp NpcId="09000002" Exp="1100" />
+      <FixReward Id="FF000001" Count="700" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="650" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000014" Name="矮人世界" RewardPercent="0.5" RewardSetId="0B000004">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="27" Max="29" />
+      <NpcExp NpcId="09000001" Exp="1200" />
+      <NpcExp NpcId="09000002" Exp="1200" />
+      <FixReward Id="FF000001" Count="750" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="700" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000015" Name="矮人村庄" RewardPercent="0.5" RewardSetId="0B000005">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="29" Max="31" />
+      <NpcExp NpcId="09000001" Exp="1300" />
+      <NpcExp NpcId="09000002" Exp="1300" />
+      <FixReward Id="FF000001" Count="800" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="750" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000016" Name="矮人城镇" RewardPercent="0.5" RewardSetId="0B000001">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="31" Max="33" />
+      <NpcExp NpcId="09000001" Exp="1400" />
+      <NpcExp NpcId="09000002" Exp="1400" />
+      <FixReward Id="FF000001" Count="850" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="800" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000017" Name="矮人城堡" RewardPercent="0.5" RewardSetId="0B000002">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="33" Max="35" />
+      <NpcExp NpcId="09000001" Exp="1500" />
+      <NpcExp NpcId="09000002" Exp="1500" />
+      <FixReward Id="FF000001" Count="900" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="850" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000018" Name="迷途之路" RewardPercent="0.5" RewardSetId="0B000003">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="35" Max="37" />
+      <NpcExp NpcId="09000001" Exp="1600" />
+      <NpcExp NpcId="09000002" Exp="1600" />
+      <FixReward Id="FF000001" Count="950" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="900" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000019" Name="玄天中央" RewardPercent="0.5" RewardSetId="0B000004">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="37" Max="39" />
+      <NpcExp NpcId="09000001" Exp="1700" />
+      <NpcExp NpcId="09000002" Exp="1700" />
+      <FixReward Id="FF000001" Count="1000" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="950" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+    <Dungeon Id="0A000020" Name="玄天学院" RewardPercent="0.5" RewardSetId="0B000005">
+      <CountRange Min="2" Max="3" />
+      <LevelRange Min="39" Max="41" />
+      <NpcExp NpcId="09000001" Exp="1800" />
+      <NpcExp NpcId="09000002" Exp="1800" />
+      <FixReward Id="FF000001" Count="1050" Weight="0" Level="0" LevelEx="0" />
+      <FixReward Id="FF000003" Count="1000" Weight="0" Level="0" LevelEx="0" />
+    </Dungeon>
+  </DungeonSet>
+</DungeonConfig>

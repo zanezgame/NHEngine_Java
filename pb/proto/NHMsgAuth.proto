@@ -1,0 +1,31 @@
+import "proto/NHMsgBase.proto";
+package nicehu.pb;
+option java_outer_classname = "NHMsgAuth";
+option optimize_for = SPEED;
+
+message CreateAccountReq
+{
+	optional string account = 1;
+	optional string pass = 2;
+	optional DeviceInfo deviceInfo = 3;
+}
+message CreateAccountRes
+{
+	required int32 result = 1;
+}
+
+message LoginReq
+{
+	optional string account = 1;
+	optional string pass = 2;
+	optional DeviceInfo deviceInfo = 3;
+	optional string randomSeed = 4;
+}
+message LoginRes
+{
+	required int32 result = 1;
+    optional int32 accountId = 2;
+	optional string token = 3;
+	optional int32 lastAreaId = 4 [default = -1];
+	repeated Area areas = 5;
+}

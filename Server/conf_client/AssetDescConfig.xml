@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDescConfig>
+  <AssetDescSet Type="Special">
+    <AssetDesc Id="FF000001" Name="灵石" Desc="天地之灵气聚集而成的石头,散发着淡紫色的光芒,可为修炼提供灵气" ExtraDesc="" Atlas="Item" Icon="FF000001" />
+    <AssetDesc Id="FF000002" Name="灵玉" Desc="灵石中孕育的紫玉,散发着深紫色的光芒,可为修炼提供大量灵气" ExtraDesc="" Atlas="Item" Icon="FF000002" />
+    <AssetDesc Id="FF000003" Name="经验" Desc="随着闯荡江湖而增长，是在资历的象征。" ExtraDesc="" Atlas="Item" Icon="FF000003" />
+  </AssetDescSet>
+  <AssetDescSet Type="Item">
+    <AssetDesc Id="07010001" Name="紫晶石" Desc="强化装备时消耗的道具" ExtraDesc="" Atlas="Item" Icon="07010001" />
+    <AssetDesc Id="07010002" Name="天外陨铁" Desc="锻造装备时消耗的道具" ExtraDesc="" Atlas="Item" Icon="07010002" />
+    <AssetDesc Id="07010003" Name="传承石" Desc="远古大能者留下的传承资料,使用后会获得大量经验" ExtraDesc="" Atlas="Item" Icon="07010003" />
+    <AssetDesc Id="07010004" Name="鲜花" Desc="美人最爱之物,可以增加与美人的好感度" ExtraDesc="" Atlas="Item" Icon="07010004" />
+    <AssetDesc Id="07010005" Name="新手礼包" Desc="魔法师公会为玄天世界新人准备的礼包" ExtraDesc="" Atlas="Item" Icon="07010005" />
+  </AssetDescSet>
+  <AssetDescSet Type="Avatar">
+    <AssetDesc Id="06000101" Name="战士" Desc="男战士" ExtraDesc="" Atlas="Avatar" Icon="06000101" />
+    <AssetDesc Id="06000102" Name="战士" Desc="女战士" ExtraDesc="" Atlas="Avatar" Icon="06000102" />
+    <AssetDesc Id="06000201" Name="魔法师" Desc="男魔法师" ExtraDesc="" Atlas="Avatar" Icon="06000201" />
+    <AssetDesc Id="06000202" Name="魔法师" Desc="女魔法师" ExtraDesc="" Atlas="Avatar" Icon="06000202" />
+  </AssetDescSet>
+  <AssetDescSet Type="Equip">
+    <AssetDesc Id="08010101" Name="刑天斩" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010101" />
+    <AssetDesc Id="08010102" Name="刑天战盔" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010102" />
+    <AssetDesc Id="08010103" Name="刑天战甲" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010103" />
+    <AssetDesc Id="08010104" Name="刑天腿甲" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010104" />
+    <AssetDesc Id="08010105" Name="刑天项链" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010105" />
+    <AssetDesc Id="08010106" Name="刑天战戒" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010106" />
+    <AssetDesc Id="08010107" Name="刑天护手" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010107" />
+    <AssetDesc Id="08010108" Name="刑天战靴" Desc="战神刑天使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010108" />
+    <AssetDesc Id="08010201" Name="轩辕神剑" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010201" />
+    <AssetDesc Id="08010202" Name="轩辕战盔" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010202" />
+    <AssetDesc Id="08010203" Name="轩辕战甲" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010203" />
+    <AssetDesc Id="08010204" Name="轩辕腿甲" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010204" />
+    <AssetDesc Id="08010205" Name="轩辕项链" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010205" />
+    <AssetDesc Id="08010206" Name="轩辕战戒" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010206" />
+    <AssetDesc Id="08010207" Name="轩辕护手" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010207" />
+    <AssetDesc Id="08010208" Name="轩辕战靴" Desc="轩辕剑尊使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08010208" />
+    <AssetDesc Id="08020101" Name="奥义神杖" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020101" />
+    <AssetDesc Id="08020102" Name="奥义法盔" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020102" />
+    <AssetDesc Id="08020103" Name="奥义法袍" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020103" />
+    <AssetDesc Id="08020104" Name="奥义腿甲" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020104" />
+    <AssetDesc Id="08020105" Name="奥义项链" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020105" />
+    <AssetDesc Id="08020106" Name="奥义法戒" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020106" />
+    <AssetDesc Id="08020107" Name="奥义护手" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020107" />
+    <AssetDesc Id="08020108" Name="奥义法靴" Desc="法尊奥义使用过的装备" ExtraDesc="" Atlas="Equip" Icon="08020108" />
+  </AssetDescSet>
+  <AssetDescSet Type="Npc">
+    <AssetDesc Id="09000001" Name="剑尊化身" Desc="剑尊的化身" ExtraDesc="" Atlas="Avatar" Icon="09000001" />
+    <AssetDesc Id="09000002" Name="法尊化身" Desc="法尊的化身" ExtraDesc="" Atlas="Avatar" Icon="09000002" />
+  </AssetDescSet>
+</AssetDescConfig>

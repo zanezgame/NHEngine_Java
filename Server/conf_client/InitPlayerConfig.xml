@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InitPlayerConfig>
+  <Player Level="40" Experience="10" Money="1000" Diamond="1000"  PackageSize="50">
+
+    <Item Id="1" Count="10"/>
+    <Item Id="2" Count="10"/>
+    <Item Id="3" Count="10"/>
+	    
+  </Player>
+</InitPlayerConfig>

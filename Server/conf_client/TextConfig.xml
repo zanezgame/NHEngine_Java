@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Strings>
+	<ServerText>
+		<!-- 基本信息 -->
+		<String name="E_SERVER_PROC_ERROR">服务器处理失败</String>
+		<String name="E_SERVER_UNAVAILABLE">服务器连接失败，请检查您的网络环境</String>
+		<String name="E_SOCKET_ERROR">网络连接断开</String>
+		<String name="E_CONFIG_IS_NOT_LATEST">配置文件有更新，请更新配置文件</String>
+		<String name="E_PLAYER_NULL">玩家数据错误,请重试!</String>
+		<String name="E_DATA_STRUCT">数据结构错误!</String>
+		<String name="E_SERVER_CLOSE">服务器正在关闭中!</String>
+		<!-- 登录 -->
+		<String name="E_AUTH_CA_LOGIN_FAILED_WHITE_IP">服务器暂未开放!</String>
+		<String name="E_AUTH_CA_LOGIN_FAILED_ACCOUNT_INFO_EMPTY">服务器暂未开放!</String>
+		<String name="E_AUTH_CA_LOGIN_FAILED_FREEZE">此账号处于禁止登陆状态中!解禁时间: </String>
+		<!-- 验证token -->
+		<String name="E_GAME_AUTH_TOKEN_ACCOUNT_LOGIN_AT_OTHER_DEVICE">账号已在其他设备登录,请重新登录!</String>
+		<String name="E_GAME_AUTH_TOKEN_TOKEN_EXPIRED">登录过期,请重新登录!</String>
+		<!-- 主查询 -->
+		<String name="E_GAME_QUERY_PLAYER_PLAYER_NULL">玩家数据错误,请重试!</String>
+		<!-- 数据同步 -->
+		<String name="E_GAME_DATA_SYNC_MONEY_NUMBER">游戏币数量错误!</String>
+		<String name="E_GAME_DATA_SYNC_ITEM_NUM">道具数量错误!</String>
+		<String name="E_GAME_DATA_SYNC_DUNGEON_DATA">关卡数据错误!</String>
+		<!-- 邮件发送 -->
+		<String name="E_GAME_DATA_SYNCEMAILSEND_RECEIVER_NOT_EXIST">收件人不存在!</String>
+	</ServerText>
+</Strings>

@@ -1,0 +1,12 @@
+Path: src
+Working Copy Root Path: C:\Users\windv\Desktop\fight\svn
+URL: svn://45.78.61.104/Engine/NHEngine/Server/src
+Repository Root: svn://45.78.61.104
+Repository UUID: ff4b30b1-8bf7-4ef7-ae63-5f411f4f831d
+Revision: 26
+Node Kind: directory
+Schedule: normal
+Last Changed Author: zhiyu.zhao
+Last Changed Rev: 26
+Last Changed Date: 2016-04-18 11:35:33 +0800 (周一, 18 四月 2016)
+

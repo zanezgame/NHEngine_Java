@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RewardConfig>
+  <RewardSetInfo>
+    <RewardSet Id="0B000001">
+      <Reward Id="07010001" Count="1" Weight="1" Level="0" LevelEx="0" />
+    </RewardSet>
+    <RewardSet Id="0B000002">
+      <Reward Id="07010001" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010002" Count="1" Weight="1" Level="0" LevelEx="0" />
+    </RewardSet>
+    <RewardSet Id="0B000003">
+      <Reward Id="07010001" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010002" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010003" Count="1" Weight="1" Level="0" LevelEx="0" />
+    </RewardSet>
+    <RewardSet Id="0B000004">
+      <Reward Id="07010001" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010002" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010003" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010004" Count="1" Weight="1" Level="0" LevelEx="0" />
+    </RewardSet>
+    <RewardSet Id="0B000005">
+      <Reward Id="07010001" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010002" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010003" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010004" Count="1" Weight="1" Level="0" LevelEx="0" />
+      <Reward Id="07010005" Count="1" Weight="1" Level="0" LevelEx="0" />
+    </RewardSet>
+  </RewardSetInfo>
+</RewardConfig>

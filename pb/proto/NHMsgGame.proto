@@ -1,0 +1,38 @@
+import "proto/NHMsgBase.proto";
+package nicehu.pb;
+option java_outer_classname = "NHMsgGame";
+option optimize_for = SPEED;
+
+
+message ServerDisconnect
+{
+	optional string result = 1;
+	optional int32 playerId = 2;
+}
+
+message ReturnExceptionSeq
+{
+	required int32 exceptionSeq = 1;
+	required int32 result = 2;
+}
+message GC_NotifySeqIdError
+{
+	required int32 errorType = 1;
+}
+
+message AuthTokenReq{
+    required string token = 1;
+}
+message AuthTokenRes{
+	required int32 result = 2;
+}
+
+message QueryPlayerReq
+{
+}
+message QueryPlayerRes
+{
+	required int32 result = 1;
+	optional Player player = 2;
+}
+

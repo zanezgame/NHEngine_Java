@@ -1,0 +1,80 @@
+package nicehu.pb;
+option java_outer_classname = "NHDefine";
+option optimize_for = SPEED;
+
+//EGameEventCode
+enum EGEC
+{
+	EGEC_CORE_SUCCESS				  =0;       // 通用成功
+	EGEC_CORE_ERROR			          =1;		// 通用失败_dev专用
+	EGEC_CORE_PROC_ERROR            =3;       // 服务器处理失败
+	EGEC_CORE_NET_ERROR				  =4;       // 网络错误
+	EGEC_CORE_DESERIALIZE_ERROR       =5;       //反序列化失败
+	EGEC_CORE_DATA_CHECK_FAILD        =6;       //数据验证失败_dev专用
+	
+	EGEC_NET_CONNECTED            =11;
+	EGEC_NET_CONNECTING           =12;
+	EGEC_NET_NEED_QUERY           =13;
+	EGEC_NET_DISCONNECTED         =14;
+	EGEC_NET_CLOSED               =15;
+	
+	EGEC_AUTH_TOKEN_TOKEN_EXPIRED    =1001;
+	EGEC_AUTH_TOKEN_INCORRECT        =1002;
+}
+
+//EGameMsgId
+enum EGMI
+{
+	EGMI_UNKNOW						=0;         // 位知
+	EGMI_EVENT_RESULT				=1;         // 事件结果
+	EGMI_EVENT_TRANSPOND			=2;         // 网关转发
+	EGMI_CLOSE_SOCKET				=3;         // 想要关闭某个网络对象
+	
+	EGMI_SERVER_DISCONNECT          =51;
+	EGMI_LOGIC_REINIT               =52;       //服务器任务客户端网络,或数据混乱,需要重新queryplayer
+	
+	EGMI_SERVER_LOGIN_REQ           =101;
+	EGMI_SERVER_LOGIN_RES           =102;
+	EGMI_SERVER_LOGIN_CONFIRM       =103;
+	EGMI_SERVER_SERVERINFO_SYNC     =105;
+	EGMI_SERVER_RELOAD_CONFIG_REQ   =107;
+	EGMI_SERVER_RELOAD_CONFIG_RES   =108;
+	EGMI_SERVER_QUERY_TOKEN_REQ     =109;
+	EGMI_SERVER_QUERY_TOKEN_RES     =110;
+	
+
+	
+	EGMI_CREATE_ACCOUNT_REQ         =1001;
+	EGMI_CREATE_ACCOUNT_RES         =1002;
+	EGMI_LOGIN_REQ                  =1003;
+	EGMI_LOGIN_RES                  =1004;
+	EGMI_AUTH_TOKEN_REQ             =1005;
+	EGMI_AUTH_TOKEN_RES             =1006;
+	EGMI_QUERY_PLAYER_REQ           =1007;
+	EGMI_QUERY_PLAYER_RES           =1008;
+}
+
+enum EIdType
+{
+    EIT_Unknow =0;
+    EIT_Special =1;
+	EIT_Item =2;	
+}
+enum EIdSpecial
+{
+    EIS_Unknow =0;
+    EIS_Money  =1;	
+}
+
+enum EAreaStatus
+{
+    EAS_Unknow =0;
+	EAS_Normal =1;
+}
+
+
+
+
+
+
+

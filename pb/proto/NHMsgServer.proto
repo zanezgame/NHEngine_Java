@@ -1,0 +1,84 @@
+import "proto/NHMsgBase.proto";
+package nicehu.pb;
+option java_outer_classname = "NHMsgServer";
+option optimize_for = SPEED;
+
+message ShutdownReq
+{
+	optional int32 seq = 1;
+}
+
+message QueryTokenReq{
+    optional int32 playerId = 1;
+	optional string token = 3;
+	optional int32 areaId = 4;
+}
+
+message QueryTokenRes{
+	optional int32 result = 1;
+	optional int32 playerId = 2;
+	optional string token = 3;
+	optional int64 loginTime = 4;
+}
+
+message ServerLoginReq
+{
+    optional int32 serverId = 1;
+	optional int32 serverType = 2;
+    optional string serverName = 3;
+}
+message ServerLoginRes
+{	
+    optional int32 result = 1;
+    optional int32 serverId = 2;
+    optional string serverConfig = 3;
+	optional int32 areaId = 4;
+	optional int32 timeZone = 5;
+	repeated StreamObject streamObjects = 6;
+	repeated StreamObject clientObjects = 7;
+}
+message ServerLoginConfirm
+{
+    optional int32 status = 1;
+}
+
+//---------GMTool-----------
+message MG_GMQueryReq
+{
+	optional int32 seq = 1;
+	optional int32 playerId = 2;
+	optional string data = 3;
+}
+message GM_GMQueryRes
+{
+	optional int32 seq = 1;
+	optional int32 code = 2;
+	optional string data = 3;
+}
+message ReloadConfigReq
+{
+	optional int32 seq = 1;
+	repeated StreamObject serverConfigs = 2;
+	repeated StreamObject clientConfigs = 3;
+	optional bool isNeedAddVersion = 4;
+	optional bool isServerConfig = 5;
+}
+message ReloadConfigRes
+{
+    optional int32 code = 1;
+}
+
+message FreezeReq
+{
+	optional int32 seq = 1;
+	optional int32 accountId = 2;
+	optional int32 showId = 3;
+	optional int32 type = 4;
+	optional int64 beginTime = 5;
+	optional int64 endTime = 6;
+}
+message FreezeRes
+{
+    optional int32 code = 1;
+}
+
