@@ -8,10 +8,10 @@
 魅狐引擎是用java编写的大型游戏服务器引擎.
 
 ## 魅狐引擎使用的技术
-# Java 8 语言
-# Netty 4.0网络框架
-# Memcached缓存,Mysql数据库
-# google protobuf网络通信
+- Java 8 语言
+- Netty 4.0网络框架
+- Memcached缓存,Mysql数据库
+- google protobuf网络通信
 
 
 ## 引擎简介
