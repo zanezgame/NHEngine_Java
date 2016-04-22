@@ -15,8 +15,7 @@
 
 
 ## 引擎简介
-# 魅狐引擎共有 五个Server:ManageServer,WorldServer,GameServer,ProxyServer,AuthServer
-# 其中支持无限数量的GameServer集群来拓展服务器性能.
+ 魅狐引擎共有 五个Server:ManageServer,WorldServer,GameServer,ProxyServer,AuthServer,其中支持无限数量的GameServer集群来拓展服务器性能.
 
 - ManageServer:管理服务器,主要负责管理其它Server注册和状态.
 - WorldServer:世界服务器,主要负责无法再单个GameServer上处理的逻辑,比如帮会,跨GameServer聊天.
