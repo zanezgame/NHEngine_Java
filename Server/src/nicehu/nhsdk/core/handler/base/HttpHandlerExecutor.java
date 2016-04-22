@@ -58,7 +58,7 @@ public class HttpHandlerExecutor implements Runnable
 			result = JsonU.gen(msg.id);
 			switch (SD.serverType)
 			{
-				case ServerType.GATE:
+				case ServerType.PROXY:
 				{
 					ProxyBaseHandler.handleHttp(ctx, msg, result);
 					break;

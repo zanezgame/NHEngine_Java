@@ -23,8 +23,8 @@ public class Main
 	{
 		LogBackMgr.load(ConfigPath.file_logback);
 
-		String serverName = args.length > 0 ? args[0] : "CenterServer_001";
-		SD.init(ServerType.CENTER, serverName);
+		String serverName = args.length > 0 ? args[0] : "WorldServer_001";
+		SD.init(ServerType.WORLD, serverName);
 		logger.warn("Server Name: {}", SD.serverName);
 
 		ServerConfigMgr.instance.reload();

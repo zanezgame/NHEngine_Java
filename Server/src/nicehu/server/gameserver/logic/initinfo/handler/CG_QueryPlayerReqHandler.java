@@ -58,6 +58,6 @@ public class CG_QueryPlayerReqHandler extends LogicHandler
 
 		builder.setResult(result);
 		msg.setProtoBuf(builder.build());
-		SD.transmitter.sendToServers(ServerType.GATE, msg);
+		SD.transmitter.sendToServers(ServerType.PROXY, msg);
 	}
 }

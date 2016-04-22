@@ -72,7 +72,7 @@ public class SD
 
 	public static ServerInfo getGateServer(int areaId)
 	{
-		Vector<ServerInfo> serverInfos = SD.serveType_SeverInfos.get(ServerType.GATE);
+		Vector<ServerInfo> serverInfos = SD.serveType_SeverInfos.get(ServerType.PROXY);
 		if (serverInfos != null && serverInfos.size() > 0)
 		{
 			for (ServerInfo serverInfo : serverInfos)

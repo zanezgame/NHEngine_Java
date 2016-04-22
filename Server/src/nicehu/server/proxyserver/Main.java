@@ -23,8 +23,8 @@ public class Main
 	{
 		LogBackMgr.load(ConfigPath.file_logback);
 
-		String serverName = args.length > 0 ? args[0] : "GateServer_001";
-		SD.init(ServerType.GATE, serverName);
+		String serverName = args.length > 0 ? args[0] : "ProxyServer_001";
+		SD.init(ServerType.PROXY, serverName);
 		logger.warn("Server Name: {}", SD.serverName);
 
 		ServerConfigMgr.instance.reload();

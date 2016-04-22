@@ -15,8 +15,7 @@ public class DBConfigMgr
 {
 	public static DBConfigMgr instance = new DBConfigMgr();
 	public DBConfig accountDBConfig = null;
-	public DBConfig managerDBConfig = null;
-	public DBConfig purchaseDBConfig = null;
+	public DBConfig manageDBConfig = null;
 	public List<AreaDBConfig> areaDBConfigs = new ArrayList<AreaDBConfig>();
 
 	private String dbUserName;
@@ -34,13 +33,11 @@ public class DBConfigMgr
 		Element accountDBElement = root.element("AccountDB");
 		this.accountDBConfig = parseDB(accountDBElement);
 
-		Element managerDBElement = root.element("ManagerDB");
-		this.managerDBConfig = parseDB(managerDBElement);
+		Element manageDBElement = root.element("ManageDB");
+		this.manageDBConfig = parseDB(manageDBElement);
 
-		Element purchaseDBElement = root.element("PurchaseDB");
-		this.purchaseDBConfig = parseDB(purchaseDBElement);
 
-		List<Element> areaElements = root.elements("AreaDBCluster");
+		List<Element> areaElements = root.elements("AreaDB");
 		this.areaDBConfigs.clear();
 		for (Element areaCfg : areaElements)
 		{

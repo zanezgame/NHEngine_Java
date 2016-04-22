@@ -47,7 +47,7 @@ public class WorldInitHandler extends ServerInitHandler
 
 			SD.initServerConfig(serverConfig);
 
-			DBMgr.init(ServerType.CENTER);
+			DBMgr.init(ServerType.WORLD);
 
 			SD.statistics = new Statistics();
 			Thread thread = new Thread(new StatisticsRunnable(), ThreadU.genName("Wind_StatisticsRunnable"));

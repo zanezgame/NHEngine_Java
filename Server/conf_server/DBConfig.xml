@@ -3,12 +3,11 @@
     <Common UserName="root" Password="root" />
     
 	<AccountDB		 JdbcUrl="jdbc:mysql://127.0.0.1/wind_account" />
-	<ManagerDB	     JdbcUrl="jdbc:mysql://127.0.0.1/wind_manage" />
-	<PurchaseDB	     JdbcUrl="jdbc:mysql://127.0.0.1/wind_purchase" />
+	<ManageDB	     JdbcUrl="jdbc:mysql://127.0.0.1/wind_manage" />
 	
-	<AreaDBCluster	AreaId="1">
+	<AreaDB	AreaId="1">
 		<GameDB		 JdbcUrl="jdbc:mysql://127.0.0.1/wind_game_001" />
 		<LogDB		 JdbcUrl="jdbc:mysql://127.0.0.1/wind_log_001" />
-	</AreaDBCluster>
+	</AreaDB>
 	
 </config>

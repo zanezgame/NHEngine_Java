@@ -46,7 +46,7 @@ public class ProxyInitHandler extends ServerInitHandler
 
 			SD.initServerConfig(serverConfig);
 
-			DBMgr.init(ServerType.GATE);
+			DBMgr.init(ServerType.PROXY);
 
 			SD.statistics = new Statistics();
 			Thread statisticsThread = new Thread(new StatisticsRunnable(), ThreadU.genName("Wind_StatisticsRunnable"));

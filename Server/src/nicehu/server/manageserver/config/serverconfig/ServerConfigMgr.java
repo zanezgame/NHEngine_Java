@@ -64,12 +64,12 @@ public class ServerConfigMgr
 					}
 				}
 				{
-					ServerConfig serverConfig = new ServerConfig(areaServerElement.element("GateServer"), areaId, memCacheConfig);
+					ServerConfig serverConfig = new ServerConfig(areaServerElement.element("ProxyServer"), areaId, memCacheConfig);
 					name_Configs.put(serverConfig.getServerName(), serverConfig);
 					id_Configs.put(serverConfig.getServerId(), serverConfig);
 				}
 				{
-					ServerConfig serverConfig = new ServerConfig(areaServerElement.element("CenterServer"), areaId, memCacheConfig);
+					ServerConfig serverConfig = new ServerConfig(areaServerElement.element("WorldServer"), areaId, memCacheConfig);
 					name_Configs.put(serverConfig.getServerName(), serverConfig);
 					id_Configs.put(serverConfig.getServerId(), serverConfig);
 				}

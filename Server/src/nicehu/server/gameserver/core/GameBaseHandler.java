@@ -28,7 +28,7 @@ public class GameBaseHandler
 		}
 		int serverType = ServerType.getType(serverNode.getServerId());
 
-		if (serverType == ServerType.GATE)
+		if (serverType == ServerType.PROXY)
 		{
 			GameBaseHandler.clientGateForward(ctx, serverNode, msg);
 		}

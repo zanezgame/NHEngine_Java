@@ -1,7 +1,6 @@
 package nicehu.server.manageserver.config.commonconfig;
 
 import java.util.HashMap;
-import java.util.List;
 
 import org.dom4j.Element;
 
@@ -20,15 +19,6 @@ public class CommonConfigMgr
 	{
 		Element root = XmlU.getXmlRootFromFilePath(ConfigPath.file_common);
 		CommonConfig cfg = new CommonConfig();
-		List<Element> serverTexts = root.element("ServerText").elements("String");
-		for (Element tempE : serverTexts)
-		{
-			Pair<String, String> serverTextTemp = loadServerTextFromXml(tempE);
-			if (serverTextTemp != null)
-			{
-				cfg.getServerTexts().put(serverTextTemp.getFirst(), serverTextTemp.getSecond());
-			}
-		}
 		cfg.setReleaseModel(ParseU.pBool(root.elementText("ReleaseModel"), true));
 		Element modelDetail = null;
 		if (cfg.isReleaseModel())

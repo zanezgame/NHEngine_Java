@@ -70,7 +70,7 @@ public class ServerInfoMgr
 			int serverType = ServerType.getType(server.getId());
 			if (server.getStatus() == ServerInfo.SERVER_STATUS_NORMAL)
 			{
-				if ((thisServerType == ServerType.GATE && serverType == ServerType.GAME) || (thisServerType == ServerType.GAME && serverType == ServerType.GATE))
+				if ((thisServerType == ServerType.PROXY && serverType == ServerType.GAME) || (thisServerType == ServerType.GAME && serverType == ServerType.PROXY))
 				{
 					if (server.getAreaId() != thisServer.getAreaId())
 					{
@@ -107,7 +107,7 @@ public class ServerInfoMgr
 			}
 			if (server.getStatus() == ServerInfo.SERVER_STATUS_NORMAL)
 			{
-				if ((thisServerType == ServerType.GATE && serverType == ServerType.GAME) || (thisServerType == ServerType.GAME && serverType == ServerType.GATE))
+				if ((thisServerType == ServerType.PROXY && serverType == ServerType.GAME) || (thisServerType == ServerType.GAME && serverType == ServerType.PROXY))
 				{
 					if (server.getAreaId() != thisServer.getAreaId())
 					{

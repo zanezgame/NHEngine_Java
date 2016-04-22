@@ -91,7 +91,7 @@ public class AG_QueryTokenResHandler extends LogicHandler
 		
 		builder.setResult(result);
 		msg.setProtoBuf(builder.build());
-		SD.transmitter.sendToServer(ServerType.GATE, AreaData.getAreaId(), msg);
+		SD.transmitter.sendToServer(ServerType.PROXY, AreaData.getAreaId(), msg);
 
 	}
 }

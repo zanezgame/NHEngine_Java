@@ -19,7 +19,7 @@ public class Controller
 	private static Logger logger = LogU.getLogger(Controller.class);
 
 	private Map<Integer, MessageLite> protobufs = new ConcurrentHashMap<>();
-	Map<Integer, LogicHandler> handlers = new ConcurrentHashMap<>();
+	 Map<Integer, LogicHandler> handlers = new ConcurrentHashMap<>();
 
 	public void addHandler(int pId, LogicHandler logicHandler)
 	{

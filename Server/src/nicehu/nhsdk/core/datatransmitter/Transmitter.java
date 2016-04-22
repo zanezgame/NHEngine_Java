@@ -126,7 +126,7 @@ public class Transmitter
 			}
 			serverNodes.add(serverNode);
 		}
-		if (serverType == ServerType.GATE || serverType == ServerType.GAME || serverType == ServerType.CENTER)
+		if (serverType == ServerType.PROXY || serverType == ServerType.GAME || serverType == ServerType.WORLD)
 		{
 			ConcurrentHashMap<Integer, ServerNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
 			if (type_ServerNode == null)
@@ -181,7 +181,7 @@ public class Transmitter
 			}
 		}
 
-		if (serverType == ServerType.GATE || serverType == ServerType.GAME || serverType == ServerType.CENTER)
+		if (serverType == ServerType.PROXY || serverType == ServerType.GAME || serverType == ServerType.WORLD)
 		{
 			ConcurrentHashMap<Integer, ServerNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
 			if (type_ServerNode != null)

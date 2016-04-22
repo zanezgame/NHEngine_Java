@@ -48,7 +48,7 @@ public class DBCluster
 		{
 			case ServerType.MANAGE:
 			{
-				config = dbConfigMgr.managerDBConfig;
+				config = dbConfigMgr.manageDBConfig;
 				this.managerDbClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
 				config = dbConfigMgr.accountDBConfig;
 				this.accountDBClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
@@ -56,15 +56,15 @@ public class DBCluster
 			}
 			case ServerType.AUTH:
 			{
-				config = dbConfigMgr.managerDBConfig;
+				config = dbConfigMgr.manageDBConfig;
 				this.managerDbClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
 				config = dbConfigMgr.accountDBConfig;
 				this.accountDBClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 10, 20, 5, 0);
 				break;
 			}
-			case ServerType.GATE:
+			case ServerType.PROXY:
 			{
-				config = dbConfigMgr.managerDBConfig;
+				config = dbConfigMgr.manageDBConfig;
 				this.managerDbClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
 				AreaDBConfig areaDBConfig = dbConfigMgr.getAreaDbConfig(areaId);
 				if (areaDBConfig != null)
@@ -78,7 +78,7 @@ public class DBCluster
 
 			case ServerType.GAME:
 			{
-				config = dbConfigMgr.managerDBConfig;
+				config = dbConfigMgr.manageDBConfig;
 				this.managerDbClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
 				AreaDBConfig areaDBConfig = dbConfigMgr.getAreaDbConfig(areaId);
 				if (areaDBConfig != null)
@@ -91,9 +91,9 @@ public class DBCluster
 
 				break;
 			}
-			case ServerType.CENTER:
+			case ServerType.WORLD:
 			{
-				config = dbConfigMgr.managerDBConfig;
+				config = dbConfigMgr.manageDBConfig;
 				this.managerDbClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
 				AreaDBConfig areaDBConfig = dbConfigMgr.getAreaDbConfig(areaId);
 				if (areaDBConfig != null)
@@ -104,14 +104,6 @@ public class DBCluster
 					logDBClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 20, 5, 0);
 				}
 
-				break;
-			}
-			case ServerType.PURCHASE:
-			{
-				config = dbConfigMgr.managerDBConfig;
-				this.managerDbClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
-				config = dbConfigMgr.purchaseDBConfig;
-				this.purchaseDbClient = new DBClient(config.getJdbcUrl(), config.getUserName(), config.getPassword(), 1, 5, 1, 0);
 				break;
 			}
 		}

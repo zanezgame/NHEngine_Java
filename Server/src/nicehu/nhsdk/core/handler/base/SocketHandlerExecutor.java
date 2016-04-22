@@ -67,7 +67,7 @@ public class SocketHandlerExecutor implements Runnable
 					AuthBaseHandler.handleSocket(ctx, this.serverNode, message);
 					break;
 				}
-				case ServerType.GATE:
+				case ServerType.PROXY:
 				{
 					ProxyBaseHandler.handleSocket(ctx, this.serverNode, this.clientNode, message);
 					break;
@@ -77,7 +77,7 @@ public class SocketHandlerExecutor implements Runnable
 					GameBaseHandler.handleSocket(ctx, this.serverNode, message);
 					break;
 				}
-				case ServerType.CENTER:
+				case ServerType.WORLD:
 				{
 					WorldBaseHandler.handleSocket(ctx, this.serverNode, message);
 					break;

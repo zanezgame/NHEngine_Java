@@ -9,10 +9,9 @@ public class ServerType
 {
 	public static final int MANAGE = 0x00010000;
 	public static final int AUTH = 0x00020000;
-	public static final int GATE = 0x00030000;
+	public static final int PROXY = 0x00030000;
 	public static final int GAME = 0x00050000;
-	public static final int CENTER = 0x00060000;
-	public static final int PURCHASE = 0x00100000;
+	public static final int WORLD = 0x00060000;
 
 	public static int getType(Integer id)
 	{
@@ -37,10 +36,10 @@ public class ServerType
 			case AUTH:
 			{
 				serverTypes.add(GAME);
-				serverTypes.add(GATE);
+				serverTypes.add(PROXY);
 				break;
 			}
-			case GATE:
+			case PROXY:
 			{
 				serverTypes.add(GAME);
 				break;
@@ -48,11 +47,11 @@ public class ServerType
 			case GAME:
 			{
 				serverTypes.add(AUTH);
-				serverTypes.add(GATE);
-				serverTypes.add(CENTER);
+				serverTypes.add(PROXY);
+				serverTypes.add(WORLD);
 				break;
 			}
-			case CENTER:
+			case WORLD:
 			{
 				serverTypes.add(GAME);
 				break;
@@ -74,23 +73,19 @@ public class ServerType
 			{
 				return "AUTH";
 			}
-			case GATE:
+			case PROXY:
 			{
-				return "GATE";
+				return "PROXY";
 			}
 			case GAME:
 			{
 				return "GAME";
 			}
-			case CENTER:
+			case WORLD:
 			{
-				return "CENTER";
+				return "WORLD";
 			}
 
-			case PURCHASE:
-			{
-				return "PURCHASE";
-			}
 		}
 		return "";
 	}
@@ -111,23 +106,19 @@ public class ServerType
 			{
 				return AUTH;
 			}
-			case "GATE":
+			case "PROXY":
 			{
-				return GATE;
+				return PROXY;
 			}
 			case "GAME":
 			{
 				return GAME;
 			}
-			case "CENTER":
+			case "WORLD":
 			{
-				return CENTER;
+				return WORLD;
 			}
 
-			case "PURCHASE":
-			{
-				return PURCHASE;
-			}
 		}
 		return 0;
 	}

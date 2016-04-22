@@ -1,12 +1,7 @@
 package nicehu.server.manageserver.config.commonconfig;
 
-import java.util.HashMap;
-
 public class CommonConfig
 {
-	// ServerText
-	private HashMap<String, String> serverTexts = new HashMap<>();
-
 	// model
 	private boolean releaseModel = true;
 	private long dbCacheSqlExpiredTime;
@@ -24,16 +19,6 @@ public class CommonConfig
 	private int offlinePlayerNum;
 	private int randomNameSize;
 	private int emailMaxCount;
-
-	public HashMap<String, String> getServerTexts()
-	{
-		return serverTexts;
-	}
-
-	public void setServerTexts(HashMap<String, String> serverTexts)
-	{
-		this.serverTexts = serverTexts;
-	}
 
 	public boolean isReleaseModel()
 	{
