@@ -19,8 +19,8 @@ import nicehu.server.manageserver.config.ConfigMgr;
 import nicehu.server.manageserver.config.core.ConfigPath;
 import nicehu.server.manageserver.config.serverconfig.ServerConfig;
 import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
-import nicehu.server.manageserver.core.ManageHandler;
-import nicehu.server.manageserver.core.data.MSD;
+import nicehu.server.manageserver.core.MSD;
+import nicehu.server.manageserver.core.ManageHandlerRegister;
 import nicehu.server.manageserver.logic.freeze.data.FreezeMgr;
 import sun.misc.Signal;
 
@@ -28,28 +28,29 @@ public class Main
 {
 	private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
+	private static int serverType = ServerType.MANAGE;
+	private static String serverName = "ManageServer";
+
 	public static void main(String[] args)
 	{
-		LogBackMgr.load(ConfigPath.file_logback);
-		
-		String serverName = "ManageServer";
-		SD.init(ServerType.MANAGE, serverName);
-		logger.warn("Server Name: {}", SD.serverName);
-		
+		LogBackMgr.init();
+		SD.init(serverType, serverName);
+		logger.warn("ServerName: ", SD.serverName);
+
 		ConfigMgr.loadFromFile();
 
 		ServerConfig serverConfig = ServerConfigMgr.instance.getServerConfig(serverName);
-		SD.initServerConfig(serverConfig);
+		SD.initServerConfig(serverName);
 
 		TimeZoneU.setTimezone(ParseU.pInt(serverConfig.getAttr("TimeZone"), 0));
 		AreaData.setAreaId(-1);
 
-		DBMgr.init(ServerType.MANAGE);
+		DBMgr.init(serverType);
 		ConfigMgr.loadFromDB();
 		FreezeMgr.instance.init();
 
 		SD.socketServerForS.initialize(16);
-		ManageHandler.init();
+		ManageHandlerRegister.init();
 		try
 		{
 			int portForServer = ParseU.pInt(serverConfig.getAttr("PortForServer"), 0);

@@ -1,24 +1,20 @@
 package nicehu.nhsdk.core.handler.base;
 
-import io.netty.channel.ChannelHandlerContext;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
-import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.perf4j.StopWatch;
 import org.perf4j.slf4j.Slf4JStopWatch;
 import org.slf4j.Logger;
 
+import io.netty.channel.ChannelHandlerContext;
+import net.sf.json.JSONObject;
 import nicehu.nhsdk.candy.data.Message;
 import nicehu.nhsdk.candy.json.JsonU;
 import nicehu.nhsdk.candy.log.LogU;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.type.ServerType;
-import nicehu.server.authserver.core.AuthBaseHandler;
-import nicehu.server.proxyserver.core.ProxyBaseHandler;
 import nicehu.nhsdk.util.TextConfigU;
 
 public class HttpHandlerExecutor implements Runnable
@@ -60,12 +56,12 @@ public class HttpHandlerExecutor implements Runnable
 			{
 				case ServerType.PROXY:
 				{
-					ProxyBaseHandler.handleHttp(ctx, msg, result);
+					//ProxyBaseHandler.handleHttp(ctx, msg, result);
 					break;
 				}
 				case ServerType.AUTH:
 				{
-					AuthBaseHandler.handleHttp(ctx, msg);
+					//AuthBaseHandler.handleHttp(ctx, msg);
 					break;
 				}
 				default:

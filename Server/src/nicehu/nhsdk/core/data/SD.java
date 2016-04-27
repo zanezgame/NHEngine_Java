@@ -9,15 +9,16 @@ import org.slf4j.LoggerFactory;
 import nicehu.nhsdk.candy.cache.core.MemCacheImpl;
 import nicehu.nhsdk.candy.str.NumU;
 import nicehu.nhsdk.candy.str.ParseU;
-import nicehu.nhsdk.core.controller.Controller;
 import nicehu.nhsdk.core.datatransmitter.Transmitter;
 import nicehu.nhsdk.core.db.DBCluster;
-import nicehu.nhsdk.core.handler.serverinit.ServerInitHandler;
+import nicehu.nhsdk.core.handler.HandlerMgr;
 import nicehu.nhsdk.core.server.HttpServer;
 import nicehu.nhsdk.core.server.SocketServer;
 import nicehu.nhsdk.core.type.ServerType;
+import nicehu.server.common.CommonMainAfter;
 import nicehu.server.common.thread.Statistics;
 import nicehu.server.manageserver.config.serverconfig.ServerConfig;
+import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
 
 public class SD
 {
@@ -35,14 +36,13 @@ public class SD
 	public static SocketServer socketServerForC = new SocketServer(false);
 	public static HttpServer httpCServer = new HttpServer();
 
-	public static Controller sController = new Controller();
-	public static Controller hController = new Controller();
+	public static HandlerMgr handlerMgr = new HandlerMgr();
 	public static Transmitter transmitter = new Transmitter();
 	// db
 	public static DBCluster dbCluster = null;
 	public static MemCacheImpl memCache = null;
 
-	public static ServerInitHandler serverInitHandler = null;
+	public static CommonMainAfter mainAfter = null;
 	public static Statistics statistics = null;
 
 	public static ConcurrentHashMap<Integer, Vector<ServerInfo>> serveType_SeverInfos = new ConcurrentHashMap<>();
@@ -53,8 +53,9 @@ public class SD
 		SD.serverName = serverName;
 	}
 
-	public static void initServerConfig(ServerConfig serverConfig)
+	public static void initServerConfig(String serverName)
 	{
+		ServerConfig serverConfig = ServerConfigMgr.instance.getServerConfig(serverName);
 		SD.serverId = serverConfig.getServerId();
 		SD.index = ParseU.pInt(serverConfig.getAttr("index"));
 		SD.serverConfig = serverConfig;
@@ -70,7 +71,7 @@ public class SD
 		return NumU.getHex(serverId);
 	}
 
-	public static ServerInfo getGateServer(int areaId)
+	public static ServerInfo getProxyServer(int areaId)
 	{
 		Vector<ServerInfo> serverInfos = SD.serveType_SeverInfos.get(ServerType.PROXY);
 		if (serverInfos != null && serverInfos.size() > 0)

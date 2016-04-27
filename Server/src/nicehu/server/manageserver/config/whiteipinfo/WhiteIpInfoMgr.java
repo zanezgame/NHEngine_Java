@@ -4,7 +4,7 @@ import javax.sql.rowset.CachedRowSet;
 
 import nicehu.nhsdk.candy.log.LogU;
 import nicehu.nhsdk.candy.util.CloseU;
-import nicehu.server.manageserver.core.data.MSD;
+import nicehu.server.manageserver.core.MSD;
 
 public class WhiteIpInfoMgr
 {

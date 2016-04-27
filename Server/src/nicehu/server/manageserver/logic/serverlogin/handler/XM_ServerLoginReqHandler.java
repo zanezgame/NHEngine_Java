@@ -21,7 +21,7 @@ import nicehu.server.manageserver.config.dbconfig.DBConfigMgr;
 import nicehu.server.manageserver.config.serverconfig.ServerConfig;
 import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
 import nicehu.server.manageserver.config.whiteipinfo.WhiteIpInfoMgr;
-import nicehu.server.manageserver.core.data.MSD;
+import nicehu.server.manageserver.core.MSD;
 
 public class XM_ServerLoginReqHandler extends LogicHandler
 {
@@ -30,7 +30,7 @@ public class XM_ServerLoginReqHandler extends LogicHandler
 	@Override
 	public void handle(ChannelHandlerContext ctx, Message msg)
 	{
-		ServerLoginReq request = (ServerLoginReq)msg.getProtoBuf();
+		ServerLoginReq request = (ServerLoginReq)msg.getPb(ServerLoginReq.getDefaultInstance());
 		ServerLoginRes.Builder builder = ServerLoginRes.newBuilder();
 		Message message = new Message(EGMI.EGMI_SERVER_LOGIN_RES_VALUE);
 		logger.warn("receive ServerLoginHandler, ServerName: " + request.getServerName() + " remoteAddress :" + ctx.channel().remoteAddress().toString());
@@ -80,7 +80,7 @@ public class XM_ServerLoginReqHandler extends LogicHandler
 //			}
 		} while (false);
 
-		message.setProtoBuf(builder.build());
+		message.genBaseMsg(builder.build());
 		MSD.transmitter.sendToServer(serverInfo.getId(), message);
 	}
 

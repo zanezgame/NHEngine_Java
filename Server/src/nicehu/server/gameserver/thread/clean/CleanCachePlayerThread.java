@@ -5,13 +5,13 @@ import java.util.Iterator;
 import java.util.Map;
 
 import nicehu.nhsdk.candy.lock.LockU;
-import nicehu.nhsdk.candy.thread.WindRunnable;
+import nicehu.nhsdk.candy.thread.NHRunnable;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.server.gameserver.logic.initinfo.data.struct.PlayerNode;
 import nicehu.server.gameserver.logic.mgr.PM;
 import nicehu.server.manageserver.config.commonconfig.CommonConfigMgr;
 
-public class CleanCachePlayerThread extends WindRunnable
+public class CleanCachePlayerThread extends NHRunnable
 {
 	public static long sleepTime = 1 * 60 * 1000L;
 

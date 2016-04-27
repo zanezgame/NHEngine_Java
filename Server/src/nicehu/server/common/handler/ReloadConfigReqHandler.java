@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.data.Message;
 import nicehu.nhsdk.core.data.SD;
-import nicehu.nhsdk.core.datatransmitter.data.ServerNode;
+import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.handler.LogicHandler;
 import nicehu.pb.NHDefine.EGEC;
 import nicehu.pb.NHDefine.EGMI;
@@ -22,10 +22,10 @@ public class ReloadConfigReqHandler extends LogicHandler
 	private static final Logger logger = LoggerFactory.getLogger(ReloadConfigReqHandler.class);
 
 	@Override
-	public void handle(ServerNode sender, Message msg)
+	public void handle(ConnectNode sender, Message msg)
 	{
 		logger.info("recv MG_ReloadConfigReqHandler");
-		ReloadConfigReq request = (ReloadConfigReq)msg.getProtoBuf();
+		ReloadConfigReq request = (ReloadConfigReq)msg.getPb(ReloadConfigReq.getDefaultInstance());
 
 		Message message = new Message(EGMI.EGMI_SERVER_RELOAD_CONFIG_RES_VALUE);
 		ReloadConfigRes.Builder builder = ReloadConfigRes.newBuilder();
@@ -50,7 +50,7 @@ public class ReloadConfigReqHandler extends LogicHandler
 		}
 
 		builder.setCode(code);
-		message.setProtoBuf(builder.build());
+		message.genBaseMsg(builder.build());
 		SD.transmitter.send(sender.ctx, message);
 	}
 }

@@ -14,7 +14,7 @@ import nicehu.nhsdk.candy.time.TimeU;
 import nicehu.nhsdk.candy.util.CloseU;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.db.DBEvent;
-import nicehu.server.gameserver.core.data.GSD;
+import nicehu.server.gameserver.core.GSD;
 import nicehu.server.gameserver.logic.dungeon.db.DungeonDB;
 import nicehu.server.gameserver.logic.initinfo.data.struct.CachePlayer;
 import nicehu.server.gameserver.logic.initinfo.data.struct.GamePlayer;

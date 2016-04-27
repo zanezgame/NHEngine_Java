@@ -10,11 +10,11 @@ import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.data.Message;
 import nicehu.nhsdk.core.data.ServerInfo;
-import nicehu.nhsdk.core.datatransmitter.data.ServerNode;
+import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.type.ServerType;
 import nicehu.pb.NHDefine.EGMI;
 import nicehu.pb.NHMsgBase.SyncServers;
-import nicehu.server.manageserver.core.data.MSD;
+import nicehu.server.manageserver.core.MSD;
 
 public class ServerInfoMgr
 {
@@ -53,7 +53,7 @@ public class ServerInfoMgr
 		return null;
 	}
 
-	public synchronized void sendCareServersToThisServer(ServerNode serverNode, ServerInfo thisServer)
+	public synchronized void sendCareServersToThisServer(ConnectNode serverNode, ServerInfo thisServer)
 	{
 		SyncServers.Builder builder = SyncServers.newBuilder();
 		Message syncServersProtocol = new Message(EGMI.EGMI_SERVER_SERVERINFO_SYNC_VALUE);
@@ -86,8 +86,8 @@ public class ServerInfoMgr
 		}
 		if (builder.getServersCount() > 0)
 		{
-			syncServersProtocol.setProtoBuf(builder.build());
-			logger.info("sendToThisServer, thisServerId : " + Integer.toHexString(serverNode.getServerId()) + " careServerTypes: " + careServerTyps + " careServerIds: "
+			syncServersProtocol.genBaseMsg(builder.build());
+			logger.info("sendToThisServer, thisServerId : " + Integer.toHexString(serverNode.getId()) + " careServerTypes: " + careServerTyps + " careServerIds: "
 				+ careServerIds);
 			MSD.transmitter.send(serverNode.getCtx(), syncServersProtocol);
 		}
@@ -118,7 +118,7 @@ public class ServerInfoMgr
 				{
 					SyncServers.Builder builder = SyncServers.newBuilder();
 					builder.addServers(thisServer.toProto());
-					syncServersProtocol.setProtoBuf(builder.build());
+					syncServersProtocol.genBaseMsg(builder.build());
 					logger.info("sendToCareServers, careServerId : " + Integer.toHexString(server.getId()) + " thisServerId: " + Integer.toHexString(thisServer.getId()));
 					MSD.transmitter.sendToServer(server.getId(), syncServersProtocol);
 				}

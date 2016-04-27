@@ -1,5 +1,8 @@
 package nicehu.server.authserver.logic.login.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nicehu.pb.NHMsgBase;
 
 public class AccountData
@@ -9,16 +12,19 @@ public class AccountData
 	private String pass;
 	private DeviceInfo deviceInfo;
 
+	private List<Integer> areaIds = new ArrayList<>();
+
 	public AccountData()
 	{
 
 	}
 
-	public AccountData(int accountId, String account, String pass)
+	public AccountData(int accountId, String account, String pass,List<Integer> areaIds)
 	{
 		this.accountId = accountId;
 		this.account = account;
 		this.pass = pass;
+		this.areaIds = areaIds;
 	}
 
 	public AccountData(String account, String pass, NHMsgBase.DeviceInfo deviceInfo)
@@ -66,6 +72,16 @@ public class AccountData
 	public void setDeviceInfo(DeviceInfo deviceInfo)
 	{
 		this.deviceInfo = deviceInfo;
+	}
+
+	public List<Integer> getAreaIds()
+	{
+		return areaIds;
+	}
+
+	public void setAreaIds(List<Integer> areaIds)
+	{
+		this.areaIds = areaIds;
 	}
 
 }

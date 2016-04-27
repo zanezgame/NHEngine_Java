@@ -9,11 +9,11 @@ import org.slf4j.LoggerFactory;
 import nicehu.nhsdk.candy.data.Data;
 import nicehu.nhsdk.candy.db.core.write.DBWriter;
 import nicehu.nhsdk.candy.str.ParseU;
-import nicehu.nhsdk.candy.thread.WindRunnable;
+import nicehu.nhsdk.candy.thread.NHRunnable;
 import nicehu.nhsdk.candy.time.TimeU;
 import nicehu.nhsdk.core.data.SD;
 
-public class StatisticsRunnable extends WindRunnable
+public class StatisticsRunnable extends NHRunnable
 {
 
 	private static final Logger logger = LoggerFactory.getLogger("StatisticsRunnable");

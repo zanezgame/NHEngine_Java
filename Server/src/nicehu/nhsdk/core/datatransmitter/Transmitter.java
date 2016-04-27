@@ -1,18 +1,5 @@
 package nicehu.nhsdk.core.datatransmitter;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.http.DefaultFullHttpResponse;
-import io.netty.handler.codec.http.DefaultHttpResponse;
-import io.netty.handler.codec.http.HttpResponse;
-import io.netty.handler.codec.http.HttpResponseStatus;
-import io.netty.handler.codec.http.HttpVersion;
-
 import java.nio.charset.Charset;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,39 +7,50 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.http.DefaultFullHttpResponse;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.HttpVersion;
 import nicehu.nhsdk.candy.data.Message;
 import nicehu.nhsdk.candy.str.ParseU;
-import nicehu.nhsdk.core.datatransmitter.data.ClientNode;
-import nicehu.nhsdk.core.datatransmitter.data.ServerNode;
-import nicehu.nhsdk.core.handler.base.SocketBaseInboundHandler;
+import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
+import nicehu.nhsdk.core.handler.base.BaseInboundHandler;
 import nicehu.nhsdk.core.handler.network.NetworkHandler;
 import nicehu.nhsdk.core.type.ServerType;
 import nicehu.server.manageserver.config.serverconfig.ServerConfig;
 import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
+import nicehu.server.proxyserver.core.PSD;
+import nicehu.server.proxyserver.core.ProxySession;
 
 public class Transmitter
 {
 	private static final Logger logger = LoggerFactory.getLogger(Transmitter.class);
 
 	// all
-	private ConcurrentHashMap<Integer, ServerNode> id_ServerNode = new ConcurrentHashMap<>();
-	private ConcurrentHashMap<Integer, Vector<ServerNode>> type_ServerNodes = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<Integer, ConnectNode> id_ServerNode = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<Integer, Vector<ConnectNode>> type_ServerNodes = new ConcurrentHashMap<>();
 	// except gameServer
-	private ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, ServerNode>> area_type_ServerNodes = new ConcurrentHashMap<>();
-	
+	private ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, ConnectNode>> area_type_ServerNodes = new ConcurrentHashMap<>();
+
 	public ChannelFuture send(ChannelHandlerContext ctx, Message msg)
 	{
 		return ctx.writeAndFlush(msg);
 	}
-
-	public void sendAndClose(ChannelHandlerContext ctx, String str)
+	
+	public ChannelFuture sendToPlayer(int playerId, Message msg)
 	{
-		DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_0, HttpResponseStatus.OK);
-		ByteBuf channelBuffer = Unpooled.copiedBuffer(str, Charset.forName("utf-8"));
-		response.content().writeBytes(channelBuffer);
-
-		ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
-
+		ProxySession session = PSD.sessions.get(playerId);
+		if(session != null)
+		{
+			return session.getCtx().writeAndFlush(msg);
+		}
+		return null;
+		
 	}
 
 	public void sendAndClose(ChannelHandlerContext ctx, Message msg)
@@ -62,7 +60,7 @@ public class Transmitter
 
 	public void sendToServer(int serverId, Message msg)
 	{
-		ServerNode serverNode = id_ServerNode.get(serverId);
+		ConnectNode serverNode = id_ServerNode.get(serverId);
 		if (serverNode != null)
 		{
 			send(serverNode.getCtx(), msg);
@@ -71,10 +69,10 @@ public class Transmitter
 
 	public boolean sendToServer(int serverType, int areaId, Message msg)
 	{
-		ConcurrentHashMap<Integer, ServerNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
+		ConcurrentHashMap<Integer, ConnectNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
 		if (type_ServerNode != null)
 		{
-			ServerNode serverNode = type_ServerNode.get(serverType);
+			ConnectNode serverNode = type_ServerNode.get(serverType);
 			if (serverNode != null)
 			{
 				this.send(serverNode.getCtx(), msg);
@@ -86,10 +84,10 @@ public class Transmitter
 
 	public void sendToServers(int serverType, Message msg)
 	{
-		Vector<ServerNode> serverNodes = this.type_ServerNodes.get(serverType);
+		Vector<ConnectNode> serverNodes = this.type_ServerNodes.get(serverType);
 		if (serverNodes != null)
 		{
-			for (ServerNode serverNode : serverNodes)
+			for (ConnectNode serverNode : serverNodes)
 			{
 				this.send(serverNode.getCtx(), msg);
 
@@ -97,41 +95,40 @@ public class Transmitter
 		}
 	}
 
-	public boolean closeConnection(int playerId)
+	// http
+	public void sendAndClose(ChannelHandlerContext ctx, String str)
 	{
-		// GameSession clientSession = GSD.sessions.get(playerId);
-		// if (clientSession == null)
-		// {
-		// return false;
-		// }
-		// clientSession.getChannel().close();
-		return true;
+		DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_0, HttpResponseStatus.OK);
+		ByteBuf channelBuffer = Unpooled.copiedBuffer(str, Charset.forName("utf-8"));
+		response.content().writeBytes(channelBuffer);
+
+		ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
+
 	}
 
-	public ServerNode addServerNode(int serverId, ChannelHandlerContext ctx)
+	public ConnectNode addServerNode(int serverId, ChannelHandlerContext ctx)
 	{
 		int serverType = ServerType.getType(serverId);
 		ServerConfig serverConfig = ServerConfigMgr.instance.getServerConfig(serverId);
 		int areaId = serverConfig.getAreaId();
-		int index = ParseU.pInt(serverConfig.getAttr("index"));
-		ServerNode serverNode = new ServerNode(ctx, serverId);
+		ConnectNode serverNode = new ConnectNode(serverId, ctx, true);
 
 		{
 			id_ServerNode.put(serverId, serverNode);
-			Vector<ServerNode> serverNodes = this.type_ServerNodes.get(serverType);
+			Vector<ConnectNode> serverNodes = this.type_ServerNodes.get(serverType);
 			if (serverNodes == null)
 			{
-				serverNodes = new Vector<ServerNode>();
+				serverNodes = new Vector<ConnectNode>();
 				this.type_ServerNodes.put(serverType, serverNodes);
 			}
 			serverNodes.add(serverNode);
 		}
 		if (serverType == ServerType.PROXY || serverType == ServerType.GAME || serverType == ServerType.WORLD)
 		{
-			ConcurrentHashMap<Integer, ServerNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
+			ConcurrentHashMap<Integer, ConnectNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
 			if (type_ServerNode == null)
 			{
-				type_ServerNode = new ConcurrentHashMap<Integer, ServerNode>();
+				type_ServerNode = new ConcurrentHashMap<Integer, ConnectNode>();
 				this.area_type_ServerNodes.put(areaId, type_ServerNode);
 			}
 			type_ServerNode.put(serverType, serverNode);
@@ -141,14 +138,14 @@ public class Transmitter
 		if (handler != null)
 		{
 			NetworkHandler networkHandler = (NetworkHandler)handler;
-			networkHandler.serverNode = serverNode;
+			networkHandler.connectNode = serverNode;
 		}
 
-		handler = ctx.channel().pipeline().get(SocketBaseInboundHandler.class);
+		handler = ctx.channel().pipeline().get(BaseInboundHandler.class);
 		if (handler != null)
 		{
-			SocketBaseInboundHandler messageBaseHandler = (SocketBaseInboundHandler)handler;
-			messageBaseHandler.serverNode = serverNode;
+			BaseInboundHandler messageBaseHandler = (BaseInboundHandler)handler;
+			messageBaseHandler.connectNode = serverNode;
 		}
 
 		return serverNode;
@@ -156,20 +153,19 @@ public class Transmitter
 
 	public void removeServerNode(int serverId)
 	{
-
 		int serverType = ServerType.getType(serverId);
 		ServerConfig serverConfig = ServerConfigMgr.instance.getServerConfig(serverId);
 		int areaId = serverConfig.getAreaId();
 		int index = ParseU.pInt(serverConfig.getAttr("index"));
 
 		id_ServerNode.remove(serverId);
-		Vector<ServerNode> serverNodes = this.type_ServerNodes.get(serverType);
+		Vector<ConnectNode> serverNodes = this.type_ServerNodes.get(serverType);
 		if (serverNodes != null)
 		{
-			ServerNode serverNode = null;
-			for (ServerNode tmp : serverNodes)
+			ConnectNode serverNode = null;
+			for (ConnectNode tmp : serverNodes)
 			{
-				if (tmp.getServerId() == serverId)
+				if (tmp.getId() == serverId)
 				{
 					serverNode = tmp;
 					break;
@@ -183,7 +179,7 @@ public class Transmitter
 
 		if (serverType == ServerType.PROXY || serverType == ServerType.GAME || serverType == ServerType.WORLD)
 		{
-			ConcurrentHashMap<Integer, ServerNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
+			ConcurrentHashMap<Integer, ConnectNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
 			if (type_ServerNode != null)
 			{
 				type_ServerNode.remove(serverType);
@@ -192,32 +188,31 @@ public class Transmitter
 
 	}
 
-	// just for socket client  //TODO this is not use,so never use compress data for client
 	public void addClientNode(int playerId, ChannelHandlerContext ctx)
 	{
-		ClientNode clientNode = new ClientNode(playerId);
+		ConnectNode connectNode = new ConnectNode(playerId, ctx, false);
 		ChannelHandler handler = ctx.channel().pipeline().get(NetworkHandler.class);
 		if (handler != null)
 		{
 			NetworkHandler networkHandler = (NetworkHandler)handler;
-			networkHandler.clientNode = clientNode;
+			networkHandler.connectNode = connectNode;
 		}
 
-		handler = ctx.channel().pipeline().get(SocketBaseInboundHandler.class);
+		handler = ctx.channel().pipeline().get(BaseInboundHandler.class);
 		if (handler != null)
 		{
-			SocketBaseInboundHandler messageBaseHandler = (SocketBaseInboundHandler)handler;
-			messageBaseHandler.clientNode = clientNode;
+			BaseInboundHandler messageBaseHandler = (BaseInboundHandler)handler;
+			messageBaseHandler.connectNode = connectNode;
 		}
 
 	}
 
-	public ServerNode getServerNode(int serverType, int areaId)
+	public ConnectNode getServerNode(int serverType, int areaId)
 	{
-		ConcurrentHashMap<Integer, ServerNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
+		ConcurrentHashMap<Integer, ConnectNode> type_ServerNode = this.area_type_ServerNodes.get(areaId);
 		if (type_ServerNode != null)
 		{
-			ServerNode serverNode = type_ServerNode.get(serverType);
+			ConnectNode serverNode = type_ServerNode.get(serverType);
 			if (serverNode != null)
 			{
 				return serverNode;

@@ -20,13 +20,13 @@ public class ServerNetworkHandler extends NetworkHandler
 		{
 			logger.debug("!!!One Connetion Event BEGIN!!!");
 
-			ByteBuf exchangeInfoMsg = ctx.alloc().buffer(10);
-			exchangeInfoMsg.writeShort(NETWORK_MSG_EXCHANGE_INFO);
-			exchangeInfoMsg.writeInt(4);
-			exchangeInfoMsg.writeInt(SD.serverId);
-			ctx.writeAndFlush(exchangeInfoMsg);
+			ByteBuf registerServerInfo = ctx.alloc().buffer(10);
+			registerServerInfo.writeShort(MSG_TYPE_REGISTER);
+			registerServerInfo.writeInt(4);
+			registerServerInfo.writeInt(SD.serverId);
+			ctx.writeAndFlush(registerServerInfo);
 
-			logger.debug("localServerNameId :" + SD.getServerNameId() + " conneted one remoteNode success ,has send back Network_Msg_Exchange_info");
+			logger.debug("localServerNameId :" + SD.getServerNameId() + " conneted one remoteNode success ,has send back MSG_TYPE_REGISTER");
 		}
 		else
 		{

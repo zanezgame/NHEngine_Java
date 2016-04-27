@@ -9,12 +9,18 @@ import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
+import nicehu.server.manageserver.config.core.ConfigPath;
 
 public class LogBackMgr
 {
 	private static final Logger logger = LoggerFactory.getLogger(LogBackMgr.class);
+	
+	public static void init()
+	{
+		LogBackMgr.init(ConfigPath.file_logback);
+	}
 
-	public static void load(String logBackFilePath)
+	public static void init(String logBackFilePath)
 	{
 		LoggerContext lc = (LoggerContext)LoggerFactory.getILoggerFactory();
 		File externalConfigFile = new File(logBackFilePath);

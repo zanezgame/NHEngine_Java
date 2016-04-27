@@ -12,7 +12,7 @@ import nicehu.nhsdk.candy.time.TimeU;
 import nicehu.nhsdk.candy.util.CloseU;
 import nicehu.nhsdk.core.data.AreaData;
 import nicehu.pb.NHDefine;
-import nicehu.server.manageserver.core.data.MSD;
+import nicehu.server.manageserver.core.MSD;
 
 public class AreaInfoMgr
 {

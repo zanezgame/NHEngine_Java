@@ -6,12 +6,10 @@ import org.slf4j.LoggerFactory;
 import io.netty.channel.ChannelHandlerContext;
 import nicehu.nhsdk.candy.data.Message;
 import nicehu.nhsdk.core.data.SD;
-import nicehu.nhsdk.core.data.session.GameSession;
-import nicehu.nhsdk.core.datatransmitter.data.ServerNode;
+import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.type.ServerType;
 import nicehu.nhsdk.util.EnumUtil.ConnectStatus;
 import nicehu.pb.NHDefine.EGMI;
-import nicehu.server.gameserver.core.data.GSD;
 import nicehu.server.manageserver.logic.freeze.data.FreezeInfo;
 import nicehu.server.manageserver.logic.freeze.data.FreezeMgr;
 
@@ -19,63 +17,58 @@ public class GameBaseHandler
 {
 	private static final Logger logger = LoggerFactory.getLogger(GameBaseHandler.class);
 
-	public static void handleSocket(ChannelHandlerContext ctx, ServerNode serverNode, Message msg)
+	public static void handleSocket(ChannelHandlerContext ctx, ConnectNode connectNode, Message msg)
 	{
-		if (serverNode == null)
+		if (connectNode == null)
 		{
-			SD.sController.procProto(ctx, msg);
+			SD.handlerMgr.handle(ctx, msg);
 			return;
 		}
-		int serverType = ServerType.getType(serverNode.getServerId());
+		int serverType = ServerType.getType(connectNode.getId());
 
-		if (serverType == ServerType.PROXY)
+		if (serverType != ServerType.PROXY)
 		{
-			GameBaseHandler.clientGateForward(ctx, serverNode, msg);
+			SD.handlerMgr.handle(connectNode, msg);
 		}
 		else
 		{
-			SD.sController.procProto(serverNode, msg);
-		}
-
-	}
-
-	public static void clientGateForward(ChannelHandlerContext ctx, ServerNode serverNode, Message msg)
-	{
-		int playerId = msg.playerId;// .getPlayerId();
-		try
-		{
-			do
+			int playerId = msg.playerId;// .getPlayerId();
+			try
 			{
-				FreezeInfo freezeInfo = FreezeMgr.instance.getFreezeInfo(playerId);
-				if (freezeInfo != null)
+				do
 				{
-					// JsonU.updateErr(result, 1, "此账号处于禁止登陆状态中!解禁时间: " + TimeU.getStr(freezeInfo.getEndTime()));
-					break;
-				}
-				else
-				{
-					if (msg.getId() == EGMI.EGMI_AUTH_TOKEN_REQ_VALUE)
+					FreezeInfo freezeInfo = FreezeMgr.instance.getFreezeInfo(playerId);
+					if (freezeInfo != null)
 					{
-						SD.sController.procProto(ctx, msg);
-						return;
+						// JsonU.updateErr(result, 1, "此账号处于禁止登陆状态中!解禁时间: " + TimeU.getStr(freezeInfo.getEndTime()));
+						break;
 					}
 					else
 					{
-						GameSession session = GSD.sessions.get(playerId);
-						if (session != null && session.getStatus() == ConnectStatus.Authed)
+						if (msg.getId() == EGMI.EGMI_AUTH_TOKEN_REQ_VALUE)
 						{
-							// TODO 验证玩家是否已经autotoken成功过
-							SD.sController.procProto(session, msg);
+							SD.handlerMgr.handle(ctx, msg);
 							return;
 						}
-						// TODO 提示玩家重新登录
+						else
+						{
+							GameSession session = GSD.sessions.get(playerId);
+							if (session != null && session.getStatus() == ConnectStatus.Authed)
+							{
+								SD.handlerMgr.handle(session, msg);
+								return;
+							}
+							// TODO token验证失败,提示玩家重新登录
+						}
 					}
-				}
-			} while (false);
-		}
-		finally
-		{
+				} while (false);
+			}
+			finally
+			{
 
+			}
 		}
+
 	}
+
 }

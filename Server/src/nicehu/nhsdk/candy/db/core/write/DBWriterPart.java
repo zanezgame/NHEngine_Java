@@ -13,10 +13,10 @@ import org.slf4j.LoggerFactory;
 import nicehu.nhsdk.candy.db.core.DBConnectionPool;
 import nicehu.nhsdk.candy.db.core.DBSql;
 import nicehu.nhsdk.candy.object.Empty;
-import nicehu.nhsdk.candy.thread.WindRunnable;
+import nicehu.nhsdk.candy.thread.NHRunnable;
 import nicehu.nhsdk.candy.util.CloseU;
 
-public abstract class DBWriterPart extends WindRunnable
+public abstract class DBWriterPart extends NHRunnable
 {
 	private static final Logger loggerPlayerSqlLog = LoggerFactory.getLogger("PlayerSqlLog");
 	private static final Logger logger = LoggerFactory.getLogger(DBWriterPart.class);
@@ -33,7 +33,7 @@ public abstract class DBWriterPart extends WindRunnable
 
 	public DBWriterPart(DBConnectionPool connectionPool)
 	{
-		super(sleepTime, WindRunnable.ThreadLevel.HIGH);
+		super(sleepTime, NHRunnable.ThreadLevel.HIGH);
 		this.connectionPool = connectionPool;
 
 	}

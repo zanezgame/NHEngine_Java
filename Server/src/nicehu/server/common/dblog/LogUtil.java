@@ -2,7 +2,7 @@ package nicehu.server.common.dblog;
 
 import nicehu.nhsdk.candy.time.TimeU;
 import nicehu.nhsdk.core.data.AreaData;
-import nicehu.nhsdk.core.data.session.GameSession;
+import nicehu.server.gameserver.core.GameSession;
 import nicehu.server.gameserver.logic.initinfo.data.struct.PlayerNode;
 
 public class LogUtil

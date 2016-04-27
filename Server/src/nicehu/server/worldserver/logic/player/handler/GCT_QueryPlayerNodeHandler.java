@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.data.Message;
-import nicehu.nhsdk.core.datatransmitter.data.ServerNode;
+import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.handler.LogicHandler;
 
 public class GCT_QueryPlayerNodeHandler extends LogicHandler
@@ -12,7 +12,7 @@ public class GCT_QueryPlayerNodeHandler extends LogicHandler
 	private static final Logger logger = LoggerFactory.getLogger(GCT_QueryPlayerNodeHandler.class);
 
 	@Override
-	public void handle(ServerNode sender, Message msg)
+	public void handle(ConnectNode sender, Message msg)
 	{
 		logger.info("GCT_QueryPlayerNodeHandler");
 

@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.data.Message;
-import nicehu.nhsdk.core.datatransmitter.data.ServerNode;
+import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.handler.LogicHandler;
 import nicehu.pb.NHMsgServer.FreezeReq;
 import nicehu.server.manageserver.logic.freeze.data.FreezeInfo;
@@ -16,10 +16,10 @@ public class MA_FreezeReqHandler extends LogicHandler
 	private static final Logger logger = LoggerFactory.getLogger(MA_FreezeReqHandler.class);
 
 	@Override
-	public void handle(ServerNode sender, Message msg)
+	public void handle(ConnectNode sender, Message msg)
 	{
 		logger.info("recv MA_FreezeReqHandler");
-		FreezeReq request = (FreezeReq)msg.getProtoBuf();
+		FreezeReq request = (FreezeReq)msg.getPb(FreezeReq.getDefaultInstance());
 
 		// Protocol protocol = new Protocol(ServerProtos.P_MANAGE_FREEZE_RES);
 		// FreezeRes.Builder builder = FreezeRes.newBuilder();

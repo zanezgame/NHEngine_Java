@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.db.core.DBClient;
 import nicehu.nhsdk.candy.time.TimeU;
-import nicehu.server.gameserver.core.data.GSD;
+import nicehu.server.gameserver.core.GSD;
 import nicehu.server.manageserver.logic.freeze.data.FreezeInfo;
 import nicehu.server.manageserver.logic.freeze.data.FreezeMgr;
 

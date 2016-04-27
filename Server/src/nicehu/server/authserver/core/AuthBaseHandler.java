@@ -3,23 +3,18 @@ package nicehu.server.authserver.core;
 import io.netty.channel.ChannelHandlerContext;
 import nicehu.nhsdk.candy.data.Message;
 import nicehu.nhsdk.core.data.SD;
-import nicehu.nhsdk.core.datatransmitter.data.ServerNode;
+import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 
 public class AuthBaseHandler
 {
-	public static void handleSocket(ChannelHandlerContext ctx, ServerNode serverNode, Message msg)
+	public static void handleSocket(ChannelHandlerContext ctx, ConnectNode serverNode, Message msg)
 	{
 		if (serverNode == null)
 		{
-			SD.sController.procProto(ctx, msg);
+			SD.handlerMgr.handle(ctx, msg);
 			return;
 		}
-		SD.sController.procProto(serverNode, msg);
+		SD.handlerMgr.handle(serverNode, msg);
 
-	}
-
-	public static void handleHttp(ChannelHandlerContext ctx, Message msg)
-	{
-		SD.hController.procProto(ctx, msg);
 	}
 }

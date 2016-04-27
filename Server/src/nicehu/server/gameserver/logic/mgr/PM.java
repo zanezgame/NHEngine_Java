@@ -9,7 +9,7 @@ import nicehu.nhsdk.candy.collect.lru.MaxLruMap;
 import nicehu.nhsdk.candy.lock.LockU;
 import nicehu.nhsdk.candy.log.LogU;
 import nicehu.server.common.dblog.LogUtil;
-import nicehu.server.gameserver.core.data.GSD;
+import nicehu.server.gameserver.core.GSD;
 import nicehu.server.gameserver.logic.initinfo.data.struct.PlayerNode;
 import nicehu.server.gameserver.logic.initinfo.db.PlayerDB;
 

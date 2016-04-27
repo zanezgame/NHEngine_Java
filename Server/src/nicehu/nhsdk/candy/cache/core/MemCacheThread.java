@@ -10,9 +10,9 @@ import com.danga.MemCached.MemCachedClient;
 import nicehu.nhsdk.candy.cache.MemCache;
 import nicehu.nhsdk.candy.collect.lru.LruMap;
 import nicehu.nhsdk.candy.collect.lru.MaxLruMap;
-import nicehu.nhsdk.candy.thread.WindRunnable;
+import nicehu.nhsdk.candy.thread.NHRunnable;
 
-public class MemCacheThread extends WindRunnable
+public class MemCacheThread extends NHRunnable
 {
 	private static Logger logger = LoggerFactory.getLogger(MemCacheThread.class);
 	private static final long sleepTime = 20;

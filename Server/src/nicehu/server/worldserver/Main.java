@@ -10,7 +10,7 @@ import sun.misc.Signal;
 import nicehu.nhsdk.candy.log.LogBackMgr;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.type.ServerType;
-import nicehu.server.worldserver.core.WorldHandler;
+import nicehu.server.worldserver.core.WorldRegister;
 import nicehu.server.common.handler.ShutdownReqHandler;
 import nicehu.server.manageserver.config.core.ConfigPath;
 import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
@@ -21,7 +21,7 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		LogBackMgr.load(ConfigPath.file_logback);
+		LogBackMgr.init();
 
 		String serverName = args.length > 0 ? args[0] : "WorldServer_001";
 		SD.init(ServerType.WORLD, serverName);
@@ -29,9 +29,9 @@ public class Main
 
 		ServerConfigMgr.instance.reload();
 
-		SD.serverInitHandler = new WorldInitHandler();
+		SD.mainAfter = new MainAfter();
 		SD.socketServerForS.initialize(16);
-		WorldHandler.init();
+		WorldRegister.init();
 
 		String manageIp = ServerConfigMgr.instance.getManageIp();
 		int managePort = ServerConfigMgr.instance.getManagePort();

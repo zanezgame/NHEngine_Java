@@ -16,8 +16,8 @@ import org.slf4j.Logger;
 import nicehu.nhsdk.candy.log.LogU;
 import nicehu.nhsdk.candy.random.RandomU;
 import nicehu.nhsdk.candy.thread.ThreadU;
-import nicehu.nhsdk.core.channelhandler.SocketChannelHandler;
-import nicehu.nhsdk.core.handler.base.SocketHandlerExecutor;
+import nicehu.nhsdk.core.channelhandler.ChannelHandler;
+import nicehu.nhsdk.core.handler.base.HandlerExecutor;
 
 public class SocketServer
 {
@@ -34,7 +34,7 @@ public class SocketServer
 
 	public void initialize(int threadNum)
 	{
-		SocketHandlerExecutor.init(threadNum);
+		HandlerExecutor.init(threadNum);
 		{
 			EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 			EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -46,7 +46,7 @@ public class SocketServer
 				serverBootstrap.option(ChannelOption.SO_BACKLOG, 1024);
 				serverBootstrap.option(ChannelOption.TCP_NODELAY, true);
 				serverBootstrap.option(ChannelOption.SO_KEEPALIVE, true);
-				serverBootstrap.childHandler(new SocketChannelHandler(isForServer));
+				serverBootstrap.childHandler(new ChannelHandler(isForServer));
 			}
 			finally
 			{
@@ -63,7 +63,7 @@ public class SocketServer
 					bootstrap.group(group);
 					bootstrap.channel(NioSocketChannel.class);
 					bootstrap.option(ChannelOption.TCP_NODELAY, true);
-					bootstrap.handler(new SocketChannelHandler(true));
+					bootstrap.handler(new ChannelHandler(true));
 				}
 				finally
 				{

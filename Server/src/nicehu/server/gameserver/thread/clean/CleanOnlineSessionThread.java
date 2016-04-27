@@ -8,15 +8,15 @@ import org.slf4j.Logger;
 
 import nicehu.nhsdk.candy.lock.LockU;
 import nicehu.nhsdk.candy.log.LogU;
-import nicehu.nhsdk.candy.thread.WindRunnable;
+import nicehu.nhsdk.candy.thread.NHRunnable;
 import nicehu.nhsdk.core.data.SD;
-import nicehu.nhsdk.core.data.session.GameSession;
-import nicehu.server.gameserver.core.data.GSD;
+import nicehu.server.gameserver.core.GSD;
+import nicehu.server.gameserver.core.GameSession;
 import nicehu.server.gameserver.logic.initinfo.data.struct.PlayerNode;
 import nicehu.server.gameserver.logic.mgr.PM;
 import nicehu.server.manageserver.config.commonconfig.CommonConfigMgr;
 
-public class CleanOnlineSessionThread extends WindRunnable
+public class CleanOnlineSessionThread extends NHRunnable
 {
 	private static final Logger logger = LogU.getLogger(CleanOnlineSessionThread.class);
 

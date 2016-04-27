@@ -5,15 +5,14 @@ import java.net.InetSocketAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sun.misc.Signal;
-
 import nicehu.nhsdk.candy.log.LogBackMgr;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.type.ServerType;
-import nicehu.server.authserver.core.AuthHandler;
+import nicehu.server.authserver.core.AuthHandlerRegister;
 import nicehu.server.common.handler.ShutdownReqHandler;
 import nicehu.server.manageserver.config.core.ConfigPath;
 import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
+import sun.misc.Signal;
 
 public class Main
 {
@@ -21,7 +20,7 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		LogBackMgr.load(ConfigPath.file_logback);
+		LogBackMgr.init();
 
 		String serverName = "AuthServer";
 		SD.init(ServerType.AUTH, serverName);
@@ -29,11 +28,11 @@ public class Main
 
 		ServerConfigMgr.instance.reload();
 
-		SD.serverInitHandler = new AuthInitHandler();
+		SD.mainAfter = new MainAfter();
 		SD.socketServerForS.initialize(16);
 		SD.socketServerForC.initialize(16);
 		SD.httpCServer.initialize(16);
-		AuthHandler.init();
+		AuthHandlerRegister.init();
 
 		String manageIp = ServerConfigMgr.instance.getManageIp();
 		int managePort = ServerConfigMgr.instance.getManagePort();

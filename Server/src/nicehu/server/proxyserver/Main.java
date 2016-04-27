@@ -13,7 +13,7 @@ import nicehu.nhsdk.core.type.ServerType;
 import nicehu.server.common.handler.ShutdownReqHandler;
 import nicehu.server.manageserver.config.core.ConfigPath;
 import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
-import nicehu.server.proxyserver.core.ProxyHandler;
+import nicehu.server.proxyserver.core.ProxyHandlerRegister;
 
 public class Main
 {
@@ -21,7 +21,7 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		LogBackMgr.load(ConfigPath.file_logback);
+		LogBackMgr.init();
 
 		String serverName = args.length > 0 ? args[0] : "ProxyServer_001";
 		SD.init(ServerType.PROXY, serverName);
@@ -29,11 +29,11 @@ public class Main
 
 		ServerConfigMgr.instance.reload();
 
-		SD.serverInitHandler = new ProxyInitHandler();
+		SD.mainAfter = new MainAfter();
 		SD.socketServerForS.initialize( 16);
 		SD.socketServerForC.initialize(16);
 		SD.httpCServer.initialize(16);
-		ProxyHandler.init();
+		ProxyHandlerRegister.init();
 
 		String manageIp = ServerConfigMgr.instance.getManageIp();
 		int managePort = ServerConfigMgr.instance.getManagePort();

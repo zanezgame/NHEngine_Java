@@ -1,10 +1,10 @@
 package nicehu.nhsdk.core.logic;
 
-import nicehu.nhsdk.core.controller.Controller;
+import nicehu.nhsdk.core.handler.HandlerMgr;
 
 public interface Logic
 {
-	void addProto(Controller controller);
+	void addProto(HandlerMgr controller);
 
-	void addHandler(Controller controller);
+	void addHandler(HandlerMgr controller);
 }
