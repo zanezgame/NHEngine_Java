@@ -6,10 +6,10 @@ import nicehu.server.gameserver.thread.clean.CleanCachePlayerThread;
 import nicehu.server.gameserver.thread.clean.CleanOfflinePlayerThread;
 import nicehu.server.gameserver.thread.clean.CleanOnlineSessionThread;
 
-public class ThreadUtil
+public class GameThread
 {
 
-	public static void startGameThreads()
+	public static void start()
 	{
 		Thread thread = new Thread(new CleanCachePlayerThread(), ThreadU.genName("Wind_CleanCachePlayerThread"));
 		thread.start();

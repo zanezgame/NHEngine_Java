@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.data.Message;
-import nicehu.nhsdk.core.data.AreaData;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.handler.LogicHandler;
@@ -91,7 +90,7 @@ public class QueryTokenResHandler extends LogicHandler
 		
 		builder.setResult(result);
 		msg.genBaseMsg(builder.build());
-		SD.transmitter.sendToServer(ServerType.PROXY, AreaData.getAreaId(), msg);
+		SD.transmitter.sendToServer(ServerType.PROXY, SD.areaId, msg);
 
 	}
 }

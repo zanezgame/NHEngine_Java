@@ -23,14 +23,19 @@ public class ServerInfo
 	private int id;
 	private String name;
 	private int status;
+	private int areaId = 0;
 	private int reloadState = SERVER_RELOAD_NORMAL;
 	private String ipForServer = null;
 	private String ipForClient = null;
 	private int portForServer = 0;
-	private int portForSocketClient = 0;
-	private int portForHttpClient = 0;
-	private int areaId = 0;
+	private int portForClient = 0;
+
 	private List<Integer> serverTypes = new ArrayList<Integer>();// 关心的serve类型
+
+	public ServerInfo()
+	{
+
+	}
 
 	public ServerInfo(ServerConfig serverConfig)
 	{
@@ -52,42 +57,6 @@ public class ServerInfo
 		this.initIpPort(serverConfig);
 	}
 
-	public ServerInfo(NHMsgBase.ServerInfo serverInfo)
-	{
-		this.id = serverInfo.getId();
-		this.name = serverInfo.getServerName();
-		this.status = serverInfo.getStatus();
-		this.areaId = serverInfo.getAreaId();
-		this.ipForServer = serverInfo.getIpForServer();
-		this.portForServer = serverInfo.getPortForServer();
-		this.ipForClient = serverInfo.getIpForClient();
-		this.portForSocketClient = serverInfo.getPortForSocketClient();
-		this.portForHttpClient = serverInfo.getPortForHttpClient();
-	}
-
-	public NHMsgBase.ServerInfo toProto()
-	{
-		NHMsgBase.ServerInfo.Builder builder = NHMsgBase.ServerInfo.newBuilder();
-		builder.setId(id);
-		builder.setServerName(name);
-		builder.setStatus(status);
-		builder.setAreaId(this.areaId);// .addAllAreaIds(this.areaIds);
-
-		if (null != this.ipForServer)
-		{
-			builder.setIpForServer(this.ipForServer);
-		}
-		builder.setPortForServer(this.portForServer);
-		if (null != this.ipForClient)
-		{
-			builder.setIpForClient(this.ipForClient);
-		}
-		builder.setPortForSocketClient(this.portForSocketClient);
-		builder.setPortForHttpClient(this.portForHttpClient);
-
-		return builder.build();
-	}
-
 	public void initIpPort(ServerConfig serverConfig)
 	{
 		String str = serverConfig.getAttr("IpForServer");
@@ -105,19 +74,15 @@ public class ServerInfo
 		{
 			this.setIpForClient(ParseU.pStr(str, ""));
 		}
-		str = serverConfig.getAttr("PortForSocketClient");
+		str = serverConfig.getAttr("PortForClient");
 		if (!Empty.is(str))
 		{
-			this.setPortForSocketClient(ParseU.pInt(str, 0));
+			this.setPortForClient(ParseU.pInt(str, 0));
 		}
-		str = serverConfig.getAttr("PortForHttpClient");
-		if (!Empty.is(str))
-		{
-			this.setPortForHttpClient(ParseU.pInt(str, 0));
-		}
+
 	}
 
-	public String getStateName()
+	public String GetStateName()
 	{
 		switch (status)
 		{
@@ -137,7 +102,7 @@ public class ServerInfo
 		return "";
 	}
 
-	public String getReloadStateName()
+	public String GetReloadStateName()
 	{
 		switch (reloadState)
 		{
@@ -236,28 +201,6 @@ public class ServerInfo
 		this.portForServer = portForServer;
 	}
 
-	
-
-	public int getPortForSocketClient()
-	{
-		return portForSocketClient;
-	}
-
-	public void setPortForSocketClient(int portForSocketClient)
-	{
-		this.portForSocketClient = portForSocketClient;
-	}
-
-	public int getPortForHttpClient()
-	{
-		return portForHttpClient;
-	}
-
-	public void setPortForHttpClient(int portForHttpClient)
-	{
-		this.portForHttpClient = portForHttpClient;
-	}
-
 	public int getReloadState()
 	{
 		return reloadState;
@@ -266,6 +209,21 @@ public class ServerInfo
 	public void setReloadState(int reloadState)
 	{
 		this.reloadState = reloadState;
+	}
+
+	public int getPortForClient()
+	{
+		return portForClient;
+	}
+
+	public void setPortForClient(int portForClient)
+	{
+		this.portForClient = portForClient;
+	}
+
+	public void setServerTypes(List<Integer> serverTypes)
+	{
+		this.serverTypes = serverTypes;
 	}
 
 }

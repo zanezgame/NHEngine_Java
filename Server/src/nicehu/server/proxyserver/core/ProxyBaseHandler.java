@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import io.netty.channel.ChannelHandlerContext;
 import nicehu.nhsdk.candy.data.Message;
-import nicehu.nhsdk.core.data.AreaData;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.type.ServerType;
@@ -56,7 +55,7 @@ public class ProxyBaseHandler
 		else if (connectNode != null && !connectNode.isServer())
 		{
 			// 转发给gameServer
-			SD.transmitter.sendToServer(ServerType.GAME, AreaData.getAreaId(), msg);
+			SD.transmitter.sendToServer(ServerType.GAME, SD.areaId, msg);
 			logger.info("Forward To GameServer for PlayerId:" + msg.getPlayerId());
 			return;
 		}
@@ -69,7 +68,7 @@ public class ProxyBaseHandler
 				PSD.sessions.put(msg.getPlayerId(), session);
 
 				// forwad to game
-				SD.transmitter.sendToServer(ServerType.GAME, AreaData.getAreaId(), msg);
+				SD.transmitter.sendToServer(ServerType.GAME, SD.areaId, msg);
 				logger.info("Forward To GameServer for PlayerId:" + msg.getPlayerId());
 				return;
 			}

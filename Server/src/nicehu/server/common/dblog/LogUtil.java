@@ -1,7 +1,7 @@
 package nicehu.server.common.dblog;
 
 import nicehu.nhsdk.candy.time.TimeU;
-import nicehu.nhsdk.core.data.AreaData;
+import nicehu.nhsdk.core.data.SD;
 import nicehu.server.gameserver.core.GameSession;
 import nicehu.server.gameserver.logic.initinfo.data.struct.PlayerNode;
 
@@ -10,12 +10,12 @@ public class LogUtil
 
 	public static void authToken(PlayerNode playerNode, String ip)
 	{
-		LogBase.authToken(TimeU.getStr(), playerNode.getPlayerId(), AreaData.getAreaId(), ip);
+		LogBase.authToken(TimeU.getStr(), playerNode.getPlayerId(), SD.areaId, ip);
 	}
 
 	public static void login(PlayerNode playerNode, GameSession session)
 	{
-		LogBase.login(TimeU.getStr(), playerNode.getPlayerId(), AreaData.getAreaId(), "GameSession not  have Channle  anymore");
+		LogBase.login(TimeU.getStr(), playerNode.getPlayerId(), SD.areaId, "GameSession not  have Channle  anymore");
 	}
 
 	public static void special(PlayerNode playerNode, int event, int id, long after, long from, int change)

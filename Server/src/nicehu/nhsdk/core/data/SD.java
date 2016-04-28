@@ -25,15 +25,17 @@ public class SD
 	private static Logger logger = LoggerFactory.getLogger(SD.class);
 
 	// ServerInfo
-	public static boolean isOpen = true;
+	public static boolean isOpen;
 	public static int serverId = 0;
 	public static int serverType;
 	public static String serverName = "";
 	public static ServerConfig serverConfig = null;
-	public static int index = 0;
+	// AreaInfo
+	public static int areaId = 0;
+	public static long areaStartTimeMS = -1;
 	// NettyServer
-	public static SocketServer socketServerForS = new SocketServer(true);
-	public static SocketServer socketServerForC = new SocketServer(false);
+	public static SocketServer serverForS = new SocketServer(true);
+	public static SocketServer serverForC = new SocketServer(false);
 	public static HttpServer httpCServer = new HttpServer();
 
 	public static HandlerMgr handlerMgr = new HandlerMgr();
@@ -43,7 +45,7 @@ public class SD
 	public static MemCacheImpl memCache = null;
 
 	public static CommonMainAfter mainAfter = null;
-	public static Statistics statistics = null;
+	public static Statistics statistics = new Statistics();
 
 	public static ConcurrentHashMap<Integer, Vector<ServerInfo>> serveType_SeverInfos = new ConcurrentHashMap<>();
 
@@ -57,8 +59,9 @@ public class SD
 	{
 		ServerConfig serverConfig = ServerConfigMgr.instance.getServerConfig(serverName);
 		SD.serverId = serverConfig.getServerId();
-		SD.index = ParseU.pInt(serverConfig.getAttr("index"));
 		SD.serverConfig = serverConfig;
+		
+		SD.areaId = serverConfig.getAreaId();
 	}
 
 	public static String getServerNameId()

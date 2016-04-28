@@ -14,6 +14,7 @@ public class ServerConfigMgr
 {
 	public static ServerConfigMgr instance = new ServerConfigMgr();
 
+	public int timeZone;
 	public HashMap<String, ServerConfig> name_Configs = new HashMap<>();
 	public HashMap<Integer, ServerConfig> id_Configs = new HashMap<>();
 
@@ -23,6 +24,9 @@ public class ServerConfigMgr
 
 		HashMap<String, ServerConfig> name_Configs = new HashMap<>();
 		HashMap<Integer, ServerConfig> id_Configs = new HashMap<>();
+
+		Element commonElement = root.element("Common");
+		timeZone = ParseU.pInt(commonElement.attributeValue("TimeZone"), 8);
 
 		Element uniqueServerElement = root.element("UniqueServer");
 		{
@@ -37,12 +41,12 @@ public class ServerConfigMgr
 				}
 			}
 			{
-				ServerConfig serverConfig = new ServerConfig(uniqueServerElement.element("ManageServer"), 0, memCacheConfig);
+				ServerConfig serverConfig = new ServerConfig(uniqueServerElement.element("ManageServer"), -1, memCacheConfig);
 				name_Configs.put(serverConfig.getServerName(), serverConfig);
 				id_Configs.put(serverConfig.getServerId(), serverConfig);
 			}
 			{
-				ServerConfig serverConfig = new ServerConfig(uniqueServerElement.element("AuthServer"), 0, memCacheConfig);
+				ServerConfig serverConfig = new ServerConfig(uniqueServerElement.element("AuthServer"), -2, memCacheConfig);
 				name_Configs.put(serverConfig.getServerName(), serverConfig);
 				id_Configs.put(serverConfig.getServerId(), serverConfig);
 			}
@@ -96,13 +100,6 @@ public class ServerConfigMgr
 	public synchronized ServerConfig getServerConfig(String serverName)
 	{
 		return this.name_Configs.get(serverName);
-	}
-
-	@JsonIgnore
-	public synchronized int getTimeZone()
-	{
-		return ParseU.pInt(getServerConfig("ManageServer").getAttr("TimeZone"), 8);
-
 	}
 
 	@JsonIgnore

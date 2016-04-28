@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>	
+    <Common TimeZone="8"></Common>
 	<UniqueServer>
-	    <ManageServer ServerName="ManageServer"	ServerId="10001"	IpForServer="127.0.0.1"	PortForServer="1001"    PortForGM="8000"  TimeZone="8"/>
-	    <AuthServer   ServerName="AuthServer"	ServerId="20001"	IpForServer="127.0.0.1"	PortForServer="1002"	IpForClient="127.0.0.1"	PortForSocketClient="2000" PortForHttpClient="20000"/>
+	    <ManageServer ServerName="ManageServer"	ServerId="10001"	IpForServer="127.0.0.1"	PortForServer="1001"    PortForGM="8000"  />
+	    <AuthServer   ServerName="AuthServer"	ServerId="20001"	IpForServer="127.0.0.1"	PortForServer="1002"	IpForClient="127.0.0.1"	PortForClient="2000"/>
 	</UniqueServer>
 	
 	<AreaServer AreaId="1">
-	    <ProxyServer   ServerName="ProxyServer_001"    ServerId="30011"  IpForServer="127.0.0.1" PortForServer="1011" IpForClient="127.0.0.1"	PortForSocketClient="2001" PortForHttpClient="20001"/>
+	    <ProxyServer   ServerName="ProxyServer_001"    ServerId="30011"  IpForServer="127.0.0.1" PortForServer="1011" IpForClient="127.0.0.1"	PortForClient="2001"/>
 	    <WorldServer ServerName="WorldServer_001"  ServerId="60011"  IpForServer="127.0.0.1" PortForServer="1013"/>
 	    <GameServer   ServerName="GameServer_001"  ServerId="50011"  IpForServer="127.0.0.1" PortForServer="1014"/>
 	    <MemCache Ip="127.0.0.1" Port="7000"/>

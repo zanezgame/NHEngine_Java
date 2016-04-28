@@ -9,11 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.data.Message;
+import nicehu.nhsdk.candy.json.JsonU;
 import nicehu.nhsdk.core.data.ServerInfo;
 import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.type.ServerType;
 import nicehu.pb.NHDefine.EGMI;
-import nicehu.pb.NHMsgBase.SyncServers;
+import nicehu.pb.NHMsgServer.SyncServerInfos;
 import nicehu.server.manageserver.core.MSD;
 
 public class ServerInfoMgr
@@ -55,8 +56,8 @@ public class ServerInfoMgr
 
 	public synchronized void sendCareServersToThisServer(ConnectNode serverNode, ServerInfo thisServer)
 	{
-		SyncServers.Builder builder = SyncServers.newBuilder();
-		Message syncServersProtocol = new Message(EGMI.EGMI_SERVER_SERVERINFO_SYNC_VALUE);
+		SyncServerInfos.Builder builder = SyncServerInfos.newBuilder();
+		Message msg = new Message(EGMI.EGMI_SERVER_SERVERINFO_SYNC_VALUE);
 
 		int thisServerType = ServerType.getType(thisServer.getId());
 		List<String> careServerTyps = new ArrayList<String>();
@@ -79,17 +80,17 @@ public class ServerInfoMgr
 				}
 				if (thisServer.getServerTypes().contains(ServerType.getType(server.getId())))
 				{
-					builder.addServers(server.toProto());
+					builder.addServerInfos(JsonU.getJsonStr(server));
 					careServerIds.add(Integer.toHexString(server.getId()));
 				}
 			}
 		}
-		if (builder.getServersCount() > 0)
+		if (builder.getServerInfosCount() > 0)
 		{
-			syncServersProtocol.genBaseMsg(builder.build());
+			msg.genBaseMsg(builder.build());
 			logger.info("sendToThisServer, thisServerId : " + Integer.toHexString(serverNode.getId()) + " careServerTypes: " + careServerTyps + " careServerIds: "
 				+ careServerIds);
-			MSD.transmitter.send(serverNode.getCtx(), syncServersProtocol);
+			MSD.transmitter.send(serverNode.getCtx(), msg);
 		}
 	}
 
@@ -116,8 +117,8 @@ public class ServerInfoMgr
 				}
 				if (server.getServerTypes().contains(thisServerType))
 				{
-					SyncServers.Builder builder = SyncServers.newBuilder();
-					builder.addServers(thisServer.toProto());
+					SyncServerInfos.Builder builder = SyncServerInfos.newBuilder();
+					builder.addServerInfos(JsonU.getJsonStr(thisServer));
 					syncServersProtocol.genBaseMsg(builder.build());
 					logger.info("sendToCareServers, careServerId : " + Integer.toHexString(server.getId()) + " thisServerId: " + Integer.toHexString(thisServer.getId()));
 					MSD.transmitter.sendToServer(server.getId(), syncServersProtocol);

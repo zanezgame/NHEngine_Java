@@ -2,14 +2,14 @@ package nicehu.server.worldserver.core;
 
 import nicehu.server.common.core.CommonHandlerRegister;
 
-public class WorldRegister
+public class WorldHandlerRegister
 {
 
 	public static void init()
 	{
 		CommonHandlerRegister.init();
-		WorldRegister.registerPB();
-		WorldRegister.registerHandler();
+		WorldHandlerRegister.registerPB();
+		WorldHandlerRegister.registerHandler();
 	}
 
 	public static void registerPB()

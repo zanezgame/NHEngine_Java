@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.log.LogBackMgr;
+import nicehu.nhsdk.candy.time.TimeZoneU;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.type.ServerType;
 import nicehu.server.common.handler.ShutdownReqHandler;
@@ -26,20 +27,27 @@ public class Main
 		{
 			serverName = args[0];
 		}
-		SD.init(serverType, serverName);
+		//load config
 		LogBackMgr.init();
+		ServerConfigMgr.instance.reload();
 		logger.warn("Server Name: {}", serverName);
 
-		ServerConfigMgr.instance.reload();
-
+		//SD init
+		SD.init(serverType, serverName);
+		SD.initServerConfig(serverName);
 		SD.mainAfter = new MainAfter();
-		SD.socketServerForS.initialize(16);
+		SD.serverForS.initialize(16);
+
+		//register
+		TimeZoneU.setTimezone(ServerConfigMgr.instance.timeZone);
 		GameHandlerRegister.init();
 
-		String manageIp = ServerConfigMgr.instance.getManageIp();
-		int managePort = ServerConfigMgr.instance.getManagePort();
-		logger.warn("GameServer connecting ManageServer  ip={} port={}", manageIp, managePort);
-		SD.socketServerForS.connectTo(new InetSocketAddress(manageIp, managePort));
+		//netty
+		String ip = ServerConfigMgr.instance.getManageIp();
+		int port = ServerConfigMgr.instance.getManagePort();
+		logger.warn("GameServer connecting ManageServer  ip={} port={}", ip, port);
+		
+		SD.serverForS.connectTo(new InetSocketAddress(ip, port));
 
 		Signal.handle(new Signal("TERM"), new ShutdownReqHandler());
 	}

@@ -28,7 +28,7 @@ public class GCT_QueryPlayerNodeHandler extends LogicHandler
 //				{
 //					msg.setId(ServerProtos.P_GAME_CTG_QUERY_PLAYERNODE);
 //					Message message = MessageU.genForwardMessage(msg);
-//					SD.transmitter.sendToServer(ServerType.GAME, AreaData.getAreaId(), message);
+//					SD.transmitter.sendToServer(ServerType.GAME, SD.areaId, message);
 //				}
 //				else if (msg.id == ServerProtos.P_GAME_CTG_QUERY_PLAYERNODE)
 //				{
@@ -36,7 +36,7 @@ public class GCT_QueryPlayerNodeHandler extends LogicHandler
 //					msg.seq = ParseU.pInt(msg.getAttr("initSeq"));
 //					msg.setSync(true);
 //					Message message = MessageU.genForwardMessage(msg);
-//					SD.transmitter.sendToServer(ServerType.GAME, AreaData.getAreaId(), message);
+//					SD.transmitter.sendToServer(ServerType.GAME, SD.areaId, message);
 //				}
 			} while (false);
 		}

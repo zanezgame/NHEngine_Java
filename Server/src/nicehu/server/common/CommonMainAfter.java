@@ -11,7 +11,7 @@ import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.data.ServerInfo;
 import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.pb.NHDefine.EGMI;
-import nicehu.pb.NHMsgBase.StreamObject;
+import nicehu.pb.NHMsgBase.Pair;
 import nicehu.pb.NHMsgServer.ServerLoginConfirm;
 import nicehu.pb.NHMsgServer.ServerLoginReq;
 
@@ -31,6 +31,7 @@ public abstract class CommonMainAfter
 
 	public void serverLoginConfirm(int manageServerId, int status)
 	{
+		logger.warn("Send ServerLoginConfimReq !!!");
 		ServerLoginConfirm.Builder builder = ServerLoginConfirm.newBuilder();
 		Message message = new Message(EGMI.EGMI_SERVER_LOGIN_CONFIRM_VALUE);
 		builder.setStatus(status);
@@ -38,8 +39,8 @@ public abstract class CommonMainAfter
 		SD.transmitter.sendToServer(manageServerId, message);
 	}
 
-	public abstract void mainAfter(ConnectNode sender, int result, int serverID, String ServerConfig, List<StreamObject> serverStreamObjects,
-		List<StreamObject> clientsObjects, int areaId, int tiemZone);
+	public abstract void mainAfter(ConnectNode sender, int result,List<Pair> serverStreamObjects,
+		List<Pair> clientsObjects);
 
 	public void connectOtherServers(List<ServerInfo> servers)
 	{

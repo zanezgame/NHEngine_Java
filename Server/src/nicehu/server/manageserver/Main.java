@@ -9,15 +9,12 @@ import org.slf4j.LoggerFactory;
 import nicehu.nhsdk.candy.log.LogBackMgr;
 import nicehu.nhsdk.candy.str.ParseU;
 import nicehu.nhsdk.candy.time.TimeZoneU;
-import nicehu.nhsdk.core.data.AreaData;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.data.ServerInfo;
 import nicehu.nhsdk.core.db.DBMgr;
 import nicehu.nhsdk.core.type.ServerType;
 import nicehu.server.common.handler.ShutdownReqHandler;
 import nicehu.server.manageserver.config.ConfigMgr;
-import nicehu.server.manageserver.config.core.ConfigPath;
-import nicehu.server.manageserver.config.serverconfig.ServerConfig;
 import nicehu.server.manageserver.config.serverconfig.ServerConfigMgr;
 import nicehu.server.manageserver.core.MSD;
 import nicehu.server.manageserver.core.ManageHandlerRegister;
@@ -33,29 +30,30 @@ public class Main
 
 	public static void main(String[] args)
 	{
+		// load config
 		LogBackMgr.init();
-		SD.init(serverType, serverName);
-		logger.warn("ServerName: ", SD.serverName);
-
+		ServerConfigMgr.instance.reload();
+		logger.warn("Server Name: {}", serverName);
 		ConfigMgr.loadFromFile();
 
-		ServerConfig serverConfig = ServerConfigMgr.instance.getServerConfig(serverName);
+		// SD init
+		SD.init(serverType, serverName);
 		SD.initServerConfig(serverName);
+		SD.serverForS.initialize(16);
 
-		TimeZoneU.setTimezone(ParseU.pInt(serverConfig.getAttr("TimeZone"), 0));
-		AreaData.setAreaId(-1);
+		TimeZoneU.setTimezone(ServerConfigMgr.instance.timeZone);
+		ManageHandlerRegister.init();
 
 		DBMgr.init(serverType);
 		ConfigMgr.loadFromDB();
 		FreezeMgr.instance.init();
 
-		SD.socketServerForS.initialize(16);
-		ManageHandlerRegister.init();
 		try
 		{
-			int portForServer = ParseU.pInt(serverConfig.getAttr("PortForServer"), 0);
+			int portForServer = ParseU.pInt(SD.serverConfig.getAttr("PortForServer"), 0);
 			logger.warn("ManageServer openPort portForServer={}", portForServer);
-			boolean portForServerOpen = SD.socketServerForS.openPort(new InetSocketAddress(portForServer));
+			boolean portForServerOpen = SD.serverForS.openPort(new InetSocketAddress(portForServer));
+			SD.isOpen = true;
 
 			if (portForServerOpen)
 			{
@@ -68,7 +66,7 @@ public class Main
 			System.exit(0);
 		}
 
-		ServerInfo serverInfo = new ServerInfo(serverConfig);
+		ServerInfo serverInfo = new ServerInfo(SD.serverConfig);
 		MSD.serverInfoMgr.addServer(serverInfo);
 
 		Signal.handle(new Signal("TERM"), new ShutdownReqHandler());

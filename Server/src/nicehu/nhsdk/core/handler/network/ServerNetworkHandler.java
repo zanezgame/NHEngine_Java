@@ -16,7 +16,7 @@ public class ServerNetworkHandler extends NetworkHandler
 	public void channelActive(ChannelHandlerContext ctx)
 		throws Exception
 	{
-		if (SD.serverId > 0)
+		if (SD.isOpen)
 		{
 			logger.debug("!!!One Connetion Event BEGIN!!!");
 

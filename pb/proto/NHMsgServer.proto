@@ -3,6 +3,11 @@ package nicehu.pb;
 option java_outer_classname = "NHMsgServer";
 option optimize_for = SPEED;
 
+message SyncServerInfos
+{
+    repeated string serverInfos = 1;
+}
+
 message ShutdownReq
 {
 	optional int32 seq = 1;
@@ -30,12 +35,8 @@ message ServerLoginReq
 message ServerLoginRes
 {	
     optional int32 result = 1;
-    optional int32 serverId = 2;
-    optional string serverConfig = 3;
-	optional int32 areaId = 4;
-	optional int32 timeZone = 5;
-	repeated StreamObject streamObjects = 6;
-	repeated StreamObject clientObjects = 7;
+	repeated Pair serverConfigs = 2;
+	repeated Pair clientConfigs = 3;
 }
 message ServerLoginConfirm
 {
@@ -58,8 +59,8 @@ message GM_GMQueryRes
 message ReloadConfigReq
 {
 	optional int32 seq = 1;
-	repeated StreamObject serverConfigs = 2;
-	repeated StreamObject clientConfigs = 3;
+	repeated Pair serverConfigs = 2;
+	repeated Pair clientConfigs = 3;
 	optional bool isNeedAddVersion = 4;
 	optional bool isServerConfig = 5;
 }

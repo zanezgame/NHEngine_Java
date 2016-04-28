@@ -91,15 +91,15 @@ public class LoginHandler extends LogicHandler
 				}
 				int areaId = area.getAreaId();
 				NHMsgBase.Area.Builder areaBuilder = NHMsgBase.Area.newBuilder();
-				areaBuilder.setAreaId(areaId);
+				areaBuilder.setId(areaId);
 				areaBuilder.setName(area.getAreaName());
 				areaBuilder.setStatus(area.getStatus());
 				// 获取该区的Proxy是否开启
 				ServerInfo proxyServerInfo = SD.getProxyServer(areaId);
 				if (proxyServerInfo != null)
 				{
-					areaBuilder.setGateIp(proxyServerInfo.getIpForClient());
-					areaBuilder.setGatePort(proxyServerInfo.getPortForSocketClient());
+					areaBuilder.setIp(proxyServerInfo.getIpForClient());
+					areaBuilder.setPort(proxyServerInfo.getPortForClient());
 				}
 				builder.addAreas(areaBuilder);
 			}

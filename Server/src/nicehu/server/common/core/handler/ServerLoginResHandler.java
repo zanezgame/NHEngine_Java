@@ -7,6 +7,7 @@ import nicehu.nhsdk.candy.data.Message;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.handler.LogicHandler;
+import nicehu.pb.NHDefine.EGEC;
 import nicehu.pb.NHDefine.EGMI;
 import nicehu.pb.NHMsgServer.ServerLoginRes;
 
@@ -21,21 +22,21 @@ public class ServerLoginResHandler extends LogicHandler
 		{
 			ServerLoginRes request = (ServerLoginRes)msg.getPb(ServerLoginRes.getDefaultInstance());
 
-			if (SD.serverId <= 0)
+			if (request.getResult() == EGEC.EGEC_CORE_SUCCESS_VALUE)
 			{
-				SD.mainAfter.mainAfter(sender,
-					request.getResult(),
-					request.getServerId(),
-					request.getServerConfig(),
-					request.getStreamObjectsList(),
-					request.getClientObjectsList(),
-					request.getAreaId(),
-					request.getTimeZone());
+				if (!SD.isOpen)
+				{
+					SD.mainAfter.mainAfter(sender, request.getResult(), request.getServerConfigsList(), request.getClientConfigsList());
+				}
+				else
+				{
+					logger.warn("server relogin localAddress={}", sender.getCtx().channel().localAddress());
+					SD.mainAfter.serverLoginConfirm(sender.getId(), 2);
+				}
 			}
 			else
 			{
-				logger.warn("server relogin localAddress={}", sender.getCtx().channel().localAddress());
-				SD.mainAfter.serverLoginConfirm(sender.getId(), 2);
+				logger.error("serverLogin Error!!!");
 			}
 
 		}

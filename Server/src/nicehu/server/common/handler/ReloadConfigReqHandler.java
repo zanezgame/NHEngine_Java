@@ -11,7 +11,7 @@ import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.handler.LogicHandler;
 import nicehu.pb.NHDefine.EGEC;
 import nicehu.pb.NHDefine.EGMI;
-import nicehu.pb.NHMsgBase.StreamObject;
+import nicehu.pb.NHMsgBase.Pair;
 import nicehu.pb.NHMsgServer.ReloadConfigReq;
 import nicehu.pb.NHMsgServer.ReloadConfigRes;
 import nicehu.server.manageserver.config.core.ConfigReloadMgr;
@@ -31,10 +31,8 @@ public class ReloadConfigReqHandler extends LogicHandler
 		ReloadConfigRes.Builder builder = ReloadConfigRes.newBuilder();
 		int code = EGEC.EGEC_CORE_SUCCESS_VALUE;
 
-		List<StreamObject> serverConfigs = request.getServerConfigsList();
-		List<StreamObject> clientConfigs = request.getClientConfigsList();
-		boolean needAddVersion = request.getIsNeedAddVersion();
-		boolean isServerConfig = request.getIsServerConfig();
+		List<Pair> serverConfigs = request.getServerConfigsList();
+		List<Pair> clientConfigs = request.getClientConfigsList();
 
 		try
 		{

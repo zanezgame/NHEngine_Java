@@ -10,7 +10,7 @@ import nicehu.nhsdk.core.data.ServerInfo;
 import nicehu.nhsdk.core.handler.LogicHandler;
 import nicehu.pb.NHDefine.EGEC;
 import nicehu.pb.NHDefine.EGMI;
-import nicehu.pb.NHMsgBase.StreamObject;
+import nicehu.pb.NHMsgBase.Pair;
 import nicehu.pb.NHMsgServer.ServerLoginReq;
 import nicehu.pb.NHMsgServer.ServerLoginRes;
 import nicehu.server.manageserver.config.areaConfig.AreaInfoMgr;
@@ -55,40 +55,37 @@ public class XM_ServerLoginReqHandler extends LogicHandler
 			MSD.transmitter.addServerNode(serverInfo.getId(), ctx);
 			MSD.serverInfoMgr.addServer(serverInfo);
 
-			builder.setServerId(serverInfo.getId());
-			builder.setServerConfig(JsonU.getJsonStr(serverConfig));
 			builder.setResult(EGEC.EGEC_CORE_SUCCESS_VALUE);
-			builder.setTimeZone(ServerConfigMgr.instance.getTimeZone());
-			builder.setAreaId(serverConfig.getAreaId());
 
-			builder.addStreamObjects(this.genStreamObject(ConfigPath.file_common, JsonU.getJsonStr(CommonConfigMgr.instance)));
-			builder.addStreamObjects(this.genStreamObject(ConfigPath.file_DBConfig, JsonU.getJsonStr(DBConfigMgr.instance)));
+			builder.addServerConfigs(this.genStreamObject(ConfigPath.file_common, JsonU.getJsonStr(CommonConfigMgr.instance)));
+			builder.addServerConfigs(this.genStreamObject(ConfigPath.file_DBConfig, JsonU.getJsonStr(DBConfigMgr.instance)));
 
-			builder.addStreamObjects(this.genStreamObject(ConfigPath.db_BaseInfo, JsonU.getJsonStr(BaseInfoMgr.instance)));
-			builder.addStreamObjects(this.genStreamObject(ConfigPath.db_AreaInfo, JsonU.getJsonStr(AreaInfoMgr.instance)));
-			builder.addStreamObjects(this.genStreamObject(ConfigPath.db_WhiteIpInfo, JsonU.getJsonStr(WhiteIpInfoMgr.instance)));
+			builder.addServerConfigs(this.genStreamObject(ConfigPath.db_BaseInfo, JsonU.getJsonStr(BaseInfoMgr.instance)));
+			builder.addServerConfigs(this.genStreamObject(ConfigPath.db_AreaInfo, JsonU.getJsonStr(AreaInfoMgr.instance)));
+			builder.addServerConfigs(this.genStreamObject(ConfigPath.db_WhiteIpInfo, JsonU.getJsonStr(WhiteIpInfoMgr.instance)));
 
-//			if (request.getServerType() == ServerType.AUTH || request.getServerType() == ServerType.GAME || request.getServerType() == ServerType.CENTER)
-//			{
-//				for (Map.Entry<String, String> entry : ClientConfigMgr.instance.getClientCompressConfigs().entrySet())
-//				{
-//					StreamObject.Builder tmp = StreamObject.newBuilder();
-//					tmp.setName(entry.getKey());
-//					tmp.setStreamBuffer(entry.getValue());
-//					builder.addClientObjects(tmp.build());
-//				}
-//			}
+			// if (request.getServerType() == ServerType.AUTH || request.getServerType() == ServerType.GAME ||
+			// request.getServerType() == ServerType.CENTER)
+			// {
+			// for (Map.Entry<String, String> entry : ClientConfigMgr.instance.getClientCompressConfigs().entrySet())
+			// {
+			// StreamObject.Builder tmp = StreamObject.newBuilder();
+			// tmp.setName(entry.getKey());
+			// tmp.setStreamBuffer(entry.getValue());
+			// builder.addClientObjects(tmp.build());
+			// }
+			// }
 		} while (false);
 
 		message.genBaseMsg(builder.build());
 		MSD.transmitter.sendToServer(serverInfo.getId(), message);
 	}
 
-	public StreamObject genStreamObject(String name, String value)
+	public Pair genStreamObject(String name, String value)
 	{
-		StreamObject.Builder tmp = StreamObject.newBuilder();
-		tmp.setName(name);
-		tmp.setStreamBuffer(value);
+		Pair.Builder tmp = Pair.newBuilder();
+		tmp.setKey(name);
+		tmp.setValue(value);
 		return tmp.build();
 	}
 

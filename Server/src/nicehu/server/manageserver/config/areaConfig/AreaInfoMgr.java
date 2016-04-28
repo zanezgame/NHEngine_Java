@@ -10,7 +10,7 @@ import nicehu.nhsdk.candy.log.LogU;
 import nicehu.nhsdk.candy.str.ParseU;
 import nicehu.nhsdk.candy.time.TimeU;
 import nicehu.nhsdk.candy.util.CloseU;
-import nicehu.nhsdk.core.data.AreaData;
+import nicehu.nhsdk.core.data.SD;
 import nicehu.pb.NHDefine;
 import nicehu.server.manageserver.core.MSD;
 
@@ -36,9 +36,9 @@ public class AreaInfoMgr
 				area.setAreaName(ParseU.pStr(rs.getString("name"), ""));
 				area.setAreaStartTime(TimeU.getLong(TimeU.getStr(rs.getDate("areaStartTime").getTime()), System.currentTimeMillis()));
 				area.setStatus(ParseU.pInt(rs.getString("status"), NHDefine.EAreaStatus.EAS_Unknow_VALUE));
-				if (area.getAreaId() == AreaData.getAreaId())
+				if (area.getAreaId() == SD.areaId)
 				{
-					AreaData.setAreaStartTimeMS(area.getAreaStartTime());
+					SD.areaStartTimeMS =area.getAreaStartTime();
 				}
 				areas.add(area);
 
@@ -50,9 +50,9 @@ public class AreaInfoMgr
 				area.setAreaName(ParseU.pStr("默认一区", ""));
 				area.setAreaStartTime(TimeU.getLong(TimeU.getStr(), System.currentTimeMillis()));
 				area.setStatus(ParseU.pInt("1", NHDefine.EAreaStatus.EAS_Unknow_VALUE));
-				if (area.getAreaId() == AreaData.getAreaId())
+				if (area.getAreaId() == SD.areaId)
 				{
-					AreaData.setAreaStartTimeMS(area.getAreaStartTime());
+					SD.areaStartTimeMS= area.getAreaStartTime();
 				}
 				areas.add(area);
 

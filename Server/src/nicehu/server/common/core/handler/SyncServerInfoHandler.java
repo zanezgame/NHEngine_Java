@@ -7,14 +7,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nicehu.nhsdk.candy.data.Message;
+import nicehu.nhsdk.candy.json.JsonU;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.data.ServerInfo;
 import nicehu.nhsdk.core.datatransmitter.data.ConnectNode;
 import nicehu.nhsdk.core.handler.LogicHandler;
-import nicehu.pb.NHMsgBase;
-import nicehu.pb.NHMsgBase.SyncServers;
+import nicehu.pb.NHMsgServer.SyncServerInfos;
 
-
+/**
+ * 
+ * @author cherish
+ * @Description: 
+ *
+ */
 public class SyncServerInfoHandler extends LogicHandler
 {
 	private static final Logger logger = LoggerFactory.getLogger(SyncServerInfoHandler.class);
@@ -23,12 +28,12 @@ public class SyncServerInfoHandler extends LogicHandler
 	public void handle(ConnectNode sender, Message msg)
 	{
 		logger.warn(SD.serverName + " Receive ServerSyncInfo! Update New remote ServerInfo!");
-		SyncServers request = (SyncServers)msg.getPb(SyncServers.getDefaultInstance());
-		List<ServerInfo> servers = new LinkedList<ServerInfo>();
-		for (NHMsgBase.ServerInfo serverInfoPro : request.getServersList())
+		SyncServerInfos request = (SyncServerInfos)msg.getPb(SyncServerInfos.getDefaultInstance());
+		List<ServerInfo> serverInfos = new LinkedList<ServerInfo>();
+		for (String serverInfoJsonStr : request.getServerInfosList())
 		{
-			ServerInfo serverInfo = new ServerInfo(serverInfoPro);
-			servers.add(serverInfo);
+			ServerInfo serverInfo = JsonU.getJavaObj(ServerInfo.class, serverInfoJsonStr);
+			serverInfos.add(serverInfo);
 
 			if (serverInfo.getStatus() == ServerInfo.SERVER_STATUS_NORMAL)
 			{
@@ -41,7 +46,7 @@ public class SyncServerInfoHandler extends LogicHandler
 			logger.warn("remote serverId: " + serverInfo.getId() + " Status: " + serverInfo.getStatus());
 		}
 
-		SD.mainAfter.connectOtherServers(servers);
+		SD.mainAfter.connectOtherServers(serverInfos);
 	}
 
 }

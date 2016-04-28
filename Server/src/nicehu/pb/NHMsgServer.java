@@ -8,6 +8,393 @@ public final class NHMsgServer {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  public interface SyncServerInfosOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+    
+    // repeated string serverInfos = 1;
+    java.util.List<String> getServerInfosList();
+    int getServerInfosCount();
+    String getServerInfos(int index);
+  }
+  public static final class SyncServerInfos extends
+      com.google.protobuf.GeneratedMessage
+      implements SyncServerInfosOrBuilder {
+    // Use SyncServerInfos.newBuilder() to construct.
+    private SyncServerInfos(Builder builder) {
+      super(builder);
+    }
+    private SyncServerInfos(boolean noInit) {}
+    
+    private static final SyncServerInfos defaultInstance;
+    public static SyncServerInfos getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public SyncServerInfos getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return nicehu.pb.NHMsgServer.internal_static_nicehu_pb_SyncServerInfos_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return nicehu.pb.NHMsgServer.internal_static_nicehu_pb_SyncServerInfos_fieldAccessorTable;
+    }
+    
+    // repeated string serverInfos = 1;
+    public static final int SERVERINFOS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList serverInfos_;
+    public java.util.List<String>
+        getServerInfosList() {
+      return serverInfos_;
+    }
+    public int getServerInfosCount() {
+      return serverInfos_.size();
+    }
+    public String getServerInfos(int index) {
+      return serverInfos_.get(index);
+    }
+    
+    private void initFields() {
+      serverInfos_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < serverInfos_.size(); i++) {
+        output.writeBytes(1, serverInfos_.getByteString(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < serverInfos_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(serverInfos_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getServerInfosList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    @java.lang.Override
+    protected Object writeReplace() throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static nicehu.pb.NHMsgServer.SyncServerInfos parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(nicehu.pb.NHMsgServer.SyncServerInfos prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements nicehu.pb.NHMsgServer.SyncServerInfosOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return nicehu.pb.NHMsgServer.internal_static_nicehu_pb_SyncServerInfos_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return nicehu.pb.NHMsgServer.internal_static_nicehu_pb_SyncServerInfos_fieldAccessorTable;
+      }
+      
+      // Construct using nicehu.pb.NHMsgServer.SyncServerInfos.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        serverInfos_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return nicehu.pb.NHMsgServer.SyncServerInfos.getDescriptor();
+      }
+      
+      public nicehu.pb.NHMsgServer.SyncServerInfos getDefaultInstanceForType() {
+        return nicehu.pb.NHMsgServer.SyncServerInfos.getDefaultInstance();
+      }
+      
+      public nicehu.pb.NHMsgServer.SyncServerInfos build() {
+        nicehu.pb.NHMsgServer.SyncServerInfos result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private nicehu.pb.NHMsgServer.SyncServerInfos buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        nicehu.pb.NHMsgServer.SyncServerInfos result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public nicehu.pb.NHMsgServer.SyncServerInfos buildPartial() {
+        nicehu.pb.NHMsgServer.SyncServerInfos result = new nicehu.pb.NHMsgServer.SyncServerInfos(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          serverInfos_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              serverInfos_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.serverInfos_ = serverInfos_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof nicehu.pb.NHMsgServer.SyncServerInfos) {
+          return mergeFrom((nicehu.pb.NHMsgServer.SyncServerInfos)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(nicehu.pb.NHMsgServer.SyncServerInfos other) {
+        if (other == nicehu.pb.NHMsgServer.SyncServerInfos.getDefaultInstance()) return this;
+        if (!other.serverInfos_.isEmpty()) {
+          if (serverInfos_.isEmpty()) {
+            serverInfos_ = other.serverInfos_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureServerInfosIsMutable();
+            serverInfos_.addAll(other.serverInfos_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              ensureServerInfosIsMutable();
+              serverInfos_.add(input.readBytes());
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // repeated string serverInfos = 1;
+      private com.google.protobuf.LazyStringList serverInfos_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureServerInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          serverInfos_ = new com.google.protobuf.LazyStringArrayList(serverInfos_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      public java.util.List<String>
+          getServerInfosList() {
+        return java.util.Collections.unmodifiableList(serverInfos_);
+      }
+      public int getServerInfosCount() {
+        return serverInfos_.size();
+      }
+      public String getServerInfos(int index) {
+        return serverInfos_.get(index);
+      }
+      public Builder setServerInfos(
+          int index, String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureServerInfosIsMutable();
+        serverInfos_.set(index, value);
+        onChanged();
+        return this;
+      }
+      public Builder addServerInfos(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureServerInfosIsMutable();
+        serverInfos_.add(value);
+        onChanged();
+        return this;
+      }
+      public Builder addAllServerInfos(
+          java.lang.Iterable<String> values) {
+        ensureServerInfosIsMutable();
+        super.addAll(values, serverInfos_);
+        onChanged();
+        return this;
+      }
+      public Builder clearServerInfos() {
+        serverInfos_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      void addServerInfos(com.google.protobuf.ByteString value) {
+        ensureServerInfosIsMutable();
+        serverInfos_.add(value);
+        onChanged();
+      }
+      
+      // @@protoc_insertion_point(builder_scope:nicehu.pb.SyncServerInfos)
+    }
+    
+    static {
+      defaultInstance = new SyncServerInfos(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:nicehu.pb.SyncServerInfos)
+  }
+  
   public interface ShutdownReqOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
@@ -1869,40 +2256,24 @@ public final class NHMsgServer {
     boolean hasResult();
     int getResult();
     
-    // optional int32 serverId = 2;
-    boolean hasServerId();
-    int getServerId();
-    
-    // optional string serverConfig = 3;
-    boolean hasServerConfig();
-    String getServerConfig();
-    
-    // optional int32 areaId = 4;
-    boolean hasAreaId();
-    int getAreaId();
-    
-    // optional int32 timeZone = 5;
-    boolean hasTimeZone();
-    int getTimeZone();
-    
-    // repeated .nicehu.pb.StreamObject streamObjects = 6;
-    java.util.List<nicehu.pb.NHMsgBase.StreamObject> 
-        getStreamObjectsList();
-    nicehu.pb.NHMsgBase.StreamObject getStreamObjects(int index);
-    int getStreamObjectsCount();
-    java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-        getStreamObjectsOrBuilderList();
-    nicehu.pb.NHMsgBase.StreamObjectOrBuilder getStreamObjectsOrBuilder(
+    // repeated .nicehu.pb.Pair serverConfigs = 2;
+    java.util.List<nicehu.pb.NHMsgBase.Pair> 
+        getServerConfigsList();
+    nicehu.pb.NHMsgBase.Pair getServerConfigs(int index);
+    int getServerConfigsCount();
+    java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
+        getServerConfigsOrBuilderList();
+    nicehu.pb.NHMsgBase.PairOrBuilder getServerConfigsOrBuilder(
         int index);
     
-    // repeated .nicehu.pb.StreamObject clientObjects = 7;
-    java.util.List<nicehu.pb.NHMsgBase.StreamObject> 
-        getClientObjectsList();
-    nicehu.pb.NHMsgBase.StreamObject getClientObjects(int index);
-    int getClientObjectsCount();
-    java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-        getClientObjectsOrBuilderList();
-    nicehu.pb.NHMsgBase.StreamObjectOrBuilder getClientObjectsOrBuilder(
+    // repeated .nicehu.pb.Pair clientConfigs = 3;
+    java.util.List<nicehu.pb.NHMsgBase.Pair> 
+        getClientConfigsList();
+    nicehu.pb.NHMsgBase.Pair getClientConfigs(int index);
+    int getClientConfigsCount();
+    java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
+        getClientConfigsOrBuilderList();
+    nicehu.pb.NHMsgBase.PairOrBuilder getClientConfigsOrBuilder(
         int index);
   }
   public static final class ServerLoginRes extends
@@ -1944,118 +2315,52 @@ public final class NHMsgServer {
       return result_;
     }
     
-    // optional int32 serverId = 2;
-    public static final int SERVERID_FIELD_NUMBER = 2;
-    private int serverId_;
-    public boolean hasServerId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+    // repeated .nicehu.pb.Pair serverConfigs = 2;
+    public static final int SERVERCONFIGS_FIELD_NUMBER = 2;
+    private java.util.List<nicehu.pb.NHMsgBase.Pair> serverConfigs_;
+    public java.util.List<nicehu.pb.NHMsgBase.Pair> getServerConfigsList() {
+      return serverConfigs_;
     }
-    public int getServerId() {
-      return serverId_;
+    public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
+        getServerConfigsOrBuilderList() {
+      return serverConfigs_;
     }
-    
-    // optional string serverConfig = 3;
-    public static final int SERVERCONFIG_FIELD_NUMBER = 3;
-    private Object serverConfig_;
-    public boolean hasServerConfig() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+    public int getServerConfigsCount() {
+      return serverConfigs_.size();
     }
-    public String getServerConfig() {
-      Object ref = serverConfig_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          serverConfig_ = s;
-        }
-        return s;
-      }
+    public nicehu.pb.NHMsgBase.Pair getServerConfigs(int index) {
+      return serverConfigs_.get(index);
     }
-    private com.google.protobuf.ByteString getServerConfigBytes() {
-      Object ref = serverConfig_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        serverConfig_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int32 areaId = 4;
-    public static final int AREAID_FIELD_NUMBER = 4;
-    private int areaId_;
-    public boolean hasAreaId() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    public int getAreaId() {
-      return areaId_;
-    }
-    
-    // optional int32 timeZone = 5;
-    public static final int TIMEZONE_FIELD_NUMBER = 5;
-    private int timeZone_;
-    public boolean hasTimeZone() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    public int getTimeZone() {
-      return timeZone_;
-    }
-    
-    // repeated .nicehu.pb.StreamObject streamObjects = 6;
-    public static final int STREAMOBJECTS_FIELD_NUMBER = 6;
-    private java.util.List<nicehu.pb.NHMsgBase.StreamObject> streamObjects_;
-    public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getStreamObjectsList() {
-      return streamObjects_;
-    }
-    public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-        getStreamObjectsOrBuilderList() {
-      return streamObjects_;
-    }
-    public int getStreamObjectsCount() {
-      return streamObjects_.size();
-    }
-    public nicehu.pb.NHMsgBase.StreamObject getStreamObjects(int index) {
-      return streamObjects_.get(index);
-    }
-    public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getStreamObjectsOrBuilder(
+    public nicehu.pb.NHMsgBase.PairOrBuilder getServerConfigsOrBuilder(
         int index) {
-      return streamObjects_.get(index);
+      return serverConfigs_.get(index);
     }
     
-    // repeated .nicehu.pb.StreamObject clientObjects = 7;
-    public static final int CLIENTOBJECTS_FIELD_NUMBER = 7;
-    private java.util.List<nicehu.pb.NHMsgBase.StreamObject> clientObjects_;
-    public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getClientObjectsList() {
-      return clientObjects_;
+    // repeated .nicehu.pb.Pair clientConfigs = 3;
+    public static final int CLIENTCONFIGS_FIELD_NUMBER = 3;
+    private java.util.List<nicehu.pb.NHMsgBase.Pair> clientConfigs_;
+    public java.util.List<nicehu.pb.NHMsgBase.Pair> getClientConfigsList() {
+      return clientConfigs_;
     }
-    public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-        getClientObjectsOrBuilderList() {
-      return clientObjects_;
+    public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
+        getClientConfigsOrBuilderList() {
+      return clientConfigs_;
     }
-    public int getClientObjectsCount() {
-      return clientObjects_.size();
+    public int getClientConfigsCount() {
+      return clientConfigs_.size();
     }
-    public nicehu.pb.NHMsgBase.StreamObject getClientObjects(int index) {
-      return clientObjects_.get(index);
+    public nicehu.pb.NHMsgBase.Pair getClientConfigs(int index) {
+      return clientConfigs_.get(index);
     }
-    public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getClientObjectsOrBuilder(
+    public nicehu.pb.NHMsgBase.PairOrBuilder getClientConfigsOrBuilder(
         int index) {
-      return clientObjects_.get(index);
+      return clientConfigs_.get(index);
     }
     
     private void initFields() {
       result_ = 0;
-      serverId_ = 0;
-      serverConfig_ = "";
-      areaId_ = 0;
-      timeZone_ = 0;
-      streamObjects_ = java.util.Collections.emptyList();
-      clientObjects_ = java.util.Collections.emptyList();
+      serverConfigs_ = java.util.Collections.emptyList();
+      clientConfigs_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2072,23 +2377,11 @@ public final class NHMsgServer {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, result_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, serverId_);
+      for (int i = 0; i < serverConfigs_.size(); i++) {
+        output.writeMessage(2, serverConfigs_.get(i));
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getServerConfigBytes());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, areaId_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, timeZone_);
-      }
-      for (int i = 0; i < streamObjects_.size(); i++) {
-        output.writeMessage(6, streamObjects_.get(i));
-      }
-      for (int i = 0; i < clientObjects_.size(); i++) {
-        output.writeMessage(7, clientObjects_.get(i));
+      for (int i = 0; i < clientConfigs_.size(); i++) {
+        output.writeMessage(3, clientConfigs_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -2103,29 +2396,13 @@ public final class NHMsgServer {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, result_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      for (int i = 0; i < serverConfigs_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, serverId_);
+          .computeMessageSize(2, serverConfigs_.get(i));
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      for (int i = 0; i < clientConfigs_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getServerConfigBytes());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, areaId_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, timeZone_);
-      }
-      for (int i = 0; i < streamObjects_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, streamObjects_.get(i));
-      }
-      for (int i = 0; i < clientObjects_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, clientObjects_.get(i));
+          .computeMessageSize(3, clientConfigs_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2241,8 +2518,8 @@ public final class NHMsgServer {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getStreamObjectsFieldBuilder();
-          getClientObjectsFieldBuilder();
+          getServerConfigsFieldBuilder();
+          getClientConfigsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -2253,25 +2530,17 @@ public final class NHMsgServer {
         super.clear();
         result_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        serverId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        serverConfig_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
-        areaId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        timeZone_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        if (streamObjectsBuilder_ == null) {
-          streamObjects_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+        if (serverConfigsBuilder_ == null) {
+          serverConfigs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          streamObjectsBuilder_.clear();
+          serverConfigsBuilder_.clear();
         }
-        if (clientObjectsBuilder_ == null) {
-          clientObjects_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+        if (clientConfigsBuilder_ == null) {
+          clientConfigs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
-          clientObjectsBuilder_.clear();
+          clientConfigsBuilder_.clear();
         }
         return this;
       }
@@ -2315,39 +2584,23 @@ public final class NHMsgServer {
           to_bitField0_ |= 0x00000001;
         }
         result.result_ = result_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.serverId_ = serverId_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.serverConfig_ = serverConfig_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.areaId_ = areaId_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.timeZone_ = timeZone_;
-        if (streamObjectsBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
-            streamObjects_ = java.util.Collections.unmodifiableList(streamObjects_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+        if (serverConfigsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            serverConfigs_ = java.util.Collections.unmodifiableList(serverConfigs_);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
-          result.streamObjects_ = streamObjects_;
+          result.serverConfigs_ = serverConfigs_;
         } else {
-          result.streamObjects_ = streamObjectsBuilder_.build();
+          result.serverConfigs_ = serverConfigsBuilder_.build();
         }
-        if (clientObjectsBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040)) {
-            clientObjects_ = java.util.Collections.unmodifiableList(clientObjects_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+        if (clientConfigsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            clientConfigs_ = java.util.Collections.unmodifiableList(clientConfigs_);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
-          result.clientObjects_ = clientObjects_;
+          result.clientConfigs_ = clientConfigs_;
         } else {
-          result.clientObjects_ = clientObjectsBuilder_.build();
+          result.clientConfigs_ = clientConfigsBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -2368,67 +2621,55 @@ public final class NHMsgServer {
         if (other.hasResult()) {
           setResult(other.getResult());
         }
-        if (other.hasServerId()) {
-          setServerId(other.getServerId());
-        }
-        if (other.hasServerConfig()) {
-          setServerConfig(other.getServerConfig());
-        }
-        if (other.hasAreaId()) {
-          setAreaId(other.getAreaId());
-        }
-        if (other.hasTimeZone()) {
-          setTimeZone(other.getTimeZone());
-        }
-        if (streamObjectsBuilder_ == null) {
-          if (!other.streamObjects_.isEmpty()) {
-            if (streamObjects_.isEmpty()) {
-              streamObjects_ = other.streamObjects_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+        if (serverConfigsBuilder_ == null) {
+          if (!other.serverConfigs_.isEmpty()) {
+            if (serverConfigs_.isEmpty()) {
+              serverConfigs_ = other.serverConfigs_;
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
-              ensureStreamObjectsIsMutable();
-              streamObjects_.addAll(other.streamObjects_);
+              ensureServerConfigsIsMutable();
+              serverConfigs_.addAll(other.serverConfigs_);
             }
             onChanged();
           }
         } else {
-          if (!other.streamObjects_.isEmpty()) {
-            if (streamObjectsBuilder_.isEmpty()) {
-              streamObjectsBuilder_.dispose();
-              streamObjectsBuilder_ = null;
-              streamObjects_ = other.streamObjects_;
-              bitField0_ = (bitField0_ & ~0x00000020);
-              streamObjectsBuilder_ = 
+          if (!other.serverConfigs_.isEmpty()) {
+            if (serverConfigsBuilder_.isEmpty()) {
+              serverConfigsBuilder_.dispose();
+              serverConfigsBuilder_ = null;
+              serverConfigs_ = other.serverConfigs_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              serverConfigsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getStreamObjectsFieldBuilder() : null;
+                   getServerConfigsFieldBuilder() : null;
             } else {
-              streamObjectsBuilder_.addAllMessages(other.streamObjects_);
+              serverConfigsBuilder_.addAllMessages(other.serverConfigs_);
             }
           }
         }
-        if (clientObjectsBuilder_ == null) {
-          if (!other.clientObjects_.isEmpty()) {
-            if (clientObjects_.isEmpty()) {
-              clientObjects_ = other.clientObjects_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+        if (clientConfigsBuilder_ == null) {
+          if (!other.clientConfigs_.isEmpty()) {
+            if (clientConfigs_.isEmpty()) {
+              clientConfigs_ = other.clientConfigs_;
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
-              ensureClientObjectsIsMutable();
-              clientObjects_.addAll(other.clientObjects_);
+              ensureClientConfigsIsMutable();
+              clientConfigs_.addAll(other.clientConfigs_);
             }
             onChanged();
           }
         } else {
-          if (!other.clientObjects_.isEmpty()) {
-            if (clientObjectsBuilder_.isEmpty()) {
-              clientObjectsBuilder_.dispose();
-              clientObjectsBuilder_ = null;
-              clientObjects_ = other.clientObjects_;
-              bitField0_ = (bitField0_ & ~0x00000040);
-              clientObjectsBuilder_ = 
+          if (!other.clientConfigs_.isEmpty()) {
+            if (clientConfigsBuilder_.isEmpty()) {
+              clientConfigsBuilder_.dispose();
+              clientConfigsBuilder_ = null;
+              clientConfigs_ = other.clientConfigs_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              clientConfigsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getClientObjectsFieldBuilder() : null;
+                   getClientConfigsFieldBuilder() : null;
             } else {
-              clientObjectsBuilder_.addAllMessages(other.clientObjects_);
+              clientConfigsBuilder_.addAllMessages(other.clientConfigs_);
             }
           }
         }
@@ -2468,36 +2709,16 @@ public final class NHMsgServer {
               result_ = input.readInt32();
               break;
             }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              serverId_ = input.readInt32();
+            case 18: {
+              nicehu.pb.NHMsgBase.Pair.Builder subBuilder = nicehu.pb.NHMsgBase.Pair.newBuilder();
+              input.readMessage(subBuilder, extensionRegistry);
+              addServerConfigs(subBuilder.buildPartial());
               break;
             }
             case 26: {
-              bitField0_ |= 0x00000004;
-              serverConfig_ = input.readBytes();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              areaId_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              timeZone_ = input.readInt32();
-              break;
-            }
-            case 50: {
-              nicehu.pb.NHMsgBase.StreamObject.Builder subBuilder = nicehu.pb.NHMsgBase.StreamObject.newBuilder();
+              nicehu.pb.NHMsgBase.Pair.Builder subBuilder = nicehu.pb.NHMsgBase.Pair.newBuilder();
               input.readMessage(subBuilder, extensionRegistry);
-              addStreamObjects(subBuilder.buildPartial());
-              break;
-            }
-            case 58: {
-              nicehu.pb.NHMsgBase.StreamObject.Builder subBuilder = nicehu.pb.NHMsgBase.StreamObject.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addClientObjects(subBuilder.buildPartial());
+              addClientConfigs(subBuilder.buildPartial());
               break;
             }
           }
@@ -2527,475 +2748,376 @@ public final class NHMsgServer {
         return this;
       }
       
-      // optional int32 serverId = 2;
-      private int serverId_ ;
-      public boolean hasServerId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public int getServerId() {
-        return serverId_;
-      }
-      public Builder setServerId(int value) {
-        bitField0_ |= 0x00000002;
-        serverId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearServerId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        serverId_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // optional string serverConfig = 3;
-      private Object serverConfig_ = "";
-      public boolean hasServerConfig() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      public String getServerConfig() {
-        Object ref = serverConfig_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          serverConfig_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setServerConfig(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        serverConfig_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearServerConfig() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        serverConfig_ = getDefaultInstance().getServerConfig();
-        onChanged();
-        return this;
-      }
-      void setServerConfig(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
-        serverConfig_ = value;
-        onChanged();
-      }
-      
-      // optional int32 areaId = 4;
-      private int areaId_ ;
-      public boolean hasAreaId() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      public int getAreaId() {
-        return areaId_;
-      }
-      public Builder setAreaId(int value) {
-        bitField0_ |= 0x00000008;
-        areaId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearAreaId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        areaId_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // optional int32 timeZone = 5;
-      private int timeZone_ ;
-      public boolean hasTimeZone() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      public int getTimeZone() {
-        return timeZone_;
-      }
-      public Builder setTimeZone(int value) {
-        bitField0_ |= 0x00000010;
-        timeZone_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearTimeZone() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        timeZone_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // repeated .nicehu.pb.StreamObject streamObjects = 6;
-      private java.util.List<nicehu.pb.NHMsgBase.StreamObject> streamObjects_ =
+      // repeated .nicehu.pb.Pair serverConfigs = 2;
+      private java.util.List<nicehu.pb.NHMsgBase.Pair> serverConfigs_ =
         java.util.Collections.emptyList();
-      private void ensureStreamObjectsIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          streamObjects_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.StreamObject>(streamObjects_);
-          bitField0_ |= 0x00000020;
+      private void ensureServerConfigsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          serverConfigs_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.Pair>(serverConfigs_);
+          bitField0_ |= 0x00000002;
          }
       }
       
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> streamObjectsBuilder_;
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> serverConfigsBuilder_;
       
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getStreamObjectsList() {
-        if (streamObjectsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(streamObjects_);
+      public java.util.List<nicehu.pb.NHMsgBase.Pair> getServerConfigsList() {
+        if (serverConfigsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(serverConfigs_);
         } else {
-          return streamObjectsBuilder_.getMessageList();
+          return serverConfigsBuilder_.getMessageList();
         }
       }
-      public int getStreamObjectsCount() {
-        if (streamObjectsBuilder_ == null) {
-          return streamObjects_.size();
+      public int getServerConfigsCount() {
+        if (serverConfigsBuilder_ == null) {
+          return serverConfigs_.size();
         } else {
-          return streamObjectsBuilder_.getCount();
+          return serverConfigsBuilder_.getCount();
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject getStreamObjects(int index) {
-        if (streamObjectsBuilder_ == null) {
-          return streamObjects_.get(index);
+      public nicehu.pb.NHMsgBase.Pair getServerConfigs(int index) {
+        if (serverConfigsBuilder_ == null) {
+          return serverConfigs_.get(index);
         } else {
-          return streamObjectsBuilder_.getMessage(index);
+          return serverConfigsBuilder_.getMessage(index);
         }
       }
-      public Builder setStreamObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
-        if (streamObjectsBuilder_ == null) {
+      public Builder setServerConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair value) {
+        if (serverConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureStreamObjectsIsMutable();
-          streamObjects_.set(index, value);
+          ensureServerConfigsIsMutable();
+          serverConfigs_.set(index, value);
           onChanged();
         } else {
-          streamObjectsBuilder_.setMessage(index, value);
+          serverConfigsBuilder_.setMessage(index, value);
         }
         return this;
       }
-      public Builder setStreamObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
-        if (streamObjectsBuilder_ == null) {
-          ensureStreamObjectsIsMutable();
-          streamObjects_.set(index, builderForValue.build());
+      public Builder setServerConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
+        if (serverConfigsBuilder_ == null) {
+          ensureServerConfigsIsMutable();
+          serverConfigs_.set(index, builderForValue.build());
           onChanged();
         } else {
-          streamObjectsBuilder_.setMessage(index, builderForValue.build());
+          serverConfigsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
-      public Builder addStreamObjects(nicehu.pb.NHMsgBase.StreamObject value) {
-        if (streamObjectsBuilder_ == null) {
+      public Builder addServerConfigs(nicehu.pb.NHMsgBase.Pair value) {
+        if (serverConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureStreamObjectsIsMutable();
-          streamObjects_.add(value);
+          ensureServerConfigsIsMutable();
+          serverConfigs_.add(value);
           onChanged();
         } else {
-          streamObjectsBuilder_.addMessage(value);
+          serverConfigsBuilder_.addMessage(value);
         }
         return this;
       }
-      public Builder addStreamObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
-        if (streamObjectsBuilder_ == null) {
+      public Builder addServerConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair value) {
+        if (serverConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureStreamObjectsIsMutable();
-          streamObjects_.add(index, value);
+          ensureServerConfigsIsMutable();
+          serverConfigs_.add(index, value);
           onChanged();
         } else {
-          streamObjectsBuilder_.addMessage(index, value);
+          serverConfigsBuilder_.addMessage(index, value);
         }
         return this;
       }
-      public Builder addStreamObjects(
-          nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
-        if (streamObjectsBuilder_ == null) {
-          ensureStreamObjectsIsMutable();
-          streamObjects_.add(builderForValue.build());
+      public Builder addServerConfigs(
+          nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
+        if (serverConfigsBuilder_ == null) {
+          ensureServerConfigsIsMutable();
+          serverConfigs_.add(builderForValue.build());
           onChanged();
         } else {
-          streamObjectsBuilder_.addMessage(builderForValue.build());
+          serverConfigsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
-      public Builder addStreamObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
-        if (streamObjectsBuilder_ == null) {
-          ensureStreamObjectsIsMutable();
-          streamObjects_.add(index, builderForValue.build());
+      public Builder addServerConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
+        if (serverConfigsBuilder_ == null) {
+          ensureServerConfigsIsMutable();
+          serverConfigs_.add(index, builderForValue.build());
           onChanged();
         } else {
-          streamObjectsBuilder_.addMessage(index, builderForValue.build());
+          serverConfigsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
-      public Builder addAllStreamObjects(
-          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.StreamObject> values) {
-        if (streamObjectsBuilder_ == null) {
-          ensureStreamObjectsIsMutable();
-          super.addAll(values, streamObjects_);
+      public Builder addAllServerConfigs(
+          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.Pair> values) {
+        if (serverConfigsBuilder_ == null) {
+          ensureServerConfigsIsMutable();
+          super.addAll(values, serverConfigs_);
           onChanged();
         } else {
-          streamObjectsBuilder_.addAllMessages(values);
+          serverConfigsBuilder_.addAllMessages(values);
         }
         return this;
       }
-      public Builder clearStreamObjects() {
-        if (streamObjectsBuilder_ == null) {
-          streamObjects_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+      public Builder clearServerConfigs() {
+        if (serverConfigsBuilder_ == null) {
+          serverConfigs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
-          streamObjectsBuilder_.clear();
+          serverConfigsBuilder_.clear();
         }
         return this;
       }
-      public Builder removeStreamObjects(int index) {
-        if (streamObjectsBuilder_ == null) {
-          ensureStreamObjectsIsMutable();
-          streamObjects_.remove(index);
+      public Builder removeServerConfigs(int index) {
+        if (serverConfigsBuilder_ == null) {
+          ensureServerConfigsIsMutable();
+          serverConfigs_.remove(index);
           onChanged();
         } else {
-          streamObjectsBuilder_.remove(index);
+          serverConfigsBuilder_.remove(index);
         }
         return this;
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder getStreamObjectsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder getServerConfigsBuilder(
           int index) {
-        return getStreamObjectsFieldBuilder().getBuilder(index);
+        return getServerConfigsFieldBuilder().getBuilder(index);
       }
-      public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getStreamObjectsOrBuilder(
+      public nicehu.pb.NHMsgBase.PairOrBuilder getServerConfigsOrBuilder(
           int index) {
-        if (streamObjectsBuilder_ == null) {
-          return streamObjects_.get(index);  } else {
-          return streamObjectsBuilder_.getMessageOrBuilder(index);
+        if (serverConfigsBuilder_ == null) {
+          return serverConfigs_.get(index);  } else {
+          return serverConfigsBuilder_.getMessageOrBuilder(index);
         }
       }
-      public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-           getStreamObjectsOrBuilderList() {
-        if (streamObjectsBuilder_ != null) {
-          return streamObjectsBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
+           getServerConfigsOrBuilderList() {
+        if (serverConfigsBuilder_ != null) {
+          return serverConfigsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(streamObjects_);
+          return java.util.Collections.unmodifiableList(serverConfigs_);
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addStreamObjectsBuilder() {
-        return getStreamObjectsFieldBuilder().addBuilder(
-            nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+      public nicehu.pb.NHMsgBase.Pair.Builder addServerConfigsBuilder() {
+        return getServerConfigsFieldBuilder().addBuilder(
+            nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addStreamObjectsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder addServerConfigsBuilder(
           int index) {
-        return getStreamObjectsFieldBuilder().addBuilder(
-            index, nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+        return getServerConfigsFieldBuilder().addBuilder(
+            index, nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject.Builder> 
-           getStreamObjectsBuilderList() {
-        return getStreamObjectsFieldBuilder().getBuilderList();
+      public java.util.List<nicehu.pb.NHMsgBase.Pair.Builder> 
+           getServerConfigsBuilderList() {
+        return getServerConfigsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-          getStreamObjectsFieldBuilder() {
-        if (streamObjectsBuilder_ == null) {
-          streamObjectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder>(
-                  streamObjects_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> 
+          getServerConfigsFieldBuilder() {
+        if (serverConfigsBuilder_ == null) {
+          serverConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder>(
+                  serverConfigs_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
-          streamObjects_ = null;
+          serverConfigs_ = null;
         }
-        return streamObjectsBuilder_;
+        return serverConfigsBuilder_;
       }
       
-      // repeated .nicehu.pb.StreamObject clientObjects = 7;
-      private java.util.List<nicehu.pb.NHMsgBase.StreamObject> clientObjects_ =
+      // repeated .nicehu.pb.Pair clientConfigs = 3;
+      private java.util.List<nicehu.pb.NHMsgBase.Pair> clientConfigs_ =
         java.util.Collections.emptyList();
-      private void ensureClientObjectsIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-          clientObjects_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.StreamObject>(clientObjects_);
-          bitField0_ |= 0x00000040;
+      private void ensureClientConfigsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          clientConfigs_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.Pair>(clientConfigs_);
+          bitField0_ |= 0x00000004;
          }
       }
       
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> clientObjectsBuilder_;
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> clientConfigsBuilder_;
       
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getClientObjectsList() {
-        if (clientObjectsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(clientObjects_);
+      public java.util.List<nicehu.pb.NHMsgBase.Pair> getClientConfigsList() {
+        if (clientConfigsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(clientConfigs_);
         } else {
-          return clientObjectsBuilder_.getMessageList();
+          return clientConfigsBuilder_.getMessageList();
         }
       }
-      public int getClientObjectsCount() {
-        if (clientObjectsBuilder_ == null) {
-          return clientObjects_.size();
+      public int getClientConfigsCount() {
+        if (clientConfigsBuilder_ == null) {
+          return clientConfigs_.size();
         } else {
-          return clientObjectsBuilder_.getCount();
+          return clientConfigsBuilder_.getCount();
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject getClientObjects(int index) {
-        if (clientObjectsBuilder_ == null) {
-          return clientObjects_.get(index);
+      public nicehu.pb.NHMsgBase.Pair getClientConfigs(int index) {
+        if (clientConfigsBuilder_ == null) {
+          return clientConfigs_.get(index);
         } else {
-          return clientObjectsBuilder_.getMessage(index);
+          return clientConfigsBuilder_.getMessage(index);
         }
       }
-      public Builder setClientObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
-        if (clientObjectsBuilder_ == null) {
+      public Builder setClientConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair value) {
+        if (clientConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureClientObjectsIsMutable();
-          clientObjects_.set(index, value);
+          ensureClientConfigsIsMutable();
+          clientConfigs_.set(index, value);
           onChanged();
         } else {
-          clientObjectsBuilder_.setMessage(index, value);
+          clientConfigsBuilder_.setMessage(index, value);
         }
         return this;
       }
-      public Builder setClientObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
-        if (clientObjectsBuilder_ == null) {
-          ensureClientObjectsIsMutable();
-          clientObjects_.set(index, builderForValue.build());
+      public Builder setClientConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
+        if (clientConfigsBuilder_ == null) {
+          ensureClientConfigsIsMutable();
+          clientConfigs_.set(index, builderForValue.build());
           onChanged();
         } else {
-          clientObjectsBuilder_.setMessage(index, builderForValue.build());
+          clientConfigsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
-      public Builder addClientObjects(nicehu.pb.NHMsgBase.StreamObject value) {
-        if (clientObjectsBuilder_ == null) {
+      public Builder addClientConfigs(nicehu.pb.NHMsgBase.Pair value) {
+        if (clientConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureClientObjectsIsMutable();
-          clientObjects_.add(value);
+          ensureClientConfigsIsMutable();
+          clientConfigs_.add(value);
           onChanged();
         } else {
-          clientObjectsBuilder_.addMessage(value);
+          clientConfigsBuilder_.addMessage(value);
         }
         return this;
       }
-      public Builder addClientObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
-        if (clientObjectsBuilder_ == null) {
+      public Builder addClientConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair value) {
+        if (clientConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureClientObjectsIsMutable();
-          clientObjects_.add(index, value);
+          ensureClientConfigsIsMutable();
+          clientConfigs_.add(index, value);
           onChanged();
         } else {
-          clientObjectsBuilder_.addMessage(index, value);
+          clientConfigsBuilder_.addMessage(index, value);
         }
         return this;
       }
-      public Builder addClientObjects(
-          nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
-        if (clientObjectsBuilder_ == null) {
-          ensureClientObjectsIsMutable();
-          clientObjects_.add(builderForValue.build());
+      public Builder addClientConfigs(
+          nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
+        if (clientConfigsBuilder_ == null) {
+          ensureClientConfigsIsMutable();
+          clientConfigs_.add(builderForValue.build());
           onChanged();
         } else {
-          clientObjectsBuilder_.addMessage(builderForValue.build());
+          clientConfigsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
-      public Builder addClientObjects(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
-        if (clientObjectsBuilder_ == null) {
-          ensureClientObjectsIsMutable();
-          clientObjects_.add(index, builderForValue.build());
+      public Builder addClientConfigs(
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
+        if (clientConfigsBuilder_ == null) {
+          ensureClientConfigsIsMutable();
+          clientConfigs_.add(index, builderForValue.build());
           onChanged();
         } else {
-          clientObjectsBuilder_.addMessage(index, builderForValue.build());
+          clientConfigsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
-      public Builder addAllClientObjects(
-          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.StreamObject> values) {
-        if (clientObjectsBuilder_ == null) {
-          ensureClientObjectsIsMutable();
-          super.addAll(values, clientObjects_);
+      public Builder addAllClientConfigs(
+          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.Pair> values) {
+        if (clientConfigsBuilder_ == null) {
+          ensureClientConfigsIsMutable();
+          super.addAll(values, clientConfigs_);
           onChanged();
         } else {
-          clientObjectsBuilder_.addAllMessages(values);
+          clientConfigsBuilder_.addAllMessages(values);
         }
         return this;
       }
-      public Builder clearClientObjects() {
-        if (clientObjectsBuilder_ == null) {
-          clientObjects_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+      public Builder clearClientConfigs() {
+        if (clientConfigsBuilder_ == null) {
+          clientConfigs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
-          clientObjectsBuilder_.clear();
+          clientConfigsBuilder_.clear();
         }
         return this;
       }
-      public Builder removeClientObjects(int index) {
-        if (clientObjectsBuilder_ == null) {
-          ensureClientObjectsIsMutable();
-          clientObjects_.remove(index);
+      public Builder removeClientConfigs(int index) {
+        if (clientConfigsBuilder_ == null) {
+          ensureClientConfigsIsMutable();
+          clientConfigs_.remove(index);
           onChanged();
         } else {
-          clientObjectsBuilder_.remove(index);
+          clientConfigsBuilder_.remove(index);
         }
         return this;
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder getClientObjectsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder getClientConfigsBuilder(
           int index) {
-        return getClientObjectsFieldBuilder().getBuilder(index);
+        return getClientConfigsFieldBuilder().getBuilder(index);
       }
-      public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getClientObjectsOrBuilder(
+      public nicehu.pb.NHMsgBase.PairOrBuilder getClientConfigsOrBuilder(
           int index) {
-        if (clientObjectsBuilder_ == null) {
-          return clientObjects_.get(index);  } else {
-          return clientObjectsBuilder_.getMessageOrBuilder(index);
+        if (clientConfigsBuilder_ == null) {
+          return clientConfigs_.get(index);  } else {
+          return clientConfigsBuilder_.getMessageOrBuilder(index);
         }
       }
-      public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-           getClientObjectsOrBuilderList() {
-        if (clientObjectsBuilder_ != null) {
-          return clientObjectsBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
+           getClientConfigsOrBuilderList() {
+        if (clientConfigsBuilder_ != null) {
+          return clientConfigsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(clientObjects_);
+          return java.util.Collections.unmodifiableList(clientConfigs_);
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addClientObjectsBuilder() {
-        return getClientObjectsFieldBuilder().addBuilder(
-            nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+      public nicehu.pb.NHMsgBase.Pair.Builder addClientConfigsBuilder() {
+        return getClientConfigsFieldBuilder().addBuilder(
+            nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addClientObjectsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder addClientConfigsBuilder(
           int index) {
-        return getClientObjectsFieldBuilder().addBuilder(
-            index, nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+        return getClientConfigsFieldBuilder().addBuilder(
+            index, nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject.Builder> 
-           getClientObjectsBuilderList() {
-        return getClientObjectsFieldBuilder().getBuilderList();
+      public java.util.List<nicehu.pb.NHMsgBase.Pair.Builder> 
+           getClientConfigsBuilderList() {
+        return getClientConfigsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
-          getClientObjectsFieldBuilder() {
-        if (clientObjectsBuilder_ == null) {
-          clientObjectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder>(
-                  clientObjects_,
-                  ((bitField0_ & 0x00000040) == 0x00000040),
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> 
+          getClientConfigsFieldBuilder() {
+        if (clientConfigsBuilder_ == null) {
+          clientConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder>(
+                  clientConfigs_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
-          clientObjects_ = null;
+          clientConfigs_ = null;
         }
-        return clientObjectsBuilder_;
+        return clientConfigsBuilder_;
       }
       
       // @@protoc_insertion_point(builder_scope:nicehu.pb.ServerLoginRes)
@@ -4326,24 +4448,24 @@ public final class NHMsgServer {
     boolean hasSeq();
     int getSeq();
     
-    // repeated .nicehu.pb.StreamObject serverConfigs = 2;
-    java.util.List<nicehu.pb.NHMsgBase.StreamObject> 
+    // repeated .nicehu.pb.Pair serverConfigs = 2;
+    java.util.List<nicehu.pb.NHMsgBase.Pair> 
         getServerConfigsList();
-    nicehu.pb.NHMsgBase.StreamObject getServerConfigs(int index);
+    nicehu.pb.NHMsgBase.Pair getServerConfigs(int index);
     int getServerConfigsCount();
-    java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+    java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
         getServerConfigsOrBuilderList();
-    nicehu.pb.NHMsgBase.StreamObjectOrBuilder getServerConfigsOrBuilder(
+    nicehu.pb.NHMsgBase.PairOrBuilder getServerConfigsOrBuilder(
         int index);
     
-    // repeated .nicehu.pb.StreamObject clientConfigs = 3;
-    java.util.List<nicehu.pb.NHMsgBase.StreamObject> 
+    // repeated .nicehu.pb.Pair clientConfigs = 3;
+    java.util.List<nicehu.pb.NHMsgBase.Pair> 
         getClientConfigsList();
-    nicehu.pb.NHMsgBase.StreamObject getClientConfigs(int index);
+    nicehu.pb.NHMsgBase.Pair getClientConfigs(int index);
     int getClientConfigsCount();
-    java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+    java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
         getClientConfigsOrBuilderList();
-    nicehu.pb.NHMsgBase.StreamObjectOrBuilder getClientConfigsOrBuilder(
+    nicehu.pb.NHMsgBase.PairOrBuilder getClientConfigsOrBuilder(
         int index);
     
     // optional bool isNeedAddVersion = 4;
@@ -4393,44 +4515,44 @@ public final class NHMsgServer {
       return seq_;
     }
     
-    // repeated .nicehu.pb.StreamObject serverConfigs = 2;
+    // repeated .nicehu.pb.Pair serverConfigs = 2;
     public static final int SERVERCONFIGS_FIELD_NUMBER = 2;
-    private java.util.List<nicehu.pb.NHMsgBase.StreamObject> serverConfigs_;
-    public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getServerConfigsList() {
+    private java.util.List<nicehu.pb.NHMsgBase.Pair> serverConfigs_;
+    public java.util.List<nicehu.pb.NHMsgBase.Pair> getServerConfigsList() {
       return serverConfigs_;
     }
-    public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+    public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
         getServerConfigsOrBuilderList() {
       return serverConfigs_;
     }
     public int getServerConfigsCount() {
       return serverConfigs_.size();
     }
-    public nicehu.pb.NHMsgBase.StreamObject getServerConfigs(int index) {
+    public nicehu.pb.NHMsgBase.Pair getServerConfigs(int index) {
       return serverConfigs_.get(index);
     }
-    public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getServerConfigsOrBuilder(
+    public nicehu.pb.NHMsgBase.PairOrBuilder getServerConfigsOrBuilder(
         int index) {
       return serverConfigs_.get(index);
     }
     
-    // repeated .nicehu.pb.StreamObject clientConfigs = 3;
+    // repeated .nicehu.pb.Pair clientConfigs = 3;
     public static final int CLIENTCONFIGS_FIELD_NUMBER = 3;
-    private java.util.List<nicehu.pb.NHMsgBase.StreamObject> clientConfigs_;
-    public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getClientConfigsList() {
+    private java.util.List<nicehu.pb.NHMsgBase.Pair> clientConfigs_;
+    public java.util.List<nicehu.pb.NHMsgBase.Pair> getClientConfigsList() {
       return clientConfigs_;
     }
-    public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+    public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
         getClientConfigsOrBuilderList() {
       return clientConfigs_;
     }
     public int getClientConfigsCount() {
       return clientConfigs_.size();
     }
-    public nicehu.pb.NHMsgBase.StreamObject getClientConfigs(int index) {
+    public nicehu.pb.NHMsgBase.Pair getClientConfigs(int index) {
       return clientConfigs_.get(index);
     }
-    public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getClientConfigsOrBuilder(
+    public nicehu.pb.NHMsgBase.PairOrBuilder getClientConfigsOrBuilder(
         int index) {
       return clientConfigs_.get(index);
     }
@@ -4842,13 +4964,13 @@ public final class NHMsgServer {
               break;
             }
             case 18: {
-              nicehu.pb.NHMsgBase.StreamObject.Builder subBuilder = nicehu.pb.NHMsgBase.StreamObject.newBuilder();
+              nicehu.pb.NHMsgBase.Pair.Builder subBuilder = nicehu.pb.NHMsgBase.Pair.newBuilder();
               input.readMessage(subBuilder, extensionRegistry);
               addServerConfigs(subBuilder.buildPartial());
               break;
             }
             case 26: {
-              nicehu.pb.NHMsgBase.StreamObject.Builder subBuilder = nicehu.pb.NHMsgBase.StreamObject.newBuilder();
+              nicehu.pb.NHMsgBase.Pair.Builder subBuilder = nicehu.pb.NHMsgBase.Pair.newBuilder();
               input.readMessage(subBuilder, extensionRegistry);
               addClientConfigs(subBuilder.buildPartial());
               break;
@@ -4890,20 +5012,20 @@ public final class NHMsgServer {
         return this;
       }
       
-      // repeated .nicehu.pb.StreamObject serverConfigs = 2;
-      private java.util.List<nicehu.pb.NHMsgBase.StreamObject> serverConfigs_ =
+      // repeated .nicehu.pb.Pair serverConfigs = 2;
+      private java.util.List<nicehu.pb.NHMsgBase.Pair> serverConfigs_ =
         java.util.Collections.emptyList();
       private void ensureServerConfigsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          serverConfigs_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.StreamObject>(serverConfigs_);
+          serverConfigs_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.Pair>(serverConfigs_);
           bitField0_ |= 0x00000002;
          }
       }
       
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> serverConfigsBuilder_;
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> serverConfigsBuilder_;
       
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getServerConfigsList() {
+      public java.util.List<nicehu.pb.NHMsgBase.Pair> getServerConfigsList() {
         if (serverConfigsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(serverConfigs_);
         } else {
@@ -4917,7 +5039,7 @@ public final class NHMsgServer {
           return serverConfigsBuilder_.getCount();
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject getServerConfigs(int index) {
+      public nicehu.pb.NHMsgBase.Pair getServerConfigs(int index) {
         if (serverConfigsBuilder_ == null) {
           return serverConfigs_.get(index);
         } else {
@@ -4925,7 +5047,7 @@ public final class NHMsgServer {
         }
       }
       public Builder setServerConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
+          int index, nicehu.pb.NHMsgBase.Pair value) {
         if (serverConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4939,7 +5061,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder setServerConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
         if (serverConfigsBuilder_ == null) {
           ensureServerConfigsIsMutable();
           serverConfigs_.set(index, builderForValue.build());
@@ -4949,7 +5071,7 @@ public final class NHMsgServer {
         }
         return this;
       }
-      public Builder addServerConfigs(nicehu.pb.NHMsgBase.StreamObject value) {
+      public Builder addServerConfigs(nicehu.pb.NHMsgBase.Pair value) {
         if (serverConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4963,7 +5085,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addServerConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
+          int index, nicehu.pb.NHMsgBase.Pair value) {
         if (serverConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4977,7 +5099,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addServerConfigs(
-          nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
+          nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
         if (serverConfigsBuilder_ == null) {
           ensureServerConfigsIsMutable();
           serverConfigs_.add(builderForValue.build());
@@ -4988,7 +5110,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addServerConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
         if (serverConfigsBuilder_ == null) {
           ensureServerConfigsIsMutable();
           serverConfigs_.add(index, builderForValue.build());
@@ -4999,7 +5121,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addAllServerConfigs(
-          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.StreamObject> values) {
+          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.Pair> values) {
         if (serverConfigsBuilder_ == null) {
           ensureServerConfigsIsMutable();
           super.addAll(values, serverConfigs_);
@@ -5029,18 +5151,18 @@ public final class NHMsgServer {
         }
         return this;
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder getServerConfigsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder getServerConfigsBuilder(
           int index) {
         return getServerConfigsFieldBuilder().getBuilder(index);
       }
-      public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getServerConfigsOrBuilder(
+      public nicehu.pb.NHMsgBase.PairOrBuilder getServerConfigsOrBuilder(
           int index) {
         if (serverConfigsBuilder_ == null) {
           return serverConfigs_.get(index);  } else {
           return serverConfigsBuilder_.getMessageOrBuilder(index);
         }
       }
-      public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+      public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
            getServerConfigsOrBuilderList() {
         if (serverConfigsBuilder_ != null) {
           return serverConfigsBuilder_.getMessageOrBuilderList();
@@ -5048,25 +5170,25 @@ public final class NHMsgServer {
           return java.util.Collections.unmodifiableList(serverConfigs_);
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addServerConfigsBuilder() {
+      public nicehu.pb.NHMsgBase.Pair.Builder addServerConfigsBuilder() {
         return getServerConfigsFieldBuilder().addBuilder(
-            nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+            nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addServerConfigsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder addServerConfigsBuilder(
           int index) {
         return getServerConfigsFieldBuilder().addBuilder(
-            index, nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+            index, nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject.Builder> 
+      public java.util.List<nicehu.pb.NHMsgBase.Pair.Builder> 
            getServerConfigsBuilderList() {
         return getServerConfigsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> 
           getServerConfigsFieldBuilder() {
         if (serverConfigsBuilder_ == null) {
           serverConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder>(
+              nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder>(
                   serverConfigs_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -5076,20 +5198,20 @@ public final class NHMsgServer {
         return serverConfigsBuilder_;
       }
       
-      // repeated .nicehu.pb.StreamObject clientConfigs = 3;
-      private java.util.List<nicehu.pb.NHMsgBase.StreamObject> clientConfigs_ =
+      // repeated .nicehu.pb.Pair clientConfigs = 3;
+      private java.util.List<nicehu.pb.NHMsgBase.Pair> clientConfigs_ =
         java.util.Collections.emptyList();
       private void ensureClientConfigsIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          clientConfigs_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.StreamObject>(clientConfigs_);
+          clientConfigs_ = new java.util.ArrayList<nicehu.pb.NHMsgBase.Pair>(clientConfigs_);
           bitField0_ |= 0x00000004;
          }
       }
       
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> clientConfigsBuilder_;
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> clientConfigsBuilder_;
       
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject> getClientConfigsList() {
+      public java.util.List<nicehu.pb.NHMsgBase.Pair> getClientConfigsList() {
         if (clientConfigsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(clientConfigs_);
         } else {
@@ -5103,7 +5225,7 @@ public final class NHMsgServer {
           return clientConfigsBuilder_.getCount();
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject getClientConfigs(int index) {
+      public nicehu.pb.NHMsgBase.Pair getClientConfigs(int index) {
         if (clientConfigsBuilder_ == null) {
           return clientConfigs_.get(index);
         } else {
@@ -5111,7 +5233,7 @@ public final class NHMsgServer {
         }
       }
       public Builder setClientConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
+          int index, nicehu.pb.NHMsgBase.Pair value) {
         if (clientConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5125,7 +5247,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder setClientConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
         if (clientConfigsBuilder_ == null) {
           ensureClientConfigsIsMutable();
           clientConfigs_.set(index, builderForValue.build());
@@ -5135,7 +5257,7 @@ public final class NHMsgServer {
         }
         return this;
       }
-      public Builder addClientConfigs(nicehu.pb.NHMsgBase.StreamObject value) {
+      public Builder addClientConfigs(nicehu.pb.NHMsgBase.Pair value) {
         if (clientConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5149,7 +5271,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addClientConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject value) {
+          int index, nicehu.pb.NHMsgBase.Pair value) {
         if (clientConfigsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5163,7 +5285,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addClientConfigs(
-          nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
+          nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
         if (clientConfigsBuilder_ == null) {
           ensureClientConfigsIsMutable();
           clientConfigs_.add(builderForValue.build());
@@ -5174,7 +5296,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addClientConfigs(
-          int index, nicehu.pb.NHMsgBase.StreamObject.Builder builderForValue) {
+          int index, nicehu.pb.NHMsgBase.Pair.Builder builderForValue) {
         if (clientConfigsBuilder_ == null) {
           ensureClientConfigsIsMutable();
           clientConfigs_.add(index, builderForValue.build());
@@ -5185,7 +5307,7 @@ public final class NHMsgServer {
         return this;
       }
       public Builder addAllClientConfigs(
-          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.StreamObject> values) {
+          java.lang.Iterable<? extends nicehu.pb.NHMsgBase.Pair> values) {
         if (clientConfigsBuilder_ == null) {
           ensureClientConfigsIsMutable();
           super.addAll(values, clientConfigs_);
@@ -5215,18 +5337,18 @@ public final class NHMsgServer {
         }
         return this;
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder getClientConfigsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder getClientConfigsBuilder(
           int index) {
         return getClientConfigsFieldBuilder().getBuilder(index);
       }
-      public nicehu.pb.NHMsgBase.StreamObjectOrBuilder getClientConfigsOrBuilder(
+      public nicehu.pb.NHMsgBase.PairOrBuilder getClientConfigsOrBuilder(
           int index) {
         if (clientConfigsBuilder_ == null) {
           return clientConfigs_.get(index);  } else {
           return clientConfigsBuilder_.getMessageOrBuilder(index);
         }
       }
-      public java.util.List<? extends nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+      public java.util.List<? extends nicehu.pb.NHMsgBase.PairOrBuilder> 
            getClientConfigsOrBuilderList() {
         if (clientConfigsBuilder_ != null) {
           return clientConfigsBuilder_.getMessageOrBuilderList();
@@ -5234,25 +5356,25 @@ public final class NHMsgServer {
           return java.util.Collections.unmodifiableList(clientConfigs_);
         }
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addClientConfigsBuilder() {
+      public nicehu.pb.NHMsgBase.Pair.Builder addClientConfigsBuilder() {
         return getClientConfigsFieldBuilder().addBuilder(
-            nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+            nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public nicehu.pb.NHMsgBase.StreamObject.Builder addClientConfigsBuilder(
+      public nicehu.pb.NHMsgBase.Pair.Builder addClientConfigsBuilder(
           int index) {
         return getClientConfigsFieldBuilder().addBuilder(
-            index, nicehu.pb.NHMsgBase.StreamObject.getDefaultInstance());
+            index, nicehu.pb.NHMsgBase.Pair.getDefaultInstance());
       }
-      public java.util.List<nicehu.pb.NHMsgBase.StreamObject.Builder> 
+      public java.util.List<nicehu.pb.NHMsgBase.Pair.Builder> 
            getClientConfigsBuilderList() {
         return getClientConfigsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder> 
+          nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder> 
           getClientConfigsFieldBuilder() {
         if (clientConfigsBuilder_ == null) {
           clientConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              nicehu.pb.NHMsgBase.StreamObject, nicehu.pb.NHMsgBase.StreamObject.Builder, nicehu.pb.NHMsgBase.StreamObjectOrBuilder>(
+              nicehu.pb.NHMsgBase.Pair, nicehu.pb.NHMsgBase.Pair.Builder, nicehu.pb.NHMsgBase.PairOrBuilder>(
                   clientConfigs_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
@@ -6609,6 +6731,11 @@ public final class NHMsgServer {
   }
   
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_nicehu_pb_SyncServerInfos_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_nicehu_pb_SyncServerInfos_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_nicehu_pb_ShutdownReq_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -6678,40 +6805,46 @@ public final class NHMsgServer {
   static {
     java.lang.String[] descriptorData = {
       "\n\027proto/NHMsgServer.proto\022\tnicehu.pb\032\025pr" +
-      "oto/NHMsgBase.proto\"\032\n\013ShutdownReq\022\013\n\003se" +
+      "oto/NHMsgBase.proto\"&\n\017SyncServerInfos\022\023" +
+      "\n\013serverInfos\030\001 \003(\t\"\032\n\013ShutdownReq\022\013\n\003se" +
       "q\030\001 \001(\005\"@\n\rQueryTokenReq\022\020\n\010playerId\030\001 \001" +
       "(\005\022\r\n\005token\030\003 \001(\t\022\016\n\006areaId\030\004 \001(\005\"S\n\rQue" +
       "ryTokenRes\022\016\n\006result\030\001 \001(\005\022\020\n\010playerId\030\002" +
       " \001(\005\022\r\n\005token\030\003 \001(\t\022\021\n\tloginTime\030\004 \001(\003\"J" +
       "\n\016ServerLoginReq\022\020\n\010serverId\030\001 \001(\005\022\022\n\nse" +
-      "rverType\030\002 \001(\005\022\022\n\nserverName\030\003 \001(\t\"\312\001\n\016S" +
-      "erverLoginRes\022\016\n\006result\030\001 \001(\005\022\020\n\010serverI" +
-      "d\030\002 \001(\005\022\024\n\014serverConfig\030\003 \001(\t\022\016\n\006areaId\030",
-      "\004 \001(\005\022\020\n\010timeZone\030\005 \001(\005\022.\n\rstreamObjects" +
-      "\030\006 \003(\0132\027.nicehu.pb.StreamObject\022.\n\rclien" +
-      "tObjects\030\007 \003(\0132\027.nicehu.pb.StreamObject\"" +
-      "$\n\022ServerLoginConfirm\022\016\n\006status\030\001 \001(\005\"<\n" +
-      "\rMG_GMQueryReq\022\013\n\003seq\030\001 \001(\005\022\020\n\010playerId\030" +
-      "\002 \001(\005\022\014\n\004data\030\003 \001(\t\"8\n\rGM_GMQueryRes\022\013\n\003" +
-      "seq\030\001 \001(\005\022\014\n\004code\030\002 \001(\005\022\014\n\004data\030\003 \001(\t\"\260\001" +
-      "\n\017ReloadConfigReq\022\013\n\003seq\030\001 \001(\005\022.\n\rserver" +
-      "Configs\030\002 \003(\0132\027.nicehu.pb.StreamObject\022." +
-      "\n\rclientConfigs\030\003 \003(\0132\027.nicehu.pb.Stream",
-      "Object\022\030\n\020isNeedAddVersion\030\004 \001(\010\022\026\n\016isSe" +
-      "rverConfig\030\005 \001(\010\"\037\n\017ReloadConfigRes\022\014\n\004c" +
-      "ode\030\001 \001(\005\"m\n\tFreezeReq\022\013\n\003seq\030\001 \001(\005\022\021\n\ta" +
-      "ccountId\030\002 \001(\005\022\016\n\006showId\030\003 \001(\005\022\014\n\004type\030\004" +
-      " \001(\005\022\021\n\tbeginTime\030\005 \001(\003\022\017\n\007endTime\030\006 \001(\003" +
-      "\"\031\n\tFreezeRes\022\014\n\004code\030\001 \001(\005B\017B\013NHMsgServ" +
-      "erH\001"
+      "rverType\030\002 \001(\005\022\022\n\nserverName\030\003 \001(\t\"p\n\016Se" +
+      "rverLoginRes\022\016\n\006result\030\001 \001(\005\022&\n\rserverCo",
+      "nfigs\030\002 \003(\0132\017.nicehu.pb.Pair\022&\n\rclientCo" +
+      "nfigs\030\003 \003(\0132\017.nicehu.pb.Pair\"$\n\022ServerLo" +
+      "ginConfirm\022\016\n\006status\030\001 \001(\005\"<\n\rMG_GMQuery" +
+      "Req\022\013\n\003seq\030\001 \001(\005\022\020\n\010playerId\030\002 \001(\005\022\014\n\004da" +
+      "ta\030\003 \001(\t\"8\n\rGM_GMQueryRes\022\013\n\003seq\030\001 \001(\005\022\014" +
+      "\n\004code\030\002 \001(\005\022\014\n\004data\030\003 \001(\t\"\240\001\n\017ReloadCon" +
+      "figReq\022\013\n\003seq\030\001 \001(\005\022&\n\rserverConfigs\030\002 \003" +
+      "(\0132\017.nicehu.pb.Pair\022&\n\rclientConfigs\030\003 \003" +
+      "(\0132\017.nicehu.pb.Pair\022\030\n\020isNeedAddVersion\030" +
+      "\004 \001(\010\022\026\n\016isServerConfig\030\005 \001(\010\"\037\n\017ReloadC",
+      "onfigRes\022\014\n\004code\030\001 \001(\005\"m\n\tFreezeReq\022\013\n\003s" +
+      "eq\030\001 \001(\005\022\021\n\taccountId\030\002 \001(\005\022\016\n\006showId\030\003 " +
+      "\001(\005\022\014\n\004type\030\004 \001(\005\022\021\n\tbeginTime\030\005 \001(\003\022\017\n\007" +
+      "endTime\030\006 \001(\003\"\031\n\tFreezeRes\022\014\n\004code\030\001 \001(\005" +
+      "B\017B\013NHMsgServerH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_nicehu_pb_ShutdownReq_descriptor =
+          internal_static_nicehu_pb_SyncServerInfos_descriptor =
             getDescriptor().getMessageTypes().get(0);
+          internal_static_nicehu_pb_SyncServerInfos_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_nicehu_pb_SyncServerInfos_descriptor,
+              new java.lang.String[] { "ServerInfos", },
+              nicehu.pb.NHMsgServer.SyncServerInfos.class,
+              nicehu.pb.NHMsgServer.SyncServerInfos.Builder.class);
+          internal_static_nicehu_pb_ShutdownReq_descriptor =
+            getDescriptor().getMessageTypes().get(1);
           internal_static_nicehu_pb_ShutdownReq_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_ShutdownReq_descriptor,
@@ -6719,7 +6852,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.ShutdownReq.class,
               nicehu.pb.NHMsgServer.ShutdownReq.Builder.class);
           internal_static_nicehu_pb_QueryTokenReq_descriptor =
-            getDescriptor().getMessageTypes().get(1);
+            getDescriptor().getMessageTypes().get(2);
           internal_static_nicehu_pb_QueryTokenReq_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_QueryTokenReq_descriptor,
@@ -6727,7 +6860,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.QueryTokenReq.class,
               nicehu.pb.NHMsgServer.QueryTokenReq.Builder.class);
           internal_static_nicehu_pb_QueryTokenRes_descriptor =
-            getDescriptor().getMessageTypes().get(2);
+            getDescriptor().getMessageTypes().get(3);
           internal_static_nicehu_pb_QueryTokenRes_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_QueryTokenRes_descriptor,
@@ -6735,7 +6868,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.QueryTokenRes.class,
               nicehu.pb.NHMsgServer.QueryTokenRes.Builder.class);
           internal_static_nicehu_pb_ServerLoginReq_descriptor =
-            getDescriptor().getMessageTypes().get(3);
+            getDescriptor().getMessageTypes().get(4);
           internal_static_nicehu_pb_ServerLoginReq_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_ServerLoginReq_descriptor,
@@ -6743,15 +6876,15 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.ServerLoginReq.class,
               nicehu.pb.NHMsgServer.ServerLoginReq.Builder.class);
           internal_static_nicehu_pb_ServerLoginRes_descriptor =
-            getDescriptor().getMessageTypes().get(4);
+            getDescriptor().getMessageTypes().get(5);
           internal_static_nicehu_pb_ServerLoginRes_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_ServerLoginRes_descriptor,
-              new java.lang.String[] { "Result", "ServerId", "ServerConfig", "AreaId", "TimeZone", "StreamObjects", "ClientObjects", },
+              new java.lang.String[] { "Result", "ServerConfigs", "ClientConfigs", },
               nicehu.pb.NHMsgServer.ServerLoginRes.class,
               nicehu.pb.NHMsgServer.ServerLoginRes.Builder.class);
           internal_static_nicehu_pb_ServerLoginConfirm_descriptor =
-            getDescriptor().getMessageTypes().get(5);
+            getDescriptor().getMessageTypes().get(6);
           internal_static_nicehu_pb_ServerLoginConfirm_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_ServerLoginConfirm_descriptor,
@@ -6759,7 +6892,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.ServerLoginConfirm.class,
               nicehu.pb.NHMsgServer.ServerLoginConfirm.Builder.class);
           internal_static_nicehu_pb_MG_GMQueryReq_descriptor =
-            getDescriptor().getMessageTypes().get(6);
+            getDescriptor().getMessageTypes().get(7);
           internal_static_nicehu_pb_MG_GMQueryReq_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_MG_GMQueryReq_descriptor,
@@ -6767,7 +6900,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.MG_GMQueryReq.class,
               nicehu.pb.NHMsgServer.MG_GMQueryReq.Builder.class);
           internal_static_nicehu_pb_GM_GMQueryRes_descriptor =
-            getDescriptor().getMessageTypes().get(7);
+            getDescriptor().getMessageTypes().get(8);
           internal_static_nicehu_pb_GM_GMQueryRes_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_GM_GMQueryRes_descriptor,
@@ -6775,7 +6908,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.GM_GMQueryRes.class,
               nicehu.pb.NHMsgServer.GM_GMQueryRes.Builder.class);
           internal_static_nicehu_pb_ReloadConfigReq_descriptor =
-            getDescriptor().getMessageTypes().get(8);
+            getDescriptor().getMessageTypes().get(9);
           internal_static_nicehu_pb_ReloadConfigReq_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_ReloadConfigReq_descriptor,
@@ -6783,7 +6916,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.ReloadConfigReq.class,
               nicehu.pb.NHMsgServer.ReloadConfigReq.Builder.class);
           internal_static_nicehu_pb_ReloadConfigRes_descriptor =
-            getDescriptor().getMessageTypes().get(9);
+            getDescriptor().getMessageTypes().get(10);
           internal_static_nicehu_pb_ReloadConfigRes_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_ReloadConfigRes_descriptor,
@@ -6791,7 +6924,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.ReloadConfigRes.class,
               nicehu.pb.NHMsgServer.ReloadConfigRes.Builder.class);
           internal_static_nicehu_pb_FreezeReq_descriptor =
-            getDescriptor().getMessageTypes().get(10);
+            getDescriptor().getMessageTypes().get(11);
           internal_static_nicehu_pb_FreezeReq_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_FreezeReq_descriptor,
@@ -6799,7 +6932,7 @@ public final class NHMsgServer {
               nicehu.pb.NHMsgServer.FreezeReq.class,
               nicehu.pb.NHMsgServer.FreezeReq.Builder.class);
           internal_static_nicehu_pb_FreezeRes_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(12);
           internal_static_nicehu_pb_FreezeRes_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_nicehu_pb_FreezeRes_descriptor,

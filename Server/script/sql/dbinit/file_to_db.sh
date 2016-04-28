@@ -1,0 +1,1 @@
+mysql -hlocalhost -uroot -proot --default-character-set=utf8 <./dbInit.sql

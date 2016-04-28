@@ -2,7 +2,7 @@ package nicehu.nhsdk.core.db;
 
 import nicehu.nhsdk.candy.str.ParseU;
 import nicehu.nhsdk.candy.struct.Pair;
-import nicehu.nhsdk.core.data.AreaData;
+import nicehu.nhsdk.core.data.SD;
 
 public class DBEvent
 {
@@ -20,7 +20,7 @@ public class DBEvent
 
 	public static String genKey(int dbEvent, int playerId)
 	{
-		return AreaData.getAreaId() + "|" + dbEvent + "|" + playerId;
+		return SD.areaId + "|" + dbEvent + "|" + playerId;
 	}
 
 	public static Pair<Integer, Integer> getEventAndId(String key)

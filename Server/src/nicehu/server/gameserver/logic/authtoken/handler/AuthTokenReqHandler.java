@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import io.netty.channel.ChannelHandlerContext;
 import nicehu.nhsdk.candy.data.Message;
-import nicehu.nhsdk.core.data.AreaData;
 import nicehu.nhsdk.core.data.SD;
 import nicehu.nhsdk.core.handler.LogicHandler;
 import nicehu.nhsdk.core.type.ServerType;
@@ -72,7 +71,7 @@ public class AuthTokenReqHandler extends LogicHandler
 					GSD.sessions.put(newSession.getPlayerId(), newSession);
 					QueryTokenReq.Builder queryTokenbuilder = QueryTokenReq.newBuilder();
 					queryTokenbuilder.setPlayerId(playerId);
-					queryTokenbuilder.setAreaId(AreaData.getAreaId());
+					queryTokenbuilder.setAreaId(SD.areaId);
 					queryTokenbuilder.setToken(clientToken);
 					// queryTokenbuilder.setSeqId(newSession.getSessionSeqId());
 
