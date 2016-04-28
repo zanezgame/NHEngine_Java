@@ -1,6 +1,6 @@
 # NiceHuEngine
-##### Copyright © http://engine.nicehu.com
 
+#####官方网站:http://engine.nicehu.com
 #####交流QQ群：528746333
 
 ## What is it?
