@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<ClientConfig>
-	<AuthServerIP>127.0.0.1</AuthServerIP>
-	<AuthServerPort>2001</AuthServerPort>
-</ClientConfig>

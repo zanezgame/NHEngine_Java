@@ -1,0 +1,7 @@
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHNet\bin\Debug\NHNet.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHNet\bin\Debug\NHNet.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHNet\bin\Debug\NHCommon.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHNet\bin\Debug\NHCommon.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHNet\obj\Debug\NHNet.csprojResolveAssemblyReference.cache
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHNet\obj\Debug\NHNet.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHNet\obj\Debug\NHNet.pdb

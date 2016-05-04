@@ -1,0 +1,4 @@
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHCommon\bin\Debug\NHCommon.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHCommon\bin\Debug\NHCommon.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHCommon\obj\Debug\NHCommon.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHCommon\obj\Debug\NHCommon.pdb

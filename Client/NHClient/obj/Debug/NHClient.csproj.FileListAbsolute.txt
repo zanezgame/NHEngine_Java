@@ -1,0 +1,14 @@
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHClient.exe
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHClient.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHClientCore.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHCommon.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHNet.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHPB.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\protobuf-net.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHClientCore.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHCommon.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHPB.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\bin\Debug\NHNet.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\obj\Debug\NHClient.csprojResolveAssemblyReference.cache
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\obj\Debug\NHClient.exe
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClient\obj\Debug\NHClient.pdb

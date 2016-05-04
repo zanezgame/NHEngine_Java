@@ -11,12 +11,7 @@ enum EGEC
 	EGEC_CORE_NET_ERROR				  =4;       // 网络错误
 	EGEC_CORE_DESERIALIZE_ERROR       =5;       //反序列化失败
 	EGEC_CORE_DATA_CHECK_FAILD        =6;       //数据验证失败_dev专用
-	
-	EGEC_NET_CONNECTED            =11;
-	EGEC_NET_CONNECTING           =12;
-	EGEC_NET_NEED_QUERY           =13;
-	EGEC_NET_DISCONNECTED         =14;
-	EGEC_NET_CLOSED               =15;
+
 	
 	EGEC_AUTH_TOKEN_TOKEN_EXPIRED    =1001;
 	EGEC_AUTH_TOKEN_INCORRECT        =1002;

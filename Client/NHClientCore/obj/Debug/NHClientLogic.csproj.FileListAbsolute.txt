@@ -1,0 +1,12 @@
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHClientLogic.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHClientLogic.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHCommon.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHNet.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHPB.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\protobuf-net.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHCommon.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHNet.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\bin\Debug\NHPB.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\obj\Debug\NHClientLogic.csprojResolveAssemblyReference.cache
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\obj\Debug\NHClientLogic.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHClientLogic\obj\Debug\NHClientLogic.pdb

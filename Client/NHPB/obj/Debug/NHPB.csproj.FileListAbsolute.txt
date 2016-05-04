@@ -1,0 +1,5 @@
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHPB\bin\Debug\NHPB.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHPB\bin\Debug\NHPB.pdb
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHPB\bin\Debug\protobuf-net.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHPB\obj\Debug\NHPB.dll
+C:\Users\windv\Desktop\fight\svn\Engine\NHEngine\Client\NHPB\obj\Debug\NHPB.pdb

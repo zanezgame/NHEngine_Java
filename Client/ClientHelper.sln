@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHPB", "NHPB\NHPB.csproj", "{401E60CD-79B2-45F5-AC38-365188451634}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHCommon", "NHCommon\NHCommon.csproj", "{D8A39784-673B-4F9B-BAA7-AF19D6ABD840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHNet", "NHNet\NHNet.csproj", "{ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHClientCore", "NHClientCore\NHClientCore.csproj", "{A3A47880-77AA-4A29-9B2F-A5DE2C21318A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7} = {ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHClient", "NHClient\NHClient.csproj", "{8C07E19F-2760-4A62-A497-2CA51FD90DC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401E60CD-79B2-45F5-AC38-365188451634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401E60CD-79B2-45F5-AC38-365188451634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401E60CD-79B2-45F5-AC38-365188451634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401E60CD-79B2-45F5-AC38-365188451634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A39784-673B-4F9B-BAA7-AF19D6ABD840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A39784-673B-4F9B-BAA7-AF19D6ABD840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A39784-673B-4F9B-BAA7-AF19D6ABD840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A39784-673B-4F9B-BAA7-AF19D6ABD840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A47880-77AA-4A29-9B2F-A5DE2C21318A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A47880-77AA-4A29-9B2F-A5DE2C21318A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A47880-77AA-4A29-9B2F-A5DE2C21318A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A47880-77AA-4A29-9B2F-A5DE2C21318A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C07E19F-2760-4A62-A497-2CA51FD90DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C07E19F-2760-4A62-A497-2CA51FD90DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C07E19F-2760-4A62-A497-2CA51FD90DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C07E19F-2760-4A62-A497-2CA51FD90DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = DHGDemo1\DHGDemo1.csproj
+	EndGlobalSection
+EndGlobal

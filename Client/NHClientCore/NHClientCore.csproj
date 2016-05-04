@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3A47880-77AA-4A29-9B2F-A5DE2C21318A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>nicehu.clientcore</RootNamespace>
+    <AssemblyName>NHClientCore</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net, Version=2.0.0.622, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Src\Core\ProxyConnection.cs" />
+    <Compile Include="Src\Login\ClientCore_Login.cs" />
+    <Compile Include="Src\ClientCore.cs" />
+    <Compile Include="Src\Core\Message.cs" />
+    <Compile Include="Src\Core\Serializer.cs" />
+    <Compile Include="Src\Core\HandlerMgr.cs" />
+    <Compile Include="Src\Login\handler\CreateHandler.cs" />
+    <Compile Include="Src\Login\handler\LoginHandler.cs" />
+    <Compile Include="Src\Common\handler\ServerDisconnectHandler.cs" />
+    <Compile Include="Src\Login\handler\QueryPlayerHandler.cs" />
+    <Compile Include="Src\Login\handler\AuthTokenHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Core\Transmitter.cs" />
+    <Compile Include="Src\Struct\Item.cs" />
+    <Compile Include="Src\Struct\LevelAttrib.cs" />
+    <Compile Include="Src\Struct\Player.cs" />
+    <Compile Include="Src\Util\IpU.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NHCommon\NHCommon.csproj">
+      <Project>{d8a39784-673b-4f9b-baa7-af19d6abd840}</Project>
+      <Name>NHCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHNet\NHNet.csproj">
+      <Project>{aca03ee8-32c6-4e38-860d-b98bd0b3d2a7}</Project>
+      <Name>NHNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHPB\NHPB.csproj">
+      <Project>{401e60cd-79b2-45f5-ac38-365188451634}</Project>
+      <Name>NHPB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)Libs\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

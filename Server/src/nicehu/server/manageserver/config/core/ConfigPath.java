@@ -3,7 +3,7 @@ package nicehu.server.manageserver.config.core;
 public class ConfigPath
 {
 	public static final String PATH_conf_server = "../conf_server/";
-	public static final String PATH_conf_client = "../conf_client/";
+	public static final String PATH_conf_common = "../conf_common/";
 
 	public static final String file_logback = PATH_conf_server + "logback.xml";
 	public static final String file_common = PATH_conf_server + "common.xml";

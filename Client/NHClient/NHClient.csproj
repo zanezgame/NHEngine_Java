@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C07E19F-2760-4A62-A497-2CA51FD90DC9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NHClient</RootNamespace>
+    <AssemblyName>NHClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net, Version=2.0.0.622, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Src\Login\Demo_AuthToken.cs" />
+    <Compile Include="Src\Login\LoginModule.cs" />
+    <Compile Include="Src\Login\Demo_ConnectProxy.cs" />
+    <Compile Include="Src\Login\Demo_QueryPlayer.cs" />
+    <Compile Include="Src\Login\Demo_ServerDisconnect.cs" />
+    <Compile Include="Src\Login\Demo_Login.cs" />
+    <Compile Include="Src\Login\Demo_Create.cs" />
+    <Compile Include="Src\Main.cs" />
+    <Compile Include="Src\Client.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\NHClientCore\NHClientCore.csproj">
+      <Project>{A3A47880-77AA-4A29-9B2F-A5DE2C21318A}</Project>
+      <Name>NHClientCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHCommon\NHCommon.csproj">
+      <Project>{D8A39784-673B-4F9B-BAA7-AF19D6ABD840}</Project>
+      <Name>NHCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHPB\NHPB.csproj">
+      <Project>{401E60CD-79B2-45F5-AC38-365188451634}</Project>
+      <Name>NHPB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHNet\NHNet.csproj">
+      <Project>{ACA03EE8-32C6-4E38-860D-B98BD0B3D2A7}</Project>
+      <Name>NHNet</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
